@@ -45,7 +45,7 @@ jobs:
     - name: Build
       run: |
         npm install
-        npm run docs:build
+        npm run build
     - name: Setup Pages
       uses: actions/configure-pages@v5
       if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
