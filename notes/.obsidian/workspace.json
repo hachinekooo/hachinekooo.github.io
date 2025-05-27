@@ -1,0 +1,214 @@
+{
+  "main": {
+    "id": "4e8e3d96dcf3ca4d",
+    "type": "split",
+    "children": [
+      {
+        "id": "a85b6787e17e2476",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a027f94d8a6bc96a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "intro.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "intro"
+            }
+          },
+          {
+            "id": "4c7087ce6504404f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/code/backend/java/echo-pattern-in-request-processing.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "echo-pattern-in-request-processing"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c4452580adf6322b",
+    "type": "split",
+    "children": [
+      {
+        "id": "76bf52926fd0f484",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "665ff7e3d779e459",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "byModifiedTime",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "5c2763b613ca0786",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 387.5
+  },
+  "right": {
+    "id": "ff05bf4eebaa236b",
+    "type": "split",
+    "children": [
+      {
+        "id": "ad1b2bc0e33213ac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0f153423ecc820bc",
+            "type": "leaf",
+            "state": {
+              "type": "stats-tracker",
+              "state": {},
+              "icon": "bar-graph",
+              "title": "Daily Stats"
+            }
+          },
+          {
+            "id": "b6759174f2fb0d66",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "865f7cdd68679357",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "027a818f0c12ad4e",
+            "type": "leaf",
+            "state": {
+              "type": "quiet-outline",
+              "state": {},
+              "icon": "lines-of-text",
+              "title": "Quiet Outline"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 312.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "command-palette:打开命令面板": false,
+      "random-note:开始漫游笔记": false,
+      "workspaces:管理工作区布局": false,
+      "templates:插入模板": false,
+      "fuzzy-chinese-pinyin:FuzzySearch": false
+    }
+  },
+  "active": "4c7087ce6504404f",
+  "lastOpenFiles": [
+    "intro.md",
+    "README.md",
+    "docs/code/backend/java/echo-pattern-in-request-processing.md",
+    "templater/note.md",
+    "docs/code/knowledge/gitBasic.md",
+    "docs/code/knowledge/pattern.md",
+    "docs/code/knowledge/regularExpression.md",
+    "docs/code/backend/java/changeJDKByJenv.md",
+    "docs/code/backend/java/javaEnhance.md",
+    "docs/code/backend/java/mltiThreading.md",
+    "docs/code/backend/java/multiEnvConfig.md",
+    "docs/code/backend/java/springboot-version-controll.md",
+    "docs/code/backend/java/aop.md",
+    "docs/code/backend/java/spring.md",
+    "docs/code/backend/java/javaWeb.md",
+    "docs/code/backend/java/websocket.md",
+    "docs/code/backend/java/java_entity.md",
+    "docs/code/knowledge/algorithm.md",
+    "docs/code/knowledge/git-problems-and-fixes.md",
+    "docs/code/knowledge/ideaGitFileIgnore.md",
+    "docs/code/server/nginxBasic.md",
+    "docs/Saysomething.md",
+    "docs/code/backend/java/useCombineNotExtend.md",
+    "docs/code/backend/java/rabbitMQ.md",
+    "docs/code/backend/java/JavaBasic.md",
+    "docs/code/backend/java/springMVCQuickStart.md",
+    "docs/productivity",
+    "appends/img/writeYourFirstVuePage2.png",
+    "appends/img/writeYourFirstVuePage1.png",
+    "appends/img/swagger1.png",
+    "appends/img/springEnhance.png",
+    "appends/img/responseServletTest.png",
+    "appends/img/requestForward.png",
+    "appends/img/redis_findById_redisClient.png",
+    "appends/img/redis_findById_console2.png",
+    "appends/img/redis_findById_console.png",
+    "appends/img/redis_findAll_redisCient.png",
+    "appends/img/setJavaHomeOnMac.yaml",
+    "appends/css",
+    "docs/code/backend/java/未命名",
+    "Chats",
+    "docs/code/environment",
+    "docs/code/server/linux常见服务配置.html",
+    "docs/server/linux上的目录共享和磁盘分区和磁盘共享.html",
+    "docs/ai/主要步骤，安装conda，创建一个新的虚拟环境，一切操作都在这个虚拟环境中做，这样可以很好的隔离开配",
+    "docs/popularScience"
+  ]
+}

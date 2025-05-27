@@ -1,0 +1,16 @@
+import comp from "/Users/wangwenpeng/Code/area/notes/.vuepress/.temp/pages/docs/anote/面经.html.vue"
+const data = JSON.parse("{\"path\":\"/docs/anote/%E9%9D%A2%E7%BB%8F.html\",\"title\":\"Spring\",\"lang\":\"zh-CN\",\"frontmatter\":{\"创建日期\":\"2024.05.8 星期三 9点29分45秒 晚上<br>\",\"最后修改\":\"2024.05.10 星期五 9点29分16秒 上午<br>\",\"description\":\"Spring 说说循环依赖 就是两个或两个以上的 bean 互相持有对方，最终形成闭环。比如 A 依赖于 B，B 依赖于 A。 只有单例的 Bean 才存在循环依赖的情况，原型(Prototype)情况下，Spring 会直接抛出异常。 Spring 框架依据三级缓存已经解决了大部分的循环依赖（利用三层缓存机制） 一级缓存：Map<String,Obj...\",\"gitInclude\":[],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://mister-hope.github.io/docs/anote/%E9%9D%A2%E7%BB%8F.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"忧郁男孩的救赎\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"Spring\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"Spring 说说循环依赖 就是两个或两个以上的 bean 互相持有对方，最终形成闭环。比如 A 依赖于 B，B 依赖于 A。 只有单例的 Bean 才存在循环依赖的情况，原型(Prototype)情况下，Spring 会直接抛出异常。 Spring 框架依据三级缓存已经解决了大部分的循环依赖（利用三层缓存机制） 一级缓存：Map<String,Obj...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Mr.Hope\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"Spring\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":null,\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Mr.Hope\\\",\\\"url\\\":\\\"https://mister-hope.com\\\"}]}\"]]},\"headers\":[{\"level\":2,\"title\":\"说说循环依赖\",\"slug\":\"说说循环依赖\",\"link\":\"#说说循环依赖\",\"children\":[{\"level\":3,\"title\":\"具体是咋解决的\",\"slug\":\"具体是咋解决的\",\"link\":\"#具体是咋解决的\",\"children\":[]}]},{\"level\":2,\"title\":\"为什么要三级缓存，⼆级不⾏吗\",\"slug\":\"为什么要三级缓存-二级不行吗\",\"link\":\"#为什么要三级缓存-二级不行吗\",\"children\":[{\"level\":3,\"title\":\"构造方法注入出现了循环依赖怎么解决\",\"slug\":\"构造方法注入出现了循环依赖怎么解决\",\"link\":\"#构造方法注入出现了循环依赖怎么解决\",\"children\":[]}]},{\"level\":2,\"title\":\"Spring 中\",\"slug\":\"spring-中\",\"link\":\"#spring-中\",\"children\":[]},{\"level\":2,\"title\":\"SpringMVC\",\"slug\":\"springmvc\",\"link\":\"#springmvc\",\"children\":[]},{\"level\":2,\"title\":\"SpringBoot\",\"slug\":\"springboot\",\"link\":\"#springboot\",\"children\":[]}],\"readingTime\":{\"minutes\":5.41,\"words\":1624},\"filePathRelative\":\"docs/anote/面经.md\",\"excerpt\":\"\\n<h2>说说循环依赖</h2>\\n<ul>\\n<li>就是两个或两个以上的 bean 互相持有对方，最终形成闭环。比如 A 依赖于 B，B 依赖于 A。</li>\\n<li>只有单例的 Bean 才存在循环依赖的情况，原型(Prototype)情况下，Spring 会直接抛出异常。</li>\\n<li>Spring 框架依据三级缓存已经解决了大部分的循环依赖（利用三层缓存机制）\\n<ol>\\n<li>一级缓存：<code>Map&lt;String,Object&gt; singletonObjects</code>，单例池，⽤于保存实例化、属性注⼊、初始化完成的 bean 实例</li>\\n<li>二级缓存：<code>Map&lt;String,Object&gt; earlySingletonObjects</code>，早期曝光对象，⽤于保存实例化的 bean 实例</li>\\n<li>三级缓存：<code>Map&lt;String,ObjectFactory\\\\&lt;?&gt;&gt;singletonFactories</code>，早期曝光对象⼯⼚，⽤于保存 bean 创建⼯⼚，以便于后⾯有机会创建代理对象。</li>\\n</ol>\\n</li>\\n</ul>\",\"autoDesc\":true}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

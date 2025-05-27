@@ -1,0 +1,16 @@
+import comp from "/Users/wangwenpeng/Code/area/notes/.vuepress/.temp/pages/docs/code/backend/java/concurrentProgramming.html.vue"
+const data = JSON.parse("{\"path\":\"/docs/code/backend/java/concurrentProgramming.html\",\"title\":\"JAVA 并发编程\",\"lang\":\"zh-CN\",\"frontmatter\":{\"title\":\"JAVA 并发编程\",\"icon\":\"file\",\"order\":null,\"tags\":null,\"description\":\"同步锁锁住的是个啥 同步(synchronized)实际上锁住的是一个对象的监视器(Monitor)。每个 Java 对象都有一个与之关联的 Monitor，可以把它理解为一个锁。 具体来说： 同步实例方法： 锁住的是当前实例对象(this)的 Monitor 同步静态方法： 锁住的是当前类的 Class 对象的 Monitor 同步块： 锁住的是 l...\",\"gitInclude\":[],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://blueboysalvat.github.io/docs/code/backend/java/concurrentProgramming.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"忧郁男孩的救赎\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"JAVA 并发编程\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"同步锁锁住的是个啥 同步(synchronized)实际上锁住的是一个对象的监视器(Monitor)。每个 Java 对象都有一个与之关联的 Monitor，可以把它理解为一个锁。 具体来说： 同步实例方法： 锁住的是当前实例对象(this)的 Monitor 同步静态方法： 锁住的是当前类的 Class 对象的 Monitor 同步块： 锁住的是 l...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"WangWenpeng\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"JAVA 并发编程\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":null,\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"WangWenpeng\\\",\\\"url\\\":\\\"blueboysalvat.github.io\\\"}]}\"]]},\"headers\":[{\"level\":2,\"title\":\"同步锁锁住的是个啥\",\"slug\":\"同步锁锁住的是个啥\",\"link\":\"#同步锁锁住的是个啥\",\"children\":[]}],\"readingTime\":{\"minutes\":1.09,\"words\":326},\"filePathRelative\":\"docs/code/backend/java/concurrentProgramming.md\",\"excerpt\":\"<h2>同步锁锁住的是个啥</h2>\\n<p>同步(synchronized)实际上锁住的是一个对象的监视器(Monitor)。每个 Java 对象都有一个与之关联的 Monitor，可以把它理解为一个锁。</p>\\n<p>具体来说：</p>\\n<ol>\\n<li>同步实例方法：</li>\\n</ol>\\n<div class=\\\"language-java line-numbers-mode\\\" data-highlighter=\\\"shiki\\\" data-ext=\\\"java\\\" data-title=\\\"java\\\" style=\\\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\\\"><pre class=\\\"shiki shiki-themes one-light one-dark-pro vp-code\\\"><code><span class=\\\"line\\\"><span style=\\\"--shiki-light:#A626A4;--shiki-dark:#C678DD\\\">public</span><span style=\\\"--shiki-light:#A626A4;--shiki-dark:#C678DD\\\"> synchronized</span><span style=\\\"--shiki-light:#A626A4;--shiki-dark:#C678DD\\\"> void</span><span style=\\\"--shiki-light:#4078F2;--shiki-dark:#61AFEF\\\"> method</span><span style=\\\"--shiki-light:#383A42;--shiki-dark:#E06C75\\\">() { }</span></span></code></pre>\\n<div class=\\\"line-numbers\\\" aria-hidden=\\\"true\\\" style=\\\"counter-reset:line-number 0\\\"><div class=\\\"line-number\\\"></div></div></div>\",\"autoDesc\":true}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

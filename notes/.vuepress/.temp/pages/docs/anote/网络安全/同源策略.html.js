@@ -1,0 +1,16 @@
+import comp from "/Users/wangwenpeng/Code/area/notes/.vuepress/.temp/pages/docs/anote/网络安全/同源策略.html.vue"
+const data = JSON.parse("{\"path\":\"/docs/anote/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5.html\",\"title\":\"简介\",\"lang\":\"zh-CN\",\"frontmatter\":{\"创建日期\":\"2024.05.15 星期三 11点26分19秒 上午<br>\",\"最后修改\":\"2024.08.1 星期四 7点51分47秒 早上<br>\",\"description\":\"简介 为了安全性而设置的一种安全策略 触发 满足 协议、地址、端口 这三者中 任意不同 的时候(源不同)，此时会触发浏览器的同源策略 作用 防止跨站脚本攻击(XSS) 同源策略可以阻止不同源之间的文档对彼此进行读取，这样就可以减少 XSS 攻击的风险。XSS 攻击是指黑客将恶意代码注入到网页中，当其他用户浏览该网页时就会执行恶意代码，从而导致信息泄露等...\",\"gitInclude\":[],\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://mister-hope.github.io/docs/anote/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"忧郁男孩的救赎\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"简介\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"简介 为了安全性而设置的一种安全策略 触发 满足 协议、地址、端口 这三者中 任意不同 的时候(源不同)，此时会触发浏览器的同源策略 作用 防止跨站脚本攻击(XSS) 同源策略可以阻止不同源之间的文档对彼此进行读取，这样就可以减少 XSS 攻击的风险。XSS 攻击是指黑客将恶意代码注入到网页中，当其他用户浏览该网页时就会执行恶意代码，从而导致信息泄露等...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"zh-CN\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Mr.Hope\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"简介\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":null,\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Mr.Hope\\\",\\\"url\\\":\\\"https://mister-hope.com\\\"}]}\"]]},\"headers\":[{\"level\":2,\"title\":\"配置配置类\",\"slug\":\"配置配置类\",\"link\":\"#配置配置类\",\"children\":[]},{\"level\":2,\"title\":\"CrossOrigin 注解\",\"slug\":\"crossorigin-注解\",\"link\":\"#crossorigin-注解\",\"children\":[{\"level\":3,\"title\":\"使用位置\",\"slug\":\"使用位置\",\"link\":\"#使用位置\",\"children\":[]}]}],\"readingTime\":{\"minutes\":2.62,\"words\":785},\"filePathRelative\":\"docs/anote/网络安全/同源策略.md\",\"excerpt\":\"\\n<blockquote>\\n<p>为了安全性而设置的一种安全策略</p>\\n</blockquote>\\n<h1>触发</h1>\\n<p>满足 <code>协议</code>、<code>地址</code>、<code>端口</code> 这三者中 <code>任意不同</code> 的时候(<code>源不同</code>)，此时会触发浏览器的同源策略</p>\\n<h1>作用</h1>\\n<ul>\\n<li>\\n<p>防止跨站脚本攻击(XSS) 同源策略可以阻止不同源之间的文档对彼此进行读取，这样就可以减少 XSS 攻击的风险。XSS 攻击是指黑客将恶意代码注入到网页中，当其他用户浏览该网页时就会执行恶意代码，从而导致信息泄露等严重后果。</p>\\n<ul>\\n<li>例如：用户在 A 网站正常阅读浏览，但是发现评论区有人恶意的在评论区中注入了恶意代码，用户每次加载到评论区就会加载触发这段恶意代码，这段代码可能会窃取用户在 A 网站的登录信息，并且发送到一个非同源的网站进行保存。致使大量用户的登录信息泄漏。开启同源策略可以在 A 网站上防止请求这个非同源的网站，从而防止信息被保存。</li>\\n</ul>\\n</li>\\n<li>\\n<p>防止跨站请求伪造(CSRF)  同源策略要求指定的任何跨源 HTTP 请求必须首先获得用户的许可，从而阻止了 CSRF 攻击。CSRF 攻击是指攻击者诱使用户执行了一个他们没有意识到的操作，比如修改密码或者转账等高风险操作。</p>\\n<ul>\\n<li>例如：例如：用户在 A 网站正常阅读浏览，但是发现评论区有人发了个链接，于是点击跳转到 B，就可能在 B 网站中执行一些恶意脚本，在 B 网站的恶意脚本中可能会直接在浏览器中使用 A 网站已经登录的身份，发送构造好的特定请求，从而实现恶意转账、修改 A 的资料信息等操作。开启同源策略之后，则要求跨源请求必须获得用户许可，有效阻止了这种\\\"偷跑\\\"的请求，在一定程度上防范了 CSRF 攻击。</li>\\n</ul>\\n</li>\\n</ul>\",\"autoDesc\":true}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

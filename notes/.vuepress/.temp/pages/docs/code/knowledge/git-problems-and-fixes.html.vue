@@ -1,0 +1,164 @@
+<template><div><h2 id="团队开发时分支和提交消息书写格式" tabindex="-1"><a class="header-anchor" href="#团队开发时分支和提交消息书写格式"><span>团队开发时分支和提交消息书写格式</span></a></h2>
+<h3 id="分支" tabindex="-1"><a class="header-anchor" href="#分支"><span>分支</span></a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>类型前缀</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>feature/</td>
+<td>新功能</td>
+<td>feature/添加用户 API</td>
+</tr>
+<tr>
+<td>fix/</td>
+<td>修复 bug</td>
+<td>fix/修复用户登陆失败</td>
+</tr>
+<tr>
+<td>refactor/</td>
+<td>重构，不影响业务</td>
+<td>refactor/重构订单服务</td>
+</tr>
+<tr>
+<td>hotfix/</td>
+<td>紧急修复生产问题</td>
+<td>hotfix/修复空指针问题</td>
+</tr>
+<tr>
+<td>test/</td>
+<td>测试相关</td>
+<td>test/测试用户服务</td>
+</tr>
+<tr>
+<td>chore/</td>
+<td>杂项、构建脚本、文档</td>
+<td>chore/更新 readme</td>
+</tr>
+</tbody>
+</table>
+<h3 id="提交" tabindex="-1"><a class="header-anchor" href="#提交"><span>提交</span></a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>类型前缀</strong></th>
+<th><strong>说明</strong></th>
+<th><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>feat/</td>
+<td>新添加了内容</td>
+<td>feat: 模块 A - 模块 1 - 添加了 XXX</td>
+</tr>
+<tr>
+<td>fix/</td>
+<td>修复 bug</td>
+<td>fix: 模块 A - 模块 1 - 修复了 XXXX，解决了 XXX</td>
+</tr>
+<tr>
+<td>refactor/</td>
+<td>重构，不影响业务</td>
+<td>refactor: 模块 A - 模块 1 - 重构了 XXX</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>如果这是产品新提出的要求 —— 这是一个新规则逻辑，不是 bug ⇒ feat</li>
+<li>如果产品说：“早就说了不能显示，你怎么一开始显示了？” —— 这算是修 bug ⇒ fix</li>
+</ul>
+<h2 id="取消某些文件的追踪" tabindex="-1"><a class="header-anchor" href="#取消某些文件的追踪"><span>取消某些文件的追踪</span></a></h2>
+<p>在实际开发中，有时我们不希望 Git 工作区中出现某些文件的改动提示，但又希望它们继续被 Git 追踪管理，例如常见于：</p>
+<ul>
+<li>本地临时修改了依赖文件（如 package.json、pnpm-lock.yaml）</li>
+<li>调试用的配置文件，不希望频繁提交</li>
+<li>保持 git status 界面清爽</li>
+</ul>
+<p>场景再现：</p>
+<p>你克隆下来一个新项目，安装依赖后发现 package.json 和 pnpm-lock.yaml 两个文件中多了一点新内容，即有改动了，这个时候 GIT 会追踪改动。这个时候你在 IDE 中版本管理窗口中会看到 package.json 和 pnpm-lock.yaml 文件更改标签页下，或者使用 <code v-pre>git status</code> 也可以看到文件被修改的提示：</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">git</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> status</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">On</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> branch</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> xxx</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">Your</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> branch</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> is</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> up</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> to</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> date</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> with</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'origin/xxx'.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">Changes</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> not</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> staged</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> for</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> commit:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  (</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">use</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "git add &#x3C;file>..."</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> to</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> update</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> what</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> will</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> be</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> committed</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  (</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">use</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "git restore &#x3C;file>..."</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> to</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> discard</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> changes</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> in</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> working</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> directory</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">	modified:</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">   src/views/xxx/xxx/index.vue</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">               &#x3C;</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">----</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 提示</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> modified</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">no</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> changes</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> added</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> to</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> commit</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (use </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"git add"</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> and/or</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "git commit -a"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>虽然我们可以在实际 commit，即存到暂存区的时候不选择这些文件，但是操作起来不便。</p>
+<p>推荐解决方案：</p>
+<p>继续追踪，但忽略本地改动，<strong>让 Git 继续追踪它们（版本库里有），但忽略你本地的改动提示</strong>。</p>
+<p>在合适的目录下执行命令：</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">git</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> update-index</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> --assume-unchanged</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> package.json</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> pnpm-lock.yaml</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><ul>
+<li>assume-unchanged：告诉 Git，假设这个文件没有改动。</li>
+<li>本地你怎么改都行，Git 不会再告诉你“modified”，也就不会出现在更改标签页下</li>
+</ul>
+<p>如果以后又想恢复正常跟踪，可以用：</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">git</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> update-index</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> --no-assume-unchanged</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> package.json</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> pnpm-lock.yaml</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>查看哪些文件 assume-unchanged：</p>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">git</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> ls-files</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -v</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> | </span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">grep</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> '^h'</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><ul>
+<li>git ls-files -v：列出所有 Git 管理的文件，并附带一列状态标记。
+<ul>
+<li>h：代表 <strong>assume-unchanged</strong>（h = “hidden” 的意思，可以理解成 “Git 假装看不见”）</li>
+</ul>
+</li>
+<li>grep '^h'：只筛选出状态是 h 的文件</li>
+</ul>
+<h2 id="功能分支与-dev-分支差异过大" tabindex="-1"><a class="header-anchor" href="#功能分支与-dev-分支差异过大"><span>功能分支与 DEV 分支差异过大</span></a></h2>
+<h3 id="方法-1-变基" tabindex="-1"><a class="header-anchor" href="#方法-1-变基"><span>方法 1:变基</span></a></h3>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># 确保当前在功能分支</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">git</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> checkout</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> feature/api-update-stock</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># 拉取最新 dev 分支</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">git</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> fetch</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> origin</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">git</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> rebase</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> origin/dev</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>如果有冲突，按提示一个个解决后 git rebase --continue</li>
+<li>可以讲你在功能分支上你开发好的内容保留，整个分支变成“基于最新版 dev”</li>
+<li>提交历史也比较清爽，不会产生合并的 commit</li>
+</ul>
+<p>在 IDE 中的操作：</p>
+<blockquote>
+<p><strong>永远先 checkout 到你想继续开发的功能分支，然后 rebase 到主干（比如 dev）上</strong></p>
+</blockquote>
+<h3 id="方法-2-合并" tabindex="-1"><a class="header-anchor" href="#方法-2-合并"><span>方法 2: 合并</span></a></h3>
+<div class="language-shell line-numbers-mode" data-highlighter="shiki" data-ext="shell" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">git</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> checkout</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> feature/api-update-stock</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">git</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> merge</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> origin/dev</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>简单、不会丢任何提交</li>
+<li>会产生合并 commit，Git 历史不够清爽</li>
+</ul>
+<h2 id="忽略已经被版本管理的文件" tabindex="-1"><a class="header-anchor" href="#忽略已经被版本管理的文件"><span>忽略已经被版本管理的文件</span></a></h2>
+<h3 id="场景再现" tabindex="-1"><a class="header-anchor" href="#场景再现"><span>场景再现</span></a></h3>
+<blockquote>
+<p>有时候我们会在 IDEA GIT 提交窗口看到很多我们不想看到的文件，例如 <code v-pre>.log</code>。于是我们修改 <code v-pre>.gitignore</code> 文件在其中加入 <code v-pre>.log</code>，但是刷新一看 <code v-pre>.log</code> 文件还是存在。<br>
+这是因为 <code v-pre>.gitignore</code> 只能忽略未被 track 的文件(即未加入到暂存区)。如果某些文件已经被纳入了暂存区中(加入暂存区即该文件被版本管理了)，则修改 <code v-pre>.gitignore</code> 是无效的</p>
+</blockquote>
+<h3 id="查看文件管理情况" tabindex="-1"><a class="header-anchor" href="#查看文件管理情况"><span>查看文件管理情况</span></a></h3>
+<p>查看当前 Git 仓库中已经被版本管理的文件</p>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>git ls-files</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>查看当前目录的文件状态
+git status 输出解读：</p>
+<ul>
+<li>已被版本管理的文件：在 Changes not staged for commit 或 Changes to be committed 部分。</li>
+<li>未被版本管理的文件：显示在 Untracked files 部分。</li>
+</ul>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>git status</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h3 id="删除被版本管理文件并重新添加" tabindex="-1"><a class="header-anchor" href="#删除被版本管理文件并重新添加"><span>删除被版本管理文件并重新添加</span></a></h3>
+<p>删除所有已经被纳入版本管理的文件</p>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>git rm -r --cached .</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>将当前工作目录下的所有<strong>修改过的文件</strong>和<strong>新建的未被追踪的文件</strong>添加到 Git 暂存区（Staging Area）。</p>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>git add .</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>将暂存区中的更改记录为一次新的提交，将暂存区的更改提交到仓库。</p>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>git commit -m 'update .gitignore'</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></div></template>
+
+
