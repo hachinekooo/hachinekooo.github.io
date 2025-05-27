@@ -64,11 +64,9 @@ tags:
 
 这种单向流动虽然保证了处理流程的清晰性，但也带来了信息孤岛的问题：过滤器无法利用拦截器中获取的丰富上下文信息，导致在实现某些横切关注点时面临困难。
 
-举个具体的例子，在前面提到的过滤器执行顺序表中，我们可以看到不同过滤器的职责划分：
-
-- **CorsFilter**（-2147483648）：处理跨域问题，需要最早执行
-- **TraceFilter**（-2147483647）：生成链路追踪 ID，为后续处理提供追踪能力
-- **ApiAccessLogFilter**（-103）：记录 API 访问日志，需要收集完整的请求信息
+举个具体的例子
+- CacheRequestBodyFilter: 缓存请求体
+- **ApiAccessLogFilter**: 记录 API 访问日志，需要收集完整的请求信息
 
 传统方式下，ApiAccessLogFilter 只能记录基础的请求信息（如 URL、IP、请求参数），而无法获取到具体的控制器方法信息，这就限制了日志的完整性和可用性。
 
@@ -120,3 +118,5 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponse respons
 ```
 请求进入 → 过滤器链 → DispatcherServlet → 拦截器 → 控制器 → 拦截器（放入Handler信 息） → DispatcherServlet → 过滤器链中的日志过滤器(创建日志) → 响应返回
 ```
+
+通过这种方式，我们就实现了在日记记录拦截器，完整记录日志信息，指责也更加清楚，维护性更好。

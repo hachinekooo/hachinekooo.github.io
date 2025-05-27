@@ -176,12 +176,12 @@
     "2025/4/23": 0,
     "2025/4/24": 1276,
     "2025/4/26": 507,
-    "2025/4/27": 77
+    "2025/4/27": 57
   },
   "todaysWordCount": {
     "docs/code/backend/java/echo-pattern-in-request-processing.md": {
       "initial": 1481,
-      "current": 1558
+      "current": 1538
     }
   }
 }
