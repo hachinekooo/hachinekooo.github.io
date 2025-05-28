@@ -1,5 +1,5 @@
 <template><div><blockquote>
-<p>[!tips]
+<p>[!tips]<br>
 spring boot 2.4 之后为了提升对 kubernetes 的支持，整个 spring.profiles 作废了；因此我们可以通过 spring.config.import 来代替它</p>
 </blockquote>
 <h2 id="命令行指定" tabindex="-1"><a class="header-anchor" href="#命令行指定"><span>命令行指定</span></a></h2>

@@ -45,8 +45,8 @@
 <span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">## local 本地设置 只影响所在文件夹</span></span>
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">➜</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> jenv</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> local</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> &#x3C;</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">java</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 版</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">本></span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="参考链接" tabindex="-1"><a class="header-anchor" href="#参考链接"><span>参考链接</span></a></h2>
-<p><a href="https://www.jenv.be/" target="_blank" rel="noopener noreferrer">jEnv - Manage your Java environment</a>
-<a href="https://segmentfault.com/a/1190000042724793#item-3" target="_blank" rel="noopener noreferrer">JEnv工具使用</a>
+<p><a href="https://www.jenv.be/" target="_blank" rel="noopener noreferrer">jEnv - Manage your Java environment</a><br>
+<a href="https://segmentfault.com/a/1190000042724793#item-3" target="_blank" rel="noopener noreferrer">JEnv工具使用</a><br>
 <a href="https://www.sqlsec.com/2023/07/ventura.html#Java" target="_blank" rel="noopener noreferrer">国光的 macOS Ventura 13 优化配置（基于 ARM 平台） | 国光</a></p>
 </div></template>
 

@@ -4,12 +4,12 @@
 </blockquote>
 <h3 id="tomcat" tabindex="-1"><a class="header-anchor" href="#tomcat"><span>Tomcat</span></a></h3>
 <h4 id="下载" tabindex="-1"><a class="header-anchor" href="#下载"><span>下载</span></a></h4>
-<p><a href="https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.94/bin/" target="_blank" rel="noopener noreferrer">tomcat-v8.5.94</a>
+<p><a href="https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.94/bin/" target="_blank" rel="noopener noreferrer">tomcat-v8.5.94</a><br>
 <code v-pre>macos/linux</code> 下载 <code v-pre>apache-tomcat-8.5.94.tar.gz</code></p>
 <h4 id="在系统环境下配置和使用" tabindex="-1"><a class="header-anchor" href="#在系统环境下配置和使用"><span>在系统环境下配置和使用</span></a></h4>
 <ul>
-<li>第一步解压缩，并且放在合适的目录中
-![[../../../../appends/img/tomcatContent.png]]
+<li>第一步解压缩，并且放在合适的目录中<br>
+![[../../../../appends/img/tomcatContent.png]]<br>
 如果需要制定 <code v-pre>tomcat</code> 的 <code v-pre>jdk</code> 版本，可以修改 <code v-pre>catalina.sh</code> 和 <code v-pre>setclasspath.sh</code> ，复制好 <code v-pre>jdk</code> 路径，在最后都加上</li>
 </ul>
 <div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/</span></span>
@@ -44,7 +44,7 @@
 <span class="line"><span>Using CLASSPATH:       /Users/wangwenpeng/Code/Server/apache-tomcat-8.5.94/bin/bootstrap.jar:/Users/wangwenpeng/Code/Server/apache-tomcat-8.5.94/bin/tomcat-juli.jar</span></span>
 <span class="line"><span>Using CATALINA_OPTS:</span></span>
 <span class="line"><span>Tomcat started.</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>访问 <code v-pre>localhost:8080</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>访问 <code v-pre>localhost:8080</code><br>
 <img src="@source/appends/img/tomcatIndex.png" alt="" loading="lazy"></p>
 <div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>wangwenpeng@AppleBook bin % ./shutdown.sh</span></span>
 <span class="line"><span>Using CATALINA_BASE:   /Users/wangwenpeng/Code/Server/apache-tomcat-8.5.94</span></span>
@@ -56,24 +56,24 @@
 <span class="line"><span>NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="在-ide-中配置和使用" tabindex="-1"><a class="header-anchor" href="#在-ide-中配置和使用"><span>在 IDE 中配置和使用</span></a></h4>
 <ul>
-<li>在 <code v-pre>idea</code> 设置中设置 <code v-pre>tomcat</code>
+<li>在 <code v-pre>idea</code> 设置中设置 <code v-pre>tomcat</code><br>
 <img src="@source/appends/img/tomcatIdeaSeting.png" alt="" loading="lazy"></li>
 </ul>
 <p>配置好之后就可以在后续使用 <code v-pre>Maven</code> 创建部署项目时使用了。</p>
 <h2 id="maven-创建及部署-web-项目" tabindex="-1"><a class="header-anchor" href="#maven-创建及部署-web-项目"><span>Maven 创建及部署 Web 项目</span></a></h2>
 <ul>
 <li>
-<p>创建普通 <code v-pre>Maven</code> 项目
-<img src="@source/appends/img/mavenJavaWeb1.png" alt="" loading="lazy">
+<p>创建普通 <code v-pre>Maven</code> 项目<br>
+<img src="@source/appends/img/mavenJavaWeb1.png" alt="" loading="lazy"><br>
 补充：<code v-pre>IntelliJ</code> 构建的项目只能在 <code v-pre>IDEA</code> 中打开，换个 <code v-pre>IDE</code> 就不行了，使用 <code v-pre>Maven</code> 系统构建的项目具有良好的通用性。</p>
 </li>
 <li>
-<p>配置 <code v-pre>pom.xml</code> 并且点击右上角的 <code v-pre>加载Maven变更</code> 按钮，使其生效
+<p>配置 <code v-pre>pom.xml</code> 并且点击右上角的 <code v-pre>加载Maven变更</code> 按钮，使其生效<br>
 <img src="@source/appends/img/mavenJavaWeb2.png" alt="" loading="lazy"></p>
 </li>
 </ul>
 <p>注：在配置两个依赖时使用了 <code v-pre>&lt;scope&gt;provided&lt;/scope&gt;</code>，意思为这两个依赖包是 <code v-pre>已提供</code>。在编译、测试时有效，但是在运行时无效。<code v-pre>provided</code> 意味着打包的时候可以不用包进去，别的设施(<code v-pre>Web Container</code>)会提供。</p>
-<p>在 <code v-pre>tomcat</code> 的 <code v-pre>lib</code> 目录中已经提供：
+<p>在 <code v-pre>tomcat</code> 的 <code v-pre>lib</code> 目录中已经提供：<br>
 <img src="@source/appends/img/mavenJavaWeb3.png" alt="" loading="lazy"></p>
 <ul>
 <li>配置<code v-pre>项目结构</code></li>
@@ -81,24 +81,24 @@
 <blockquote>
 <p>点击右上角的小齿轮-项目结构</p>
 </blockquote>
-<p>创建 <code v-pre>web资源目录</code>
+<p>创建 <code v-pre>web资源目录</code><br>
 <img src="@source/appends/img/mavenJavaWeb4.png" alt="" loading="lazy"></p>
-<p>创建 <code v-pre>web.xml</code>
-注意，在创建 <code v-pre>web.xml</code> 时要看准最终创建哪个文件夹中了！要创建在 <code v-pre>src/main/webapp</code> 下才可以
+<p>创建 <code v-pre>web.xml</code><br>
+注意，在创建 <code v-pre>web.xml</code> 时要看准最终创建哪个文件夹中了！要创建在 <code v-pre>src/main/webapp</code> 下才可以<br>
 <img src="@source/appends/img/mavenJavaWeb5.png" alt="" loading="lazy"></p>
 <ul>
-<li>配置 <code v-pre>tomcat</code>
+<li>配置 <code v-pre>tomcat</code><br>
 <img src="@source/appends/img/mavenJavaWeb6.png" alt="" loading="lazy"></li>
 </ul>
-<p>配置服务器选项卡
+<p>配置服务器选项卡<br>
 <img src="@source/appends/img/mavenJavaWeb7.png" alt="" loading="lazy"></p>
-<p>配置部署选项卡
+<p>配置部署选项卡<br>
 <img src="@source/appends/img/mavenJavaWeb8.png" alt="" loading="lazy"></p>
 <figure><img src="@source/appends/img/mavenJavaWeb9.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <figure><img src="@source/appends/img/mavenJavaWeb10.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>点击确定，部署选项卡部署配置完成。</p>
 <ul>
-<li>写测试代码
+<li>写测试代码<br>
 <code v-pre>DServlet.java</code></li>
 </ul>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">package</span><span style="--shiki-light:#383A42;--shiki-dark:#C678DD"> com.blueboy.servlet</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -123,7 +123,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
-<li>运行 <code v-pre>tomcat</code>，并且查看结果。
+<li>运行 <code v-pre>tomcat</code>，并且查看结果。<br>
 <img src="@source/appends/img/mavenJavaWeb11.png" alt="" loading="lazy"></li>
 </ul>
 <h2 id="servlet" tabindex="-1"><a class="header-anchor" href="#servlet"><span>Servlet</span></a></h2>
@@ -237,7 +237,7 @@
 <blockquote>
 <p>继承自 <code v-pre>GenericServlet</code> 类，实现了对 <code v-pre>Get</code> 或者 <code v-pre>Post</code> 请求的判断处理，我们只需要实现 <code v-pre>doGet</code> 和 <code v-pre>doPost</code> 方法。</p>
 </blockquote>
-<p>为什么我们只需要实现 <code v-pre>doGet</code> 和 <code v-pre>doPost</code> 而不需要写 <code v-pre>service()</code>了呢？让我们看一下 <code v-pre>HttpServlet</code> 的实现：
+<p>为什么我们只需要实现 <code v-pre>doGet</code> 和 <code v-pre>doPost</code> 而不需要写 <code v-pre>service()</code>了呢？让我们看一下 <code v-pre>HttpServlet</code> 的实现：<br>
 这是 <code v-pre>HttpServlet</code> 对 <code v-pre>service</code> 的重写，可以看到这个 <code v-pre>service</code> 的内部在进行各种判断，判断请求方法是否是 <code v-pre>get/post...</code>，然后再执行 <code v-pre>doGet</code> 或者 <code v-pre>doPost</code>....</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">protected</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> service</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">HttpServletRequest</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> req</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> HttpServletResponse</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> resp) throws ServletException</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> IOException {  </span></span>
 <span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">    String</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> method </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> req</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getMethod</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -277,7 +277,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">    }  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>继承 HttpServlet 的实现举例：
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>继承 HttpServlet 的实现举例：<br>
 <code v-pre>CServlet.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">package</span><span style="--shiki-light:#383A42;--shiki-dark:#C678DD"> com.blueboy.servlet</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -428,7 +428,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>查看结果：
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>查看结果：<br>
 <img src="@source/appends/img/responseServletTest.png" alt="" loading="lazy"></p>
 <h5 id="重定向" tabindex="-1"><a class="header-anchor" href="#重定向"><span>重定向</span></a></h5>
 <blockquote>
@@ -519,7 +519,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>建在 <code v-pre>webapp</code> 下的 <code v-pre>html</code> 文件是可以直接访问到的，而如果在 <code v-pre>WEB-INF</code> 中就无法直接访问到。<code v-pre>webapp</code> 目录相当于 <code v-pre>http://localhost:8080:/testObject_war_exploded/</code>，所以访问地址应该是 <code v-pre>http://localhost:8080:/testObject_war_exploded/GetParaServletTest.html</code></p>
 <figure><img src="@source/appends/img/getParaServletTest1.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
-<p><code v-pre>html</code> 提交表单到服务器中对应的 <code v-pre>Servlet</code> 后，在 <code v-pre>Servlet</code> 中处理完毕后用 <code v-pre>out.write</code> 显示在网页上。
+<p><code v-pre>html</code> 提交表单到服务器中对应的 <code v-pre>Servlet</code> 后，在 <code v-pre>Servlet</code> 中处理完毕后用 <code v-pre>out.write</code> 显示在网页上。<br>
 <img src="@source/appends/img/getParaServletTest2.png" alt="" loading="lazy"></p>
 <h5 id="乱码问题" tabindex="-1"><a class="header-anchor" href="#乱码问题"><span>乱码问题</span></a></h5>
 <blockquote>
@@ -537,7 +537,7 @@
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        System</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">out</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">println</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">Arrays</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">toString</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(hobbies));</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="请求转发" tabindex="-1"><a class="header-anchor" href="#请求转发"><span>请求转发</span></a></h5>
 <blockquote>
-<p>转发的作用在服务器端，将请求发送给服务器上的其他资源，以共同完成一次请求的处理，多个<code v-pre>Servlet</code>或<code v-pre>JSP</code>共同来处理一个请求。
+<p>转发的作用在服务器端，将请求发送给服务器上的其他资源，以共同完成一次请求的处理，多个<code v-pre>Servlet</code>或<code v-pre>JSP</code>共同来处理一个请求。<br>
 <img src="@source/appends/img/requestForward.png" alt="" loading="lazy"></p>
 </blockquote>
 <p>实现步骤：</p>
@@ -887,11 +887,11 @@
 <h3 id="jsp-原理" tabindex="-1"><a class="header-anchor" href="#jsp-原理"><span>JSP 原理</span></a></h3>
 <figure><img src="@source/appends/img/jspHowToWork.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p><code v-pre>JSP</code> 生成的 <code v-pre>Servlet</code> 存放在 <code v-pre>tomcat</code> 的 <code v-pre>work</code> 目录下，它是 <code v-pre>JSP</code> 的“真身”。我们打开看看其中的内容，了解一下 <code v-pre>JSP</code> 的“真身”。</p>
-<p>在控制台中找到这一行：
-<code v-pre>07-Mar-2024 21:01:26.544 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     /Users/wangwenpeng/Library/Caches/JetBrains/IntelliJIdea2023.2/tomcat/fbd22db7-5626-4d82-91a8-5a1c1f38c69e</code>
-这个路径就是在 Idea 中编译后的 jsp class 文件位置
+<p>在控制台中找到这一行：<br>
+<code v-pre>07-Mar-2024 21:01:26.544 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     /Users/wangwenpeng/Library/Caches/JetBrains/IntelliJIdea2023.2/tomcat/fbd22db7-5626-4d82-91a8-5a1c1f38c69e</code><br>
+这个路径就是在 Idea 中编译后的 jsp class 文件位置<br>
 <img src="@source/appends/img/jspNotesOnPc.png" alt="" loading="lazy"></p>
-<p>打开看看：你会发现，在 <code v-pre>JSP</code> 中的静态信息（例如各种标签等），在“真身”中都是使用 <code v-pre>out.write()</code> 完成打印！这些静态信息都是作为字符串输出给了客户端。
+<p>打开看看：你会发现，在 <code v-pre>JSP</code> 中的静态信息（例如各种标签等），在“真身”中都是使用 <code v-pre>out.write()</code> 完成打印！这些静态信息都是作为字符串输出给了客户端。<br>
 <img src="@source/appends/img/jspNotesOnJava2.png" alt="" loading="lazy"></p>
 <h3 id="jsp-注释" tabindex="-1"><a class="header-anchor" href="#jsp-注释"><span>JSP 注释</span></a></h3>
 <ul>
@@ -1003,7 +1003,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>访问</p>
 <ul>
-<li><code v-pre>http://localhost:8080/jspLearningWarExploded/cookieServletTest</code> 现在 <code v-pre>cookie</code> 已经被浏览器下载当内存中了，可以使用 <code v-pre>检查工具-应用选项卡</code> 中查看
+<li><code v-pre>http://localhost:8080/jspLearningWarExploded/cookieServletTest</code> 现在 <code v-pre>cookie</code> 已经被浏览器下载当内存中了，可以使用 <code v-pre>检查工具-应用选项卡</code> 中查看<br>
 <img src="@source/appends/img/cookieCheckOnBrowser.png" alt="" loading="lazy"></li>
 <li><code v-pre>http://localhost:8080/jspLearningWarExploded/cookieServletTest2</code> 访问并且查看 idea 中的控制台</li>
 </ul>
@@ -1019,7 +1019,7 @@
 <p>在某一天，你的心情非常不错，于是你想给多年未联系的前女友打个电话联系联系，促进促进感情。于是你打开你的 iPhone，然后拨给了前女友。你们旧火复燃，相谈甚欢，聊完之后你非常熟练的按了一下电源键挂断了电话....</p>
 <h4 id="什么是会话" tabindex="-1"><a class="header-anchor" href="#什么是会话"><span>什么是会话</span></a></h4>
 <blockquote>
-<p>简单来说，打开浏览器，访问到服务器地址时，这时就是会话开始之时。关闭浏览器时，就是本次会话关闭之时。在此之间，无论什么操作都是在一个会话中。
+<p>简单来说，打开浏览器，访问到服务器地址时，这时就是会话开始之时。关闭浏览器时，就是本次会话关闭之时。在此之间，无论什么操作都是在一个会话中。<br>
 就如引子说的，打开手机拨号接通这就是本次会话的开始，按电源键挂了电话就是本次会话的结束。</p>
 </blockquote>
 <h4 id="session-域对象功能" tabindex="-1"><a class="header-anchor" href="#session-域对象功能"><span>Session 域对象功能</span></a></h4>
@@ -1042,7 +1042,7 @@
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">        doGet</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(req, resp);  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>SessionServletTest2.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>SessionServletTest2.java</code><br>
 访问 <code v-pre>SessionServletTest2.java</code> 获取 <code v-pre>SessionServletTest.java</code> 给本次会话设置的 session 对象的属性值。</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">@</span><span style="--shiki-light:#A626A4;--shiki-dark:#E5C07B">WebServlet</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"/sessionServletTest2"</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">)  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> SessionServletTest2</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> extends</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> HttpServlet</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -1106,17 +1106,17 @@
 <span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">    // 已登录，显示仪表盘</span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "dashboard"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>关键点：
-2. 浏览器会自动保存和发送 Cookie 中的 JSESSIONID
-3. 服务器通过 JSESSIONID 找到对应服务器中存储的 Session 数据
-4. Session 数据存在服务器内存中，包含了用户的状态信息
-5. 如果用户关闭浏览器，Cookie 会消失，再次访问时会得到新的 Session
-6. Session 通常有过期时间，例如 <code v-pre>session.setMaxInactiveInterval(1800); // 30分钟，单位是秒</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>关键点：<br>
+2. 浏览器会自动保存和发送 Cookie 中的 JSESSIONID<br>
+3. 服务器通过 JSESSIONID 找到对应服务器中存储的 Session 数据<br>
+4. Session 数据存在服务器内存中，包含了用户的状态信息<br>
+5. 如果用户关闭浏览器，Cookie 会消失，再次访问时会得到新的 Session<br>
+6. Session 通常有过期时间，例如 <code v-pre>session.setMaxInactiveInterval(1800); // 30分钟，单位是秒</code><br>
 7. <code v-pre>session.invalidate()</code> 会销毁服务器中的 Session 数据</p>
 <p>这就是为什么你登录一个网站后，在不同页面间跳转都能保持登录状态的原理。</p>
 <h4 id="sessionapi" tabindex="-1"><a class="header-anchor" href="#sessionapi"><span>SessionAPI</span></a></h4>
 <font color=#646a73 size=1px>*更新时间：2024-03-08 17点40点23*</font><p><code v-pre>String getId()</code>：获取<code v-pre>sessionId</code>；</p>
-<p><code v-pre>int getMaxInactiveInterval()</code>：获取 <code v-pre>session</code> 可以的最大不活动时间（秒），默认为30分钟。
+<p><code v-pre>int getMaxInactiveInterval()</code>：获取 <code v-pre>session</code> 可以的最大不活动时间（秒），默认为30分钟。<br>
 若果打电话的时候对面等你 30 分钟你还没动静，对面就直接挂掉了。</p>
 <p><code v-pre>void setMaxInactiveInterval(int interval)</code>：设置 <code v-pre>session</code> 允许的最大不活动时间（秒），如果设置为1秒，那么只要 <code v-pre>session</code> 在1秒内不被使用，那么 <code v-pre>session</code> 就会被移除；</p>
 <p><code v-pre>long getCreationTime()</code>：返回<code v-pre>session</code>的创建时间，返回值为当前时间的毫秒值；</p>
@@ -1255,7 +1255,7 @@
 <blockquote>
 <p>只贴了有变动的文件。</p>
 </blockquote>
-<p>注意要现在在 <code v-pre>pom.xml</code> 中配置好依赖包。
+<p>注意要现在在 <code v-pre>pom.xml</code> 中配置好依赖包。<br>
 使用的插件：<a href="https://doc.hutool.cn/" target="_blank" rel="noopener noreferrer">Hutool</a></p>
 <div class="language-xml line-numbers-mode" data-highlighter="shiki" data-ext="xml" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">dependency</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">>  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    &#x3C;</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">groupId</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">>cn.hutool&#x3C;/</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">groupId</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">>  </span></span>
@@ -1392,7 +1392,7 @@
 <blockquote>
 <p>JSP指令用来设置与整个JSP页面相关的属性。</p>
 </blockquote>
-<p>语法格式：<code v-pre>指令格式：&lt;%@指令名 attr1=&quot;&quot; attr2=&quot;&quot; %&gt;</code>。
+<p>语法格式：<code v-pre>指令格式：&lt;%@指令名 attr1=&quot;&quot; attr2=&quot;&quot; %&gt;</code>。<br>
 一般都会把JSP指令放到JSP文件的最上方，但这不是必须的。</p>
 <p>常用指令：</p>
 <ul>
@@ -2312,7 +2312,7 @@
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">        $</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"#bAuthor"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">).</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B">resp</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">data</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">bauthor</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">});</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上面的 data 中的东西看起来像，但是不是 JSON 类型
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上面的 data 中的东西看起来像，但是不是 JSON 类型<br>
 给后端发送纯 JSON 类型的数据时，需要：</p>
 <div class="language-jsp line-numbers-mode" data-highlighter="shiki" data-ext="jsp" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>&#x3C;script></span></span>
 <span class="line"><span>    $.ajax({</span></span>

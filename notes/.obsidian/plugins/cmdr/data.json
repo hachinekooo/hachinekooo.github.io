@@ -7,7 +7,15 @@
   "leftRibbon": [],
   "rightRibbon": [],
   "titleBar": [],
-  "statusBar": [],
+  "statusBar": [
+    {
+      "id": "daily-notes",
+      "icon": "book",
+      "name": "日记: 打开/创建今天的日记",
+      "mode": "any",
+      "color": "#db1a1a"
+    }
+  ],
   "pageHeader": [],
   "macros": [],
   "explorer": [],

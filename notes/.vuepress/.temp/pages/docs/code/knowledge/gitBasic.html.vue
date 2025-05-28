@@ -23,9 +23,9 @@
 <h4 id="上传操作" tabindex="-1"><a class="header-anchor" href="#上传操作"><span>上传操作</span></a></h4>
 <h5 id="在-gitee-github-创建远程仓库" tabindex="-1"><a class="header-anchor" href="#在-gitee-github-创建远程仓库"><span>在 gitee/github 创建远程仓库</span></a></h5>
 <h5 id="将本地仓库关联到远程仓库并且推送" tabindex="-1"><a class="header-anchor" href="#将本地仓库关联到远程仓库并且推送"><span>将本地仓库关联到远程仓库并且推送</span></a></h5>
-<p>本地仓库关联远程仓库，以及推送：
-<img src="@source/appends/img/gitlearning9.png" alt="" loading="lazy">
-在 gitee 上查看：
+<p>本地仓库关联远程仓库，以及推送：<br>
+<img src="@source/appends/img/gitlearning9.png" alt="" loading="lazy"><br>
+在 gitee 上查看：<br>
 <img src="@source/appends/img/gitlearning10.png" alt="" loading="lazy"></p>
 <p>命令：git push [-f] [--set-upstream] [远端名称 [本地分支名][:远端分支名] ]</p>
 <p>如果远程分支名和本地分支名称相同，则可以只写本地分支</p>
@@ -59,7 +59,7 @@
 <ul>
 <li>拉取命令：git pull [remote name] [branch name]</li>
 </ul>
-<p>拉取指令就是将远端仓库的修改拉到本地并自动进行合并，等同于fetch+merge
+<p>拉取指令就是将远端仓库的修改拉到本地并自动进行合并，等同于fetch+merge<br>
 如果不指定远端名称和分支名，则抓取所有并更新当前分支</p>
 <h3 id="解决合并冲突" tabindex="-1"><a class="header-anchor" href="#解决合并冲突"><span>解决合并冲突</span></a></h3>
 <p>A、B用户修改了同一个文件，且修改了同一行位置的代码，此时会发生合并冲突。</p>

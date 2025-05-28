@@ -6,6 +6,11 @@
       "icon": "lucide-minimize-2",
       "allowPreview": true,
       "allowProperties": true
+    },
+    {
+      "id": "daily-notes",
+      "name": "日记: 打开/创建今天的日记",
+      "icon": "book"
     }
   ],
   "hideTitles": [

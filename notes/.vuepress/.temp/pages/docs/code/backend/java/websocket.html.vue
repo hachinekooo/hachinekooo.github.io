@@ -154,7 +154,7 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="消息体" tabindex="-1"><a class="header-anchor" href="#消息体"><span>消息体</span></a></h4>
 <p>消息体通过 <code v-pre>message.getPayload()</code> 提取。</p>
 <h3 id="会话属性" tabindex="-1"><a class="header-anchor" href="#会话属性"><span>会话属性</span></a></h3>
-<p>会话属性是 <code v-pre>WebSocket</code> 会话中保存的上下文信息。在握手阶段通过 <code v-pre>attributes</code> 设置。
+<p>会话属性是 <code v-pre>WebSocket</code> 会话中保存的上下文信息。在握手阶段通过 <code v-pre>attributes</code> 设置。<br>
 在消息处理阶段可以通过 <code v-pre>SimpMessageHeaderAccessor.getSessionAttributes()</code> 获取。</p>
 <h3 id="关系" tabindex="-1"><a class="header-anchor" href="#关系"><span>关系</span></a></h3>
 <p><code v-pre>Message&lt;?&gt;</code> 的消息头中包含会话属性的引用（<code v-pre>simpSessionAttributes</code>）。</p>

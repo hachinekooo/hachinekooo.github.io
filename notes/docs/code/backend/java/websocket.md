@@ -3,8 +3,11 @@ title: websocket基础
 icon: file
 order: 
 date: 2024-10-09
-category: 
+category:
+  - Java
 tags:
+  - WebSocket
+  - STOMP
 ---
 ## 
 ### 1. **WebSocket 基础**

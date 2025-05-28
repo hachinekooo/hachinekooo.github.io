@@ -1,6 +1,6 @@
 <template><div><h2 id="使用-bom-依赖管理" tabindex="-1"><a class="header-anchor" href="#使用-bom-依赖管理"><span>使用 BOM 依赖管理</span></a></h2>
 <h3 id="什么是bom" tabindex="-1"><a class="header-anchor" href="#什么是bom"><span>什么是BOM</span></a></h3>
-<p>BOM（Bill of Materials） 是 Maven 中的一种依赖管理机制，主要用于集中管理项目中所有依赖的版本号。它的核心作用是确保项目中的依赖版本一致，避免因版本冲突导致的问题。
+<p>BOM（Bill of Materials） 是 Maven 中的一种依赖管理机制，主要用于集中管理项目中所有依赖的版本号。它的核心作用是确保项目中的依赖版本一致，避免因版本冲突导致的问题。<br>
 在 Maven 中，BOM 是一个特殊的 POM 文件，通常以 <code v-pre>&lt;packaging&gt;pom&lt;/packaging&gt;</code> 的形式存在，并通过 <code v-pre>&lt;dependencyManagement&gt;</code> 定义一组依赖及其版本号。其他模块可以通过 import 的方式引入这个 BOM，从而继承其中定义的依赖版本。</p>
 <hr>
 <h3 id="bom-的常见形式" tabindex="-1"><a class="header-anchor" href="#bom-的常见形式"><span>BOM 的常见形式</span></a></h3>
@@ -117,7 +117,7 @@
 <span class="line"><span>    └── pom.xml</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
 <li>
-<p><strong>示例</strong>：
+<p><strong>示例</strong>：<br>
 如果直接在项目根 pom 文件 <code v-pre>&lt;dependencyManagement&gt;</code> 中定义了所有依赖版本，那么它也可以充当 BOM 的角色。</p>
 <div class="language-xml line-numbers-mode" data-highlighter="shiki" data-ext="xml" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">dependencyManagement</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">></span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    &#x3C;</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">dependencies</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">></span></span>

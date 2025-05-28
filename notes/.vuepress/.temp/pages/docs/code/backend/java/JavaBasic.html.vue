@@ -1,7 +1,7 @@
 <template><div><h2 id="idea" tabindex="-1"><a class="header-anchor" href="#idea"><span>Idea</span></a></h2>
 <h3 id="基本配置" tabindex="-1"><a class="header-anchor" href="#基本配置"><span>基本配置</span></a></h3>
 <h3 id="debug" tabindex="-1"><a class="header-anchor" href="#debug"><span>debug</span></a></h3>
-<p>蓝色背景色：下一步运行的
+<p>蓝色背景色：下一步运行的<br>
 红色背景色：已经运行的</p>
 <h2 id="编译和运行" tabindex="-1"><a class="header-anchor" href="#编译和运行"><span>编译和运行</span></a></h2>
 <ul>
@@ -51,7 +51,7 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="变量" tabindex="-1"><a class="header-anchor" href="#变量"><span>变量</span></a></h2>
 <h3 id="什么是变量" tabindex="-1"><a class="header-anchor" href="#什么是变量"><span>什么是变量</span></a></h3>
 <blockquote>
-<p>在程序执行的过程中，在某个范围内其值可以发生改变的量。
+<p>在程序执行的过程中，在某个范围内其值可以发生改变的量。<br>
 用来存储值的东西。</p>
 </blockquote>
 <h3 id="变量的定义" tabindex="-1"><a class="header-anchor" href="#变量的定义"><span>变量的定义</span></a></h3>
@@ -59,7 +59,7 @@
 <p><code v-pre>数据类型 变量名 = 初始值</code>;</p>
 </blockquote>
 <p>变量名实质上是一段连续存储空间的别名，是一个标号(门牌号)，编译器通过变量来申请并命名内存空间，程序员可以通过变量的名字可以使用存储空间。变量名是逻辑概念，变量是物理层面，变量含数据类型和数据值，数据类型决定内存的分配，编译器将变量名和变量对应的内存联系起来，使程序员可以通过变量名来操作内存。</p>
-<p>变量名实际上是用名字代表的一个存储地址
+<p>变量名实际上是用名字代表的一个存储地址<br>
 从变量中取值，实际上是通过变量名找到相应的内存地址，从该存储单元中读取数据</p>
 <h3 id="变量的分类" tabindex="-1"><a class="header-anchor" href="#变量的分类"><span>变量的分类</span></a></h3>
 <h4 id="基本数据类型" tabindex="-1"><a class="header-anchor" href="#基本数据类型"><span>基本数据类型</span></a></h4>
@@ -284,7 +284,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="引用数据类型" tabindex="-1"><a class="header-anchor" href="#引用数据类型"><span>引用数据类型</span></a></h4>
 <blockquote>
-<p>引用类型是指一种数据类型，其变量并不直接包含数据，而是包含一个指向内存中对象的引用。
+<p>引用类型是指一种数据类型，其变量并不直接包含数据，而是包含一个指向内存中对象的引用。<br>
 引用数据类型的名和值并不是存储在一起的，而是存储了一个地址值，通过地址值引用到内存中实际存在的数据上</p>
 </blockquote>
 <p>举例：</p>
@@ -608,7 +608,7 @@
 <blockquote>
 <p>用来控制语句如何执行，以什么样的顺序执行。</p>
 </blockquote>
-<p><code v-pre>Input_Message.java </code>
+<p><code v-pre>Input_Message.java </code><br>
 为了便于后续操作和学习，这里介绍一下在 Java 中的输入操作：</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> java.util.Scanner</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Input_Message</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
@@ -720,7 +720,7 @@
 <ul>
 <li>针对结果是<code v-pre>boolean</code>类型的判断</li>
 <li>针对一个范围的判断</li>
-<li>针对几个常量值的判断
+<li>针对几个常量值的判断<br>
 <code v-pre>switch </code> 语句使用场景：</li>
 <li>针对几个常量值的判断</li>
 </ul>
@@ -731,8 +731,8 @@
 <h4 id="三种循环语句" tabindex="-1"><a class="header-anchor" href="#三种循环语句"><span>三种循环语句</span></a></h4>
 <h5 id="for" tabindex="-1"><a class="header-anchor" href="#for"><span>for</span></a></h5>
 <blockquote>
-<p>初始化语句最少运行一次。
-循环语句最少运行 0 次。
+<p>初始化语句最少运行一次。<br>
+循环语句最少运行 0 次。<br>
 运行控制语句的时候就是下一次循环运行的时候。</p>
 </blockquote>
 <p><code v-pre>For_Process.java </code></p>
@@ -918,7 +918,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">		}</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">	}</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>`LoginIn.java
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>`LoginIn.java<br>
 只输入密码，正确的密码是 admin（字符串）</p>
 <ul>
 <li>输入密码正确，提示登入成功</li>
@@ -956,7 +956,7 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="定义域和代码块" tabindex="-1"><a class="header-anchor" href="#定义域和代码块"><span>定义域和代码块</span></a></h2>
 <h3 id="代码块和空语句" tabindex="-1"><a class="header-anchor" href="#代码块和空语句"><span>代码块和空语句</span></a></h3>
 <blockquote>
-<p>任何时候任何时侯分支结构和循环结构的代码块都要使用<code v-pre>{}</code>进行包裹
+<p>任何时候任何时侯分支结构和循环结构的代码块都要使用<code v-pre>{}</code>进行包裹<br>
 任何时侯都不要在 <code v-pre>if()</code> <code v-pre>for()</code> <code v-pre>while()</code> 后面添加 <code v-pre>;</code></p>
 </blockquote>
 <p><code v-pre>CodeBlock_AndSign.java </code></p>
@@ -1621,7 +1621,7 @@
 <h2 id="方法" tabindex="-1"><a class="header-anchor" href="#方法"><span>方法</span></a></h2>
 <h3 id="什么是方法" tabindex="-1"><a class="header-anchor" href="#什么是方法"><span>什么是方法</span></a></h3>
 <blockquote>
-<p>完成特定功能的代码块。
+<p>完成特定功能的代码块。<br>
 用于解决代码重复，臃肿的问题。</p>
 </blockquote>
 <h3 id="方法的定义和调用" tabindex="-1"><a class="header-anchor" href="#方法的定义和调用"><span>方法的定义和调用</span></a></h3>
@@ -1638,7 +1638,7 @@
 <p>返回值类型：用于限定返回值的数据类型(基本/引用)。如果没有返回值，返回值类型为 <code v-pre>void</code>，此时 <code v-pre>return</code> 语句有如下两种写法：</p>
 <ul>
 <li><code v-pre>return</code>;</li>
-<li>可以不写 <code v-pre>return</code> 语句
+<li>可以不写 <code v-pre>return</code> 语句<br>
 返回值：程序被 <code v-pre>return</code> 带回的结果，返回给调用者（要和<strong>返回值类型</strong>兼容）</li>
 </ul>
 <p><code v-pre>Function_Learn.java</code></p>
@@ -1686,10 +1686,10 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="@source/appends/img/function_recursion.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h3 id="递归" tabindex="-1"><a class="header-anchor" href="#递归"><span>递归</span></a></h3>
 <blockquote>
-<p>方法调用方法本身
+<p>方法调用方法本身<br>
 要求明确的退出条件</p>
 </blockquote>
-<p><code v-pre>FibonacciSequence.java</code>
+<p><code v-pre>FibonacciSequence.java</code><br>
 斐波那契数列</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> FibonacciSequence</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
 <span class="line"></span>
@@ -1719,7 +1719,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="方法重载" tabindex="-1"><a class="header-anchor" href="#方法重载"><span>方法重载</span></a></h3>
 <blockquote>
-<p>同名方法，但是 <strong>参数个数</strong> 或者 <strong>参数类型</strong> 或者 <strong>顺序不同</strong> 不同。
+<p>同名方法，但是 <strong>参数个数</strong> 或者 <strong>参数类型</strong> 或者 <strong>顺序不同</strong> 不同。<br>
 与 <strong>返回值类型</strong> 、<strong>参数名字</strong> 无关（调用时，JVM 通过参数列表的不同来区分同名方法）</p>
 </blockquote>
 <p><code v-pre>Function_Reload.java</code></p>
@@ -1753,7 +1753,7 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="数组" tabindex="-1"><a class="header-anchor" href="#数组"><span>数组</span></a></h2>
 <h3 id="什么是数组" tabindex="-1"><a class="header-anchor" href="#什么是数组"><span>什么是数组</span></a></h3>
 <blockquote>
-<p>数组是存储 <code v-pre>同一种数据类型</code> 的 <code v-pre>多个元素</code> 的集合，也可以看成一个容器。
+<p>数组是存储 <code v-pre>同一种数据类型</code> 的 <code v-pre>多个元素</code> 的集合，也可以看成一个容器。<br>
 便于维护多个多个相同数据类型的变量</p>
 </blockquote>
 <ul>
@@ -1773,7 +1773,7 @@
 <h3 id="数组的定义" tabindex="-1"><a class="header-anchor" href="#数组的定义"><span>数组的定义</span></a></h3>
 <ul>
 <li><code v-pre>数据类型[] 数组名;</code></li>
-<li><code v-pre>数据类型 数组名[];</code>
+<li><code v-pre>数据类型 数组名[];</code><br>
 仅定义完之后，数组中是没有元素值的。</li>
 </ul>
 <h3 id="数组的初始化" tabindex="-1"><a class="header-anchor" href="#数组的初始化"><span>数组的初始化</span></a></h3>
@@ -2320,7 +2320,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">	}</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">            ...</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>规律 2：
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>规律 2：<br>
 5 个数分别拿着前 4 个数和其后进行比较了，即从 <code v-pre>0</code> 到 <code v-pre>数组.length-1</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">把重复的用循环结构实现</span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">for</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">int</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> i </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> i </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">&#x3C;</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> arr</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">length</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> i</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">++</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">) {</span></span>
@@ -2332,16 +2332,16 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">		}</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">	}</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上述方法存在的问题是<font color="#00b050">比较太多次了</font>，是个比它小的元素都要进行交换。
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>上述方法存在的问题是<font color="#00b050">比较太多次了</font>，是个比它小的元素都要进行交换。<br>
 如果元素只需要和其后元素中最小的元素进行比较就好了。</p>
-<p>假设一个最小值下标：<code v-pre>minIndex = 0</code>
+<p>假设一个最小值下标：<code v-pre>minIndex = 0</code><br>
 找出 0 之后所以元素中，比 0还小的元素的下标（4次比较操作）</p>
 <div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>arr[0] > arr[1] --> minIndex = 1</span></span>
 <span class="line"><span>arr[1] > arr[2] --> minIndex = 2</span></span>
 <span class="line"><span>arr[2] > arr[3] --> minIndex = 3</span></span>
 <span class="line"><span>arr[3] > arr[4] --> minIndex = 4</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>本来假设了一个最小下标，结果发现变了，直接和这个已经是最小值的下标进行交换。（1 次交换操作）</p>
-<p>默认设置第一个数是最小的
+<p>默认设置第一个数是最小的<br>
 第 1 个数和其后数据比较完之后，和最小的那个数交换，这样这个最小的数就<font color="#00b050">被选择</font>了出来。</p>
 <table>
 <thead>
@@ -2943,7 +2943,7 @@
 </blockquote>
 <h3 id="定义-初始化-遍历" tabindex="-1"><a class="header-anchor" href="#定义-初始化-遍历"><span>定义/初始化/遍历</span></a></h3>
 <ul>
-<li>二维数组的每一行的长度可以不一样
+<li>二维数组的每一行的长度可以不一样<br>
 <code v-pre>TwoDimensionalArray.java</code></li>
 </ul>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> TwoDimensionalArray</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -2981,11 +2981,11 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="杨辉三角" tabindex="-1"><a class="header-anchor" href="#杨辉三角"><span>杨辉三角</span></a></h3>
 <img src="https://study.code2048.tech/assets/杨辉三角-ebec5558.jpg" />
-<p>规律：
-1.每一行的最后一个数字是 1，第一行的第一个数字是 1(行数 = 列数的时候，所以元素 = 1)
-2.中间的数是上一行的值 + 上一行的前一个值
-3.有三个初始值 1 1 1
-4.列数 = 行数 + 1
+<p>规律：<br>
+1.每一行的最后一个数字是 1，第一行的第一个数字是 1(行数 = 列数的时候，所以元素 = 1)<br>
+2.中间的数是上一行的值 + 上一行的前一个值<br>
+3.有三个初始值 1 1 1<br>
+4.列数 = 行数 + 1<br>
 <code v-pre>YangHuiRectangle.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> YangHuiRectangle</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">   public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> static</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> main</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[] </span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">args</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {  </span></span>
@@ -3009,7 +3009,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">   }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="数组结构详解" tabindex="-1"><a class="header-anchor" href="#数组结构详解"><span>数组结构详解</span></a></h2>
-<p>在 <strong><a href="https://haicoder.net/java/java-development.html" target="_blank" rel="noopener noreferrer">Java 语言</a></strong> 中，虚拟机的内存空间分为堆内存空间和栈内存空间。Java 的数组就需要用到这两个空间，我们定义的数组的名字，它是保存在 Java 栈上面，然后记录的数据指向堆里面具体数据的地址。
+<p>在 <strong><a href="https://haicoder.net/java/java-development.html" target="_blank" rel="noopener noreferrer">Java 语言</a></strong> 中，虚拟机的内存空间分为堆内存空间和栈内存空间。Java 的数组就需要用到这两个空间，我们定义的数组的名字，它是保存在 Java 栈上面，然后记录的数据指向堆里面具体数据的地址。<br>
 参考：<RouteLink to="/docs/code/backend/java/javaRAM.html">javaRAM</RouteLink></p>
 <h3 id="堆栈内存解释" tabindex="-1"><a class="header-anchor" href="#堆栈内存解释"><span>堆栈内存解释</span></a></h3>
 <p>数组的操作中，在栈内存中保存的永远是数组的名称，只开辟了栈内存空间的数组是永远没有办法被使用的，必须有指向的堆堆内存数组才可以被使用，要开辟新的堆内存，需要使用 new 关键字。然后就可以将此堆堆使用权交给栈。一个堆内存空间可以被多个栈内存空间同时指向。</p>
@@ -3027,7 +3027,7 @@
 <figure><img src="https://haicoder.net/uploads/pic/server/java/java-array/02 java数组堆栈.png" alt="02 java数组堆栈.png" tabindex="0" loading="lazy"><figcaption>02 java数组堆栈.png</figcaption></figure>
 <p>我们可以看到，<code v-pre>scores</code> 这个名词指向了堆里面的一块内存空间，它被分了三个连续的空间，里面的值都是 <code v-pre>0</code> ，因为我们定义了 <code v-pre>int</code> 类型的数组，并且给它分配了空间，而 <code v-pre>int</code> 类型的默认值是 <code v-pre>0</code> ，所以我们刚初始化的时候，数组就是这样的分配模型。</p>
 <p>在后面对数组进行操作的时候，其实是对堆里面的数据进行操作。</p>
-<p>原文链接：
+<p>原文链接：<br>
 <a href="https://haicoder.net/java/java-array-memory.html" target="_blank" rel="noopener noreferrer">Java数组内存分配</a></p>
 <h3 id="一维数组堆栈例子-2" tabindex="-1"><a class="header-anchor" href="#一维数组堆栈例子-2"><span>一维数组堆栈例子 2</span></a></h3>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> StackAndHeap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -3125,12 +3125,12 @@
 <blockquote>
 <p>类是一种自定义类型,对一类事物的描述。</p>
 </blockquote>
-<p>通俗的可以理解为类就是一种模板，我们使用模板来做出有相似属性的具体的物。
-形形色色的那么多人，但是不管是啥人，它们都有共同的特性，比如都有 <font color="#de7802">名字</font>，<font color="#de7802">性别</font> 的属性，都能做 <font color="#de7802">跑</font>，<font color="#de7802">吃</font> 的动作。
-再比如我们北方过节经常吃的鱼馒头：
-<img src="https://cdn.jsdelivr.net/gh/redGirlSalvat/img/img-blogfish.png" height="200px" width="300px"/>
-之前大家都是手工制作，一个一个捏太麻烦，于是就有人做出了模子，
-<img src="https://cdn.jsdelivr.net/gh/redGirlSalvat/img/img-blogfishMantou.png" height="200px" width="200px"/>
+<p>通俗的可以理解为类就是一种模板，我们使用模板来做出有相似属性的具体的物。<br>
+形形色色的那么多人，但是不管是啥人，它们都有共同的特性，比如都有 <font color="#de7802">名字</font>，<font color="#de7802">性别</font> 的属性，都能做 <font color="#de7802">跑</font>，<font color="#de7802">吃</font> 的动作。<br>
+再比如我们北方过节经常吃的鱼馒头：<br>
+<img src="https://cdn.jsdelivr.net/gh/redGirlSalvat/img/img-blogfish.png" height="200px" width="300px"/><br>
+之前大家都是手工制作，一个一个捏太麻烦，于是就有人做出了模子，<br>
+<img src="https://cdn.jsdelivr.net/gh/redGirlSalvat/img/img-blogfishMantou.png" height="200px" width="200px"/><br>
 现在每逢想吃，就拿着模子一卡一个，一卡一个。这个模子就是所谓的<font color="#de7802">类</font>。</p>
 <h4 id="为什么要有类" tabindex="-1"><a class="header-anchor" href="#为什么要有类"><span>为什么要有类</span></a></h4>
 <blockquote>
@@ -3181,8 +3181,8 @@
 <p>方法体：完成功能的代码；</p>
 <p>return：结束方法以及返回方法指定类型的值；</p>
 <p>返回值类型：用于限定返回值的数据类型。如果没有返回值，返回值类型为 <code v-pre>void</code>，此时 <code v-pre>return</code> 语句有如下两种写法：</p>
-<p>return;
-可以不写 return 语句
+<p>return;<br>
+可以不写 return 语句<br>
 返回值，程序被 return 带回的结果，返回给调用者。</p>
 <p><code v-pre>Student.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Student</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -3311,9 +3311,9 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="@source/appends/img/StackAndHeap_Object_InJava.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h3 id="值传递和引用传递" tabindex="-1"><a class="header-anchor" href="#值传递和引用传递"><span>值传递和引用传递</span></a></h3>
-<p>传值和传引用区别
-值传递：当基本类型作为參数传入方法时，无论该参数（原型变量的一个值得拷贝）在方法内怎样被改变，外部的变量原型总是不变的。
-引用传递：当引用作为参数传入方法时，通过引用在方法内部修改引用关联的数据，数据本身会被修改。
+<p>传值和传引用区别<br>
+值传递：当基本类型作为參数传入方法时，无论该参数（原型变量的一个值得拷贝）在方法内怎样被改变，外部的变量原型总是不变的。<br>
+引用传递：当引用作为参数传入方法时，通过引用在方法内部修改引用关联的数据，数据本身会被修改。<br>
 <code v-pre>ValueAndQuoteDeliver.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> java.util.Arrays</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -3541,7 +3541,7 @@
 </blockquote>
 <h4 id="什么是封装" tabindex="-1"><a class="header-anchor" href="#什么是封装"><span>什么是封装</span></a></h4>
 <blockquote>
-<p>隐藏对象的内部实现细节，控制对象的修改及访问的权限。
+<p>隐藏对象的内部实现细节，控制对象的修改及访问的权限。<br>
 隐藏该隐藏的，暴露该暴露的。</p>
 </blockquote>
 <h4 id="如何实现封装" tabindex="-1"><a class="header-anchor" href="#如何实现封装"><span>如何实现封装</span></a></h4>
@@ -3572,7 +3572,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="@source/appends/img/ObjectArray.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h5 id="示例" tabindex="-1"><a class="header-anchor" href="#示例"><span>示例</span></a></h5>
-<p><em>更新时间：2024-01-19 10点39分13 秒</em>
+<p><em>更新时间：2024-01-19 10点39分13 秒</em><br>
 <code v-pre>Ex_TelephoneBook_Info.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Ex_TelephoneBook_Info</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    private</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> String</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> name</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -3883,7 +3883,7 @@
 </blockquote>
 <h4 id="什么是继承" tabindex="-1"><a class="header-anchor" href="#什么是继承"><span>什么是继承？</span></a></h4>
 <blockquote>
-<p>类和类之间的一种关系。
+<p>类和类之间的一种关系。<br>
 从父类的角度：父类不能满足要求，使用子类进行拓展，以遍满足特殊场景。</p>
 </blockquote>
 <p>从子类的角度：从各种子类中抽取出来的共同的属性和方法，写成一个新的类</p>
@@ -3901,7 +3901,7 @@
 <span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">    //构造方法</span></span>
 <span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">    //方法</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>Person.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>Person.java</code><br>
 父类：定义公共的内容</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    private</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> String</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> name</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -3944,7 +3944,7 @@
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        this</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">address</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> address;  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>Student.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>Student.java</code><br>
 继承父类的子类：定义特有的内容</p>
 <p>产生继承关系之后，子类可以使用父类中的属性和方法，也可以定义子类独有的属性和方法。</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Student</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> extends</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">{</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -3965,7 +3965,7 @@
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        this</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">class_grade</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> class_grade;  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>Teacher.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>Teacher.java</code><br>
 继承父类的子类：定义特有的内容</p>
 <p>产生继承关系之后，子类可以使用父类中的属性和方法，也可以定义子类独有的属性和方法。</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Teacher</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> extends</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">{</span></span>
@@ -3987,7 +3987,7 @@
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        this</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">subject</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> subject;</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>Test1.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>Test1.java</code><br>
 测试类</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Test1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> static</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> main</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[] </span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">args</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {  </span></span>
@@ -4107,7 +4107,7 @@
 <blockquote>
 <p>只要重写方法，就在重写的方法上添加注解：<code v-pre>@Override</code></p>
 </blockquote>
-<p>idea 中可以直接 <code v-pre>option + enter</code> 生成。(windows <code v-pre>alt + enter</code>)
+<p>idea 中可以直接 <code v-pre>option + enter</code> 生成。(windows <code v-pre>alt + enter</code>)<br>
 <code v-pre>Person.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Person</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    private</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> String</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> name</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -4139,7 +4139,7 @@
 <blockquote>
 <p>在子类中，可直接访问从父类继承到的属性和方法，但如果父子类的属性或方法存在重名（属性遮蔽、方法重写）时，需要加以区分，才可访问到父类中的属性或方法</p>
 </blockquote>
-<p><code v-pre>super.父类属性名</code>
+<p><code v-pre>super.父类属性名</code><br>
 <code v-pre>super.父类方法名</code></p>
 <h5 id="代表父类的构造方法" tabindex="-1"><a class="header-anchor" href="#代表父类的构造方法"><span>代表父类的构造方法</span></a></h5>
 <ul>
@@ -4224,7 +4224,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="继承中对象的创建" tabindex="-1"><a class="header-anchor" href="#继承中对象的创建"><span>继承中对象的创建</span></a></h5>
 <ul>
-<li>先创建父类对象，再创建子类对象
+<li>先创建父类对象，再创建子类对象<br>
 * 先初始化属性，再调用构造方法</li>
 </ul>
 <h3 id="多态" tabindex="-1"><a class="header-anchor" href="#多态"><span>多态</span></a></h3>
@@ -4319,7 +4319,7 @@
 <li>父类作为<font color="#de7802">方法的参数</font>，实现多态 -- 方法的参数可以兼容所有的子类对象</li>
 <li>父类作为<font color="#de7802">方法的返回值类型</font>，实现多态</li>
 </ul>
-<p>父类作为方法的参数时，简化一些代码，去冗余，便维护的例子：
+<p>父类作为方法的参数时，简化一些代码，去冗余，便维护的例子：<br>
 <code v-pre>Master.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Master</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> feed</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Dog</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> d</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {  </span></span>
@@ -4329,14 +4329,14 @@
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        c</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">eat</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>主人这个类可以有喂动物的动作，一个两个动物还好，但是如果好多好多呢，那就要写大量相似的方法来实现了。但是现在可以使用多态来简化：
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>主人这个类可以有喂动物的动作，一个两个动物还好，但是如果好多好多呢，那就要写大量相似的方法来实现了。但是现在可以使用多态来简化：<br>
 <code v-pre>Master.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Master</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> feed</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Animal</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {  </span></span>
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">       a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">eat</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>无论你是传一只 <code v-pre>Dog</code>，还是一只 <code v-pre>Cat</code>，都可以喂到它 ❤️❤️❤️
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>无论你是传一只 <code v-pre>Dog</code>，还是一只 <code v-pre>Cat</code>，都可以喂到它 ❤️❤️❤️<br>
 <code v-pre>Test.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Test</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> static</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> main</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[] </span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">args</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {  </span></span>
@@ -4352,7 +4352,7 @@
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">小猫吃鱼</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">进程已结束，退出代码为</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>分析一下以上两个代码的过程：
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>分析一下以上两个代码的过程：<br>
 还记得 <code v-pre>Student stu = new Student();</code> 这个 <code v-pre>stu</code> 是什么吗？它叫<font color="#de7802">引用</font>，存储的是一个<font color="#de7802">首地址</font>哦。ok 让我们继续。</p>
 <ul>
 <li><code v-pre>Animal a1 = new Dog();</code> 。 <code v-pre>a1</code> 中现在存储着一个指向 Dog 类型的堆空间的首地址。</li>
@@ -4386,7 +4386,7 @@
 <p>注意：只有转换回子类真实类型，才可调用<font color="#de7802">子类独有的属性和方法</font>。</p>
 <p>向下转型时，如果父类引用中的子类对象类型和目标类型不匹配，则会发生类型转换异常(<code v-pre>ClassCastException</code>)。</p>
 <p>通常向下转型前，应判断引用中的对象真实类型，保证类型转换的正确性。</p>
-<p>语法：<code v-pre>父类引用 instanceof 类型</code>
+<p>语法：<code v-pre>父类引用 instanceof 类型</code><br>
 <code v-pre>Master.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Master</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> feed</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Animal</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
@@ -4623,7 +4623,7 @@
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">China</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> MainLand</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">进程已结束，退出代码为</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>从内存空间中理解：
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>从内存空间中理解：<br>
 <img src="@source/appends/img/StaticInRAM.png" alt="" loading="lazy"></p>
 <h4 id="静态方法" tabindex="-1"><a class="header-anchor" href="#静态方法"><span>静态方法</span></a></h4>
 <h5 id="什么是静态方法" tabindex="-1"><a class="header-anchor" href="#什么是静态方法"><span>什么是静态方法？</span></a></h5>
@@ -4678,7 +4678,7 @@
 <font color="#de7802">动态代码块</font>执行和<font color="#de7802">实例属性</font>初始化<font color="#de7802">优先于构造方法</font>执行</li>
 <li>
 <font color="#de7802">动态代码块</font>执行和<font color="#de7802">实例属性</font>初始化的顺序由代码<font color="#de7802">编写的顺序决定</font>，写在前面的先运行。</li>
-<li>应用：可为实例属性赋值，或必要的初始行为。
+<li>应用：可为实例属性赋值，或必要的初始行为。<br>
 <code v-pre>.java</code></li>
 </ul>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> X</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -4865,7 +4865,7 @@
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">子类构造方法...</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">进程已结束，退出代码为</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>简单来说：有父类时，首先到父类中去，把父类的被 <code v-pre>static</code> 修饰的给执行了。然后再把子类的被 <code v-pre>static</code> 修饰的东西给执行了。
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>简单来说：有父类时，首先到父类中去，把父类的被 <code v-pre>static</code> 修饰的给执行了。然后再把子类的被 <code v-pre>static</code> 修饰的东西给执行了。<br>
 再回到父类把<font color="#de7802">实例属性</font>和<font color="#de7802">动态代码</font>按照<font color="#de7802">顺序执行</font>，最后<font color="#de7802">父类的构造方法</font>。再到子类中把<font color="#de7802">实例属性</font>和<font color="#de7802">动态代码</font>按照<font color="#de7802">顺序执行</font>，最后<font color="#de7802">子类的构造方法</font>。第二次时，就跳过所有有关 <code v-pre>static</code> 的操作了，因为类只加载一次，与 <code v-pre>static</code> 有关的东西在类加载时已加载到方法区中。</p>
 <h3 id="final" tabindex="-1"><a class="header-anchor" href="#final"><span>final</span></a></h3>
 <blockquote>
@@ -4918,7 +4918,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>分析： <code v-pre>s1</code> 是个引用类型，存着一个首地址，经过 <code v-pre>final</code> 修饰后，<code v-pre>s1</code> 便不可以修改了。但是仍然可以通过 <code v-pre>s1</code> 保存的首地址，找到对应的那块<font color="#de7802">堆空间</font>，对堆空间的内容进行修改。</p>
 <h3 id="综合练习题" tabindex="-1"><a class="header-anchor" href="#综合练习题"><span>综合练习题</span></a></h3>
-<p>涉及知识点：<a href="#%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E5%A4%9A%E6%80%81%EF%BC%9F">怎么实现类的多态？</a> <a href="#equals">equals</a>
+<p>涉及知识点：<a href="#%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E5%A4%9A%E6%80%81%EF%BC%9F">怎么实现类的多态？</a> <a href="#equals">equals</a><br>
 <code v-pre>UI.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">package</span><span style="--shiki-light:#383A42;--shiki-dark:#C678DD"> com.situ.objectlearning.ex_employeemanage</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -5245,18 +5245,18 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="接口" tabindex="-1"><a class="header-anchor" href="#接口"><span>接口</span></a></h2>
 <blockquote>
-<p>接口(interface)是抽象方法和常量值定义的集合。
+<p>接口(interface)是抽象方法和常量值定义的集合。<br>
 简单理解：一种特殊的抽象类，只能定义抽象方法，默认方法和常量</p>
 </blockquote>
 <h3 id="为什么要有接口" tabindex="-1"><a class="header-anchor" href="#为什么要有接口"><span>为什么要有接口？</span></a></h3>
 <blockquote>
 <p>生活中接口无处不在，接口可以说是<font color="#de7802">规范</font>的集合。例如 USB 接口，倘若你的笔记本要想能用 USB 的设备，那你的笔记本的接口就要按照 USB 规范实现。另外接口可以说是代表着<font color="#de7802">能力</font>，比如 USB 接口能传输数据，网口能上网。</p>
 </blockquote>
-<p>java 中的接口 -- 它能不能
+<p>java 中的接口 -- 它能不能<br>
 java 中的继承 -- 它是不是</p>
 <h3 id="怎么实现接口" tabindex="-1"><a class="header-anchor" href="#怎么实现接口"><span>怎么实现接口？</span></a></h3>
 <blockquote>
-<p>在实现类中实现接口时，<strong>方法的名字、返回值类型、参数的个数及类型</strong>必须与接口中的完全一致，并且<strong>必须实现接口中的所有方法。</strong>
+<p>在实现类中实现接口时，<strong>方法的名字、返回值类型、参数的个数及类型</strong>必须与接口中的完全一致，并且<strong>必须实现接口中的所有方法。</strong><br>
 实现接口时的子类重写方法时访问权限是不能比父类小的</p>
 </blockquote>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">//定义接口</span></span>
@@ -5280,7 +5280,7 @@ java 中的继承 -- 它是不是</p>
 <li>如果实现类没有重写所有的抽象方法，那么这个实现类就要被定义为抽象类</li>
 <li>接口叫<font color="#de7802">实现(implement)</font>，类叫<font color="#de7802">继承(extends)</font></li>
 </ul>
-<p>写了两个接口，简单可以理解为写了两种规范，实现类满足这种规范就可以具备这些功能。实现 <font color="#de7802">vehicle （载具）</font>规范可以有<font color="#de7802">启动</font>，<font color="#de7802">运行</font>，<font color="#de7802">停止</font>的功能，实现 <font color="#de7802">Engine（引擎）规范</font>，就可以有<font color="#de7802">加油</font>的功能。
+<p>写了两个接口，简单可以理解为写了两种规范，实现类满足这种规范就可以具备这些功能。实现 <font color="#de7802">vehicle （载具）</font>规范可以有<font color="#de7802">启动</font>，<font color="#de7802">运行</font>，<font color="#de7802">停止</font>的功能，实现 <font color="#de7802">Engine（引擎）规范</font>，就可以有<font color="#de7802">加油</font>的功能。<br>
 <code v-pre>Vehicle.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> interface</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Vehicle</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> start</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -5354,8 +5354,8 @@ java 中的继承 -- 它是不是</p>
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">飞机启动</span></span>
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">飞机起飞</span></span>
 <span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">飞机降落</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>1．类实现接口
-一个类可以实现多个接口
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>1．类实现接口<br>
+一个类可以实现多个接口<br>
 接口能继承接口，能继承多个接口</p>
 <h3 id="接口的多态" tabindex="-1"><a class="header-anchor" href="#接口的多态"><span>接口的多态</span></a></h3>
 <h4 id="怎么实现接口的多态" tabindex="-1"><a class="header-anchor" href="#怎么实现接口的多态"><span>怎么实现接口的多态</span></a></h4>
@@ -5375,7 +5375,7 @@ java 中的继承 -- 它是不是</p>
 <h4 id="向上转型-1" tabindex="-1"><a class="header-anchor" href="#向上转型-1"><span>向上转型</span></a></h4>
 <p>见例子</p>
 <h4 id="向下转型-1" tabindex="-1"><a class="header-anchor" href="#向下转型-1"><span>向下转型</span></a></h4>
-<p>见例子
+<p>见例子<br>
 <code v-pre>Plane.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Plane</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> implements</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Vehicle</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Engery</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    @</span><span style="--shiki-light:#A626A4;--shiki-dark:#E5C07B">Override</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -5628,7 +5628,7 @@ java 中的继承 -- 它是不是</p>
 <p>在实际开发过程中，并不是所有的类都需要创建一个 <code v-pre>java</code> 文件然后再 <code v-pre>new</code> 出来使用，比如拿来测试的类，测试多了会让工程结构变得复杂。</p>
 </blockquote>
 <h3 id="匿名内部类" tabindex="-1"><a class="header-anchor" href="#匿名内部类"><span>匿名内部类</span></a></h3>
-<p>抽象类和接口都可以创建匿名内部类，这样单纯只是测试抽象类和接口的时候就不要再新建文件了。
+<p>抽象类和接口都可以创建匿名内部类，这样单纯只是测试抽象类和接口的时候就不要再新建文件了。<br>
 <code v-pre>Vehicle.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> interface</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Vehicle</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> start</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -5694,7 +5694,7 @@ java 中的继承 -- 它是不是</p>
 </ul>
 <h3 id="使用包" tabindex="-1"><a class="header-anchor" href="#使用包"><span>使用包</span></a></h3>
 <p>如果当前类要用到其他包中的类，需要使用 import 关键字来导入</p>
-<p>例如：i<code v-pre>mport java.util.Scanner;</code>
+<p>例如：i<code v-pre>mport java.util.Scanner;</code><br>
 如果需要用到某个包的多个类可以用*代替所有类</p>
 <p>例如：<code v-pre>import java.util.*;</code></p>
 <h3 id="常用包介绍" tabindex="-1"><a class="header-anchor" href="#常用包介绍"><span>常用包介绍</span></a></h3>
@@ -6066,7 +6066,7 @@ java 中的继承 -- 它是不是</p>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h5 id="包装类的常量池" tabindex="-1"><a class="header-anchor" href="#包装类的常量池"><span>包装类的常量池</span></a></h5>
-<p>在类加载时创建 <code v-pre>-128~127</code> 范围数字对应的 <code v-pre>Integer</code> 类的对象，后续如果需要 <code v-pre>Integer</code> 类的对象就从常里池中获取，
+<p>在类加载时创建 <code v-pre>-128~127</code> 范围数字对应的 <code v-pre>Integer</code> 类的对象，后续如果需要 <code v-pre>Integer</code> 类的对象就从常里池中获取，<br>
 如果常里池沒有对应的对象，就去创建新的对象。<code v-pre>-128~127</code> 是使用频率比较高的范围，避免频繁创建对象，有助于优化程序运行速度。</p>
 <ul>
 <li>如何判断包装类的对象值是否相等
@@ -6117,7 +6117,7 @@ java 中的继承 -- 它是不是</p>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="string-类" tabindex="-1"><a class="header-anchor" href="#string-类"><span>String 类</span></a></h3>
-<p>String、StringBuffer、StringBuilde 中：
+<p>String、StringBuffer、StringBuilde 中：<br>
 StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 还快</p>
 <h4 id="创建" tabindex="-1"><a class="header-anchor" href="#创建"><span>创建</span></a></h4>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> str1 </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "hello"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
@@ -6154,7 +6154,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <h4 id="可变字符串" tabindex="-1"><a class="header-anchor" href="#可变字符串"><span>可变字符串</span></a></h4>
 <h5 id="stringbuffer" tabindex="-1"><a class="header-anchor" href="#stringbuffer"><span>StringBuffer</span></a></h5>
 <blockquote>
-<p>解决了 String 用字符串做拼接，既费时又耗内存的问题。
+<p>解决了 String 用字符串做拼接，既费时又耗内存的问题。<br>
 * 使用场景：字符串频繁拼接场合</p>
 </blockquote>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> sbf </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> StringBuffer</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"hello"</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
@@ -6231,7 +6231,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <blockquote>
 <p>线程不安全</p>
 </blockquote>
-<p>- 创建 <code v-pre>simpleDateformat</code> 对象
+<p>- 创建 <code v-pre>simpleDateformat</code> 对象<br>
  - 使用该对象的 <code v-pre>format</code> 方法进行格式化</p>
 <p><code v-pre>SimpleDateFormatTest.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">package</span><span style="--shiki-light:#383A42;--shiki-dark:#C678DD"> com.situ.commonlyusedclass.dateclass</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -6300,7 +6300,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        System</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">out</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">println</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">c</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">get</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">Calendar</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">DAY_OF_WEEK</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">));</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">//1  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>PrintCalendar.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>PrintCalendar.java</code><br>
 打印万年历</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> java.util.Calendar</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> java.util.Scanner</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -6389,7 +6389,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>DateTimeFormatterTest.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>DateTimeFormatterTest.java</code><br>
 使用 DateTimeFormatter 格式化/解析日期</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> java.time.LocalDateTime</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> java.time.format.DateTimeFormatter</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -6409,7 +6409,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="集合的体系结构" tabindex="-1"><a class="header-anchor" href="#集合的体系结构"><span>集合的体系结构</span></a></h2>
 <blockquote>
-<p>解决数组初始化后不能动态修改长度，以及空间闲置浪费的问题。
+<p>解决数组初始化后不能动态修改长度，以及空间闲置浪费的问题。<br>
 集合只能存储引用数据类型(基本数据类型可以使用包装类)</p>
 </blockquote>
 <ul>
@@ -6471,7 +6471,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 </ul>
 <h3 id="list" tabindex="-1"><a class="header-anchor" href="#list"><span>List</span></a></h3>
 <blockquote>
-<p>元素<font color="#de7802">有序</font>，且<font color="#de7802">可重复</font>的集合，有下标
+<p>元素<font color="#de7802">有序</font>，且<font color="#de7802">可重复</font>的集合，有下标<br>
 默认按照元素的添加顺序设置元素的索引</p>
 </blockquote>
 <h4 id="arraylist" tabindex="-1"><a class="header-anchor" href="#arraylist"><span>ArrayList</span></a></h4>
@@ -6683,7 +6683,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        }  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>ArrayListExample.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>ArrayListExample.java</code><br>
 使用 forEach</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> java.util.ArrayList</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
 <span class="line"></span>
@@ -6734,8 +6734,8 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">....</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h6 id="在自定义类中使用泛型" tabindex="-1"><a class="header-anchor" href="#在自定义类中使用泛型"><span>在自定义类中使用泛型</span></a></h6>
-<p>泛型类
-<code v-pre>GenericsClass.java</code>
+<p>泛型类<br>
+<code v-pre>GenericsClass.java</code><br>
 泛型类</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> GenericsClass</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">T</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> A</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    private</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> T</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> t</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -6748,21 +6748,21 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        this</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">a</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> a;  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>GenericsInterface.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>GenericsInterface.java</code><br>
 泛型接口</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> interface</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> GenericsInterface</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">A</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> B</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
 <span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">	A</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> test1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">A</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">	void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> test2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">B</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> b</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">	void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> test3</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">A</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">B</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> b</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>GenericsInterface2.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>GenericsInterface2.java</code><br>
 泛型接口</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> interface</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> GenericsInterface2</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">C</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">	void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> test4</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">C</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> c</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>MyClass.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>MyClass.java</code><br>
 可以实现多个泛型接口，注意当前类也要写上对应数量的泛型。</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> MyClass</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">A</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> B</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> C</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> implements</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> GenericsInterface</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">A</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> B</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">>,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">GenericsInterface2</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">C</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">	public</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> A</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> test1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">A</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> a</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
@@ -6778,7 +6778,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">	</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">	}</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">	</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>MyClass2.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>MyClass2.java</code><br>
 继承泛型类，子类也要写上一致的泛型</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> MyClass2</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">T</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> A</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> extends</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> GenericsClass</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">T</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> A</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
 <span class="line"></span>
@@ -6885,7 +6885,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        System</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">out</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">println</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"-------------拷贝数组结束---------------"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>MyTest13.java</code>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>MyTest13.java</code><br>
 使用 Collectons 中自带的方法求最大值和最小值</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> MyTest13</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> static</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> main</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[] </span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic">args</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
@@ -7136,7 +7136,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 </ul>
 </li>
 </ul>
-<p>HashSet 的底层：
+<p>HashSet 的底层：<br>
 <img src="@source/appends/img/setJavaHomeOnMac.jpeg" alt="" loading="lazy"></p>
 <h5 id="基本操作-2" tabindex="-1"><a class="header-anchor" href="#基本操作-2"><span>基本操作</span></a></h5>
 <p><code v-pre>HashSetBasicOperate.java</code></p>
@@ -7528,8 +7528,8 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <li>
 <ul>
 <li>编译时异常一定需要要处理。</li>
-<li>可能出现运行时异常的方法，在编译时并不会报红。
-<code v-pre>Commonly.java</code>
+<li>可能出现运行时异常的方法，在编译时并不会报红。<br>
+<code v-pre>Commonly.java</code><br>
 常见的异常</li>
 </ul>
 </li>
@@ -7659,7 +7659,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果一直抛出，抛到调用者没处理异常，再抛出抛到 <code v-pre>main</code> 方法，<code v-pre>main</code> 又没处理，直接抛出道了 <code v-pre>JVM</code> ，那么就直接崩溃了。</p>
 <h3 id="自定义异常" tabindex="-1"><a class="header-anchor" href="#自定义异常"><span>自定义异常</span></a></h3>
-<p>本质：自定义 Java 类
+<p>本质：自定义 Java 类<br>
 要求：要继承 Exception 类，或者 Exception 的子类</p>
 <p><code v-pre>CustomizedException.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">package</span><span style="--shiki-light:#383A42;--shiki-dark:#C678DD"> com.situ.exceptionanderror</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>

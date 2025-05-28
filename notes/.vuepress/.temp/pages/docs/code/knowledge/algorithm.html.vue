@@ -26,7 +26,7 @@
 </ul>
 </li>
 <li>
-<p>例子：岛屿的最大面积（LeetCode 695）
+<p>例子：岛屿的最大面积（LeetCode 695）<br>
 <strong>问题</strong>：给定一个二维数组，其中 1 表示陆地，0 表示水域，找出最大的岛屿面积。</p>
 </li>
 </ol>
@@ -90,7 +90,7 @@
 </ul>
 </li>
 <li>
-<p>例子：接雨水（LeetCode 42）
+<p>例子：接雨水（LeetCode 42）<br>
 <strong>问题</strong>：给定 n 个非负整数表示每个宽度为 1 的柱子的高度，计算按此排列的柱子，下雨之后能接多少雨水。</p>
 </li>
 </ol>
@@ -168,7 +168,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">    </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> prev</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>eg 2: 合并两个有序数组
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>eg 2: 合并两个有序数组<br>
 问题描述：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,], n = 3，<strong>输出：</strong>[1,2,2,3,5,6]</p>
 <p>解题思路：</p>
 <ol>
@@ -183,7 +183,7 @@
 <li><strong>边界处理</strong>：分别处理nums1或nums2遍历完的情况</li>
 </ol>
 <p>eg 3: K 个一组翻转链表（LeetCode 25）</p>
-<p><strong>问题描述</strong>：
+<p><strong>问题描述</strong>：<br>
 给你一个链表和一个整数 k，请你每 k 个节点一组进行翻转，返回翻转后的链表。如果节点总数不是 k 的整数倍，那么最后剩余的节点保持原有顺序。</p>
 <p><strong>解题思路</strong>：</p>
 <ol>
@@ -234,7 +234,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">    </span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> prev</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 返回反转后的新头节点</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>时间复杂度</strong>：O(n)，每个节点只会被访问常数次
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>时间复杂度</strong>：O(n)，每个节点只会被访问常数次<br>
 <strong>空间复杂度</strong>：O(n/k)，递归调用栈的深度</p>
 <h3 id="快慢指针" tabindex="-1"><a class="header-anchor" href="#快慢指针"><span>快慢指针</span></a></h3>
 <ol>
@@ -271,8 +271,8 @@
 </ul>
 </li>
 <li>
-<p>例子
-问题描述：
+<p>例子<br>
+问题描述：<br>
 给你一个 m 行 n 列的矩阵 matrix ，请按照顺时针螺旋顺序，返回矩阵中的所有元素。</p>
 </li>
 </ol>
@@ -332,10 +332,10 @@
 </ul>
 </li>
 </ol>
-<p>问题描述：
+<p>问题描述：<br>
 给定一个大小为 <code v-pre>n</code> 的数组 <code v-pre>nums</code> ，返回其中的多数元素。多数元素是指在数组中出现次数 <strong>大于</strong> <code v-pre>⌊ n/2 ⌋</code> 的元素。你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
 <p>输入：nums = [3,2,3]  输出：3</p>
-<p><strong>示例 2：</strong>
+<p><strong>示例 2：</strong><br>
 输入：nums = [2,2,1,1,1,2,2]  输出：2</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> int</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> majorityElement</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#C18401;--shiki-dark:#C678DD">int</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">[] nums) {</span></span>
 <span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">        Integer</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> count </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
@@ -543,7 +543,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="记忆化" tabindex="-1"><a class="header-anchor" href="#记忆化"><span>记忆化</span></a></h2>
 <blockquote>
-<p><strong>记忆化</strong>通过存储子问题的结果，避免了重复计算。
+<p><strong>记忆化</strong>通过存储子问题的结果，避免了重复计算。<br>
 如计算斐波那契额数列时</p>
 </blockquote>
 <p>leetCode 070 计算爬楼梯</p>
@@ -578,7 +578,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="回溯法" tabindex="-1"><a class="header-anchor" href="#回溯法"><span>回溯法</span></a></h2>
 <blockquote>
-<p>递归到最深处时，再回溯到上一层执行另一分支。
+<p>递归到最深处时，再回溯到上一层执行另一分支。<br>
 如根据 n 计算出有效括号</p>
 </blockquote>
 <h2 id="递归法" tabindex="-1"><a class="header-anchor" href="#递归法"><span>递归法</span></a></h2>
@@ -702,11 +702,11 @@ maxPosition = max(0, 0 + 2) = 2<br>
 更新 end = 2，steps = 1<br>
 贪心选择：从位置 0 跳到位置 2。</p>
 <p>i = 1：<br>
-maxPosition = max(2, 1 + 3) = 4，<code v-pre>发现其实我能到达的最远位置是 4  </code>
+maxPosition = max(2, 1 + 3) = 4，<code v-pre>发现其实我能到达的最远位置是 4  </code><br>
 i != end，继续遍历。</p>
 <p>i = 2：<br>
 maxPosition = max(4, 2 + 1) = 4<br>
-此时，i == end，说明需要跳跃。<code v-pre>我已经知道我最远能到 4 了，所以直接从这里跳到那个最远的位置</code>
+此时，i == end，说明需要跳跃。<code v-pre>我已经知道我最远能到 4 了，所以直接从这里跳到那个最远的位置</code><br>
 更新 end = 4，steps = 2<br>
 贪心选择：从位置 2 跳到位置 4。</p>
 <p>i = 3：<br>
@@ -749,7 +749,7 @@ i = 4：<br>
 <blockquote>
 <p>归并排序是建立在归并操作上的一种有效的排序算法，该算法是采用分治法（Divide and Conquer）的一个非常典型的应用，且各层分治递归可以同时进行。 归并排序思路简单，速度仅次于快速排序，为稳定排序算法，一般用于对总体无序，但是各子项相对有序的数列。 归并排序的核心思想是分治法，先递归分解数组，再合并数组。将数组分解最小之后，然后合并两个有序数组，基本思路是比较两个数组的最前面的数，谁小就先取谁，取了后相应的指针就往后移一位。然后再比较，直至一个数组为空，最后把另一个数组的剩余部分复制过来即可。</p>
 </blockquote>
-<p>leetCode 88 归并排序的前置题目
+<p>leetCode 88 归并排序的前置题目<br>
 leetCode 4 归并排序</p>
 <h2 id="字符串处理" tabindex="-1"><a class="header-anchor" href="#字符串处理"><span>字符串处理</span></a></h2>
 <h3 id="反转字符串" tabindex="-1"><a class="header-anchor" href="#反转字符串"><span>反转字符串</span></a></h3>

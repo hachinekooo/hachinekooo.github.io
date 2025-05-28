@@ -3,8 +3,16 @@ title: 请求处理流中的"回响模式"：利用拦截器为过滤器提供�
 icon: file
 order: 
 date: 2025-04-27
-category: 
+category:
+  - Java
 tags:
+  - SpringBoot
+  - Filter
+  - Interceptor
+  - 架构设计
+  - 设计模式
+  - 日志记录
+  - API监控
 ---
 ## 1. 引言
 
@@ -74,9 +82,43 @@ tags:
 
 ## 原理解析
 
-我们将会使用 HttpServletRequest 来实现。一句话描述就是：它就像是封装了一个请求信息的 map，同时我们也能往里存放信息，从而实现信息传递。
+### 核心思想
+"回响模式"的核心思想非常简洁：利用 HttpServletRequest 作为信息载体，实现拦截器到过滤器的信息传递。一句话描述就是：HttpServletRequest 就像是封装了一个请求信息的 Map，我们不仅可以从中获取请求信息，同时也能往里存放自定义信息，从而实现跨层级的信息传递。
 
-关键代码:
+```java
+// 简化的结构示意
+public class HttpServletRequestImpl implements HttpServletRequest {
+    
+    // 1. HTTP基本信息
+    private String method;          // GET, POST, PUT等
+    private String requestURI;      // 请求URI
+    private String queryString;     // 查询参数
+    private String protocol;        // HTTP/1.1
+    
+    // 2. 请求头信息
+    private Map<String, List<String>> headers;
+    
+    // 3. 请求参数
+    private Map<String, String[]> parameters;
+    
+    // 4. 会话信息
+    private HttpSession session;
+    
+    // 5. 请求体
+    private ServletInputStream inputStream;
+    
+    // 6. 自定义属性存储 - 这就是我们"回响模式"所用到的属性
+    private Map<String, Object> attributes;
+    
+    // 7. 路径信息
+    private String contextPath;
+    private String servletPath;
+    private String pathInfo;
+
+}
+```
+
+### 关键代码 :
 
 - 在拦截器环节，我们将具体的 Handler 存储起来
 ```java
@@ -119,4 +161,13 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponse respons
 请求进入 → 过滤器链 → DispatcherServlet → 拦截器 → 控制器 → 拦截器（放入Handler信 息） → DispatcherServlet → 过滤器链中的日志过滤器(创建日志) → 响应返回
 ```
 
-通过这种方式，我们就实现了在日记记录拦截器，完整记录日志信息，指责也更加清楚，维护性更好。
+
+### 为什么称之为 “回响”？
+回响，就像是往深井中投下的一块石头，片刻之后，声音便会传入你的耳中，信息也随之而来，你知道大概有多深，是否有水...
+
+这种模式的好处在于，信息是自然流动的，并不需要什么复杂的设计。同时也让过滤器和拦截器的职责更加清晰，拦截器负责信息收集，过滤器负责统一处理。
+
+## 安全性
+每个 HTTP 请求都有独立的 HttpServletRequest 实例，单个请求在整个生命周期中都是由同一个线程处理，请求和请求之间天然隔离，不存在多个请求访问到同一个 HttpServletRequest 对象的情况。
+
+在使用 Map 是最典型的一个问题就是内存泄漏了，而 HttpServletRequest 可以底层就用到了 Map。但是在这个场景下基本不可能存在内存泄漏的问题。因为首先 HandlerMethod 对象很小，在一个就是请求结束时整个对象都会被 GC 回收。

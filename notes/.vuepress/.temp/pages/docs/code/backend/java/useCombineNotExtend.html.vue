@@ -1,4 +1,4 @@
-<template><div><p>例子：电子商务订单处理系统
+<template><div><p>例子：电子商务订单处理系统<br>
 1.	支付方式类（支付宝、微信支付、信用卡支付）</p>
 <div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>// 支付接口</span></span>
 <span class="line"><span>interface PaymentMethod {</span></span>
@@ -97,18 +97,18 @@
 <span class="line"><span>    }</span></span>
 <span class="line"><span>}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>输出：</p>
-<h2 id="paying-199-99-using-alipay-shipping-to-123-main-street-city-via-express-shipping-order-processed-successfully" tabindex="-1"><a class="header-anchor" href="#paying-199-99-using-alipay-shipping-to-123-main-street-city-via-express-shipping-order-processed-successfully"><span>Paying 199.99 using Alipay.
-Shipping to 123 Main Street, City via Express Shipping.
+<h2 id="paying-199-99-using-alipay-shipping-to-123-main-street-city-via-express-shipping-order-processed-successfully" tabindex="-1"><a class="header-anchor" href="#paying-199-99-using-alipay-shipping-to-123-main-street-city-via-express-shipping-order-processed-successfully"><span>Paying 199.99 using Alipay.<br>
+Shipping to 123 Main Street, City via Express Shipping.<br>
 Order processed successfully!</span></a></h2>
-<p>Paying 99.99 using Credit Card.
-Delivering to 456 Elm Street, City via Home Delivery.
+<p>Paying 99.99 using Credit Card.<br>
+Delivering to 456 Elm Street, City via Home Delivery.<br>
 Order processed successfully!</p>
 <p>解释</p>
 <p>在这个例子中，我们通过在 Order 类中组合了 PaymentMethod 和 ShippingMethod 接口的不同实现类，来处理不同的支付方式和物流方式。每个订单可以灵活地选择不同的支付方式（例如支付宝、微信支付、信用卡）和物流方式（例如快递、送货上门），而不需要在 Order 类中硬编码所有的支付和物流逻辑。</p>
-<p>这种组合方法有以下优点：
-1.	灵活扩展：我们可以轻松地添加新的支付方式或物流方式，只需要实现相应的接口，并将其传递给 Order 类即可。例如，添加 PayPal 支付方式和 DroneShipping 快递方式都非常简单。
-2.	高内聚低耦合：每个类专注于单一的功能（支付、物流等），它们的实现相互独立，符合单一职责原则和松耦合原则。
-3.	避免复杂继承：通过组合来扩展功能，而不是通过继承，避免了复杂的继承体系，使代码更加清晰和易于维护。
+<p>这种组合方法有以下优点：<br>
+1.	灵活扩展：我们可以轻松地添加新的支付方式或物流方式，只需要实现相应的接口，并将其传递给 Order 类即可。例如，添加 PayPal 支付方式和 DroneShipping 快递方式都非常简单。<br>
+2.	高内聚低耦合：每个类专注于单一的功能（支付、物流等），它们的实现相互独立，符合单一职责原则和松耦合原则。<br>
+3.	避免复杂继承：通过组合来扩展功能，而不是通过继承，避免了复杂的继承体系，使代码更加清晰和易于维护。<br>
 4.	开闭原则：在不修改现有代码的情况下，我们可以通过新增支付方式或物流方式来扩展订单处理功能，从而遵循开闭原则。</p>
 <p>通过组合，Order 类变得非常灵活，可以根据需要动态地组合不同的支付和物流方式，满足不同业务需求</p>
 </div></template>

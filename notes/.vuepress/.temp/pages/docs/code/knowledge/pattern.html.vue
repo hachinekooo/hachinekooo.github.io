@@ -30,7 +30,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="装饰器模式" tabindex="-1"><a class="header-anchor" href="#装饰器模式"><span>装饰器模式</span></a></h2>
 <blockquote>
-<p><a href="https://www.bilibili.com/video/BV1BXWKeNEcV/?share_source=copy_web&amp;vd_source=5903e81d41539e9b3be309b9b3bb014f" target="_blank" rel="noopener noreferrer">装饰器模式的由来</a>
+<p><a href="https://www.bilibili.com/video/BV1BXWKeNEcV/?share_source=copy_web&amp;vd_source=5903e81d41539e9b3be309b9b3bb014f" target="_blank" rel="noopener noreferrer">装饰器模式的由来</a><br>
 装饰器模式是一种<strong>结构型设计模式</strong>，它允许动态地为对象添加额外的行为，而不会影响其他对象。装饰器模式通过将对象包装在装饰器类中，来扩展对象的功能。</p>
 </blockquote>
 <h3 id="装饰器模式的核心角色" tabindex="-1"><a class="header-anchor" href="#装饰器模式的核心角色"><span>装饰器模式的核心角色</span></a></h3>
@@ -52,7 +52,7 @@
 </li>
 <li><strong>ConcreteDecorator（具体装饰器）</strong>：
 <ul>
-<li>实现 <code v-pre>Decorator</code>，为 <code v-pre>Component</code> 添加额外的行为。
+<li>实现 <code v-pre>Decorator</code>，为 <code v-pre>Component</code> 添加额外的行为。<br>
 PS:接口或者抽象类都可以</li>
 </ul>
 </li>
@@ -621,9 +621,9 @@ PS:接口或者抽象类都可以</li>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="模板方法" tabindex="-1"><a class="header-anchor" href="#模板方法"><span>模板方法</span></a></h3>
-<p>定义一个操作中的算法的骨架流程，而将一些步骤延迟到子类中，使得子类可以不改变一个算
-法的结构即可重定义该算法的某些特定步骤。它的核心思想就是：定义一个操作的一系列步
-骤，对于某些暂时确定不下来的步骤，就留给子类去实现，这样不同的子类就可以定义出不同
+<p>定义一个操作中的算法的骨架流程，而将一些步骤延迟到子类中，使得子类可以不改变一个算<br>
+法的结构即可重定义该算法的某些特定步骤。它的核心思想就是：定义一个操作的一系列步<br>
+骤，对于某些暂时确定不下来的步骤，就留给子类去实现，这样不同的子类就可以定义出不同<br>
 的步骤。</p>
 <ol start="11">
 <li>简单定义： &quot;模板方法模式是一种行为型设计模式，它定义了一个算法的骨架，将一些步骤延迟到子类中实现。模板方法使得子类可以在不改变算法结构的情况下，重新定义算法中的某些步骤。&quot;</li>
@@ -773,9 +773,9 @@ PS:接口或者抽象类都可以</li>
 </ul>
 <hr>
 <h4 id="用户注册的例子" tabindex="-1"><a class="header-anchor" href="#用户注册的例子"><span>用户注册的例子</span></a></h4>
-<p>假设我们有一个用户注册系统，当用户注册成功后，需要执行以下操作：
-20. 发送短信通知。
-21. 发送电子邮件通知。
+<p>假设我们有一个用户注册系统，当用户注册成功后，需要执行以下操作：<br>
+20. 发送短信通知。<br>
+21. 发送电子邮件通知。<br>
 22. 发送系统通知。</p>
 <p>我们可以使用观察者模式来实现这个需求。</p>
 <h5 id="代码实现" tabindex="-1"><a class="header-anchor" href="#代码实现"><span>代码实现</span></a></h5>

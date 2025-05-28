@@ -7,6 +7,7 @@ category:
   - Java
 tags:
   - JavaWeb
+  - 基础
 ---
 ## Web 服务器
 >Ps:基于 `macos` 搭建

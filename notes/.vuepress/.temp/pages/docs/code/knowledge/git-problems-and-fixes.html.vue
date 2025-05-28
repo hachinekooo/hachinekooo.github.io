@@ -145,7 +145,7 @@
 <h3 id="查看文件管理情况" tabindex="-1"><a class="header-anchor" href="#查看文件管理情况"><span>查看文件管理情况</span></a></h3>
 <p>查看当前 Git 仓库中已经被版本管理的文件</p>
 <div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>git ls-files</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>查看当前目录的文件状态
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>查看当前目录的文件状态<br>
 git status 输出解读：</p>
 <ul>
 <li>已被版本管理的文件：在 Changes not staged for commit 或 Changes to be committed 部分。</li>

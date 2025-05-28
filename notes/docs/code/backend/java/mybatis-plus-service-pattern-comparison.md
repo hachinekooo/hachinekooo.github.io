@@ -8,6 +8,8 @@ category:
 tags:
   - MyBatisPlus
   - MyBatis
+  - 架构设计
+  - 设计模式
 ---
 ## 继承 or 组合
 

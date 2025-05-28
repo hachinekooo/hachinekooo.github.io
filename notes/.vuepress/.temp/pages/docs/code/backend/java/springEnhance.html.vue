@@ -25,7 +25,7 @@
 <span class="line"></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="@source/appends/img/springEnhance.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
-<p>综合来说，DefaultListableBeanFactory 实现了 3 个接口
+<p>综合来说，DefaultListableBeanFactory 实现了 3 个接口<br>
 <code v-pre>ConfigurableListableBeanFactory</code>:</p>
 <ul>
 <li>它整合了配置、列举和管理 bean 的能力</li>
@@ -1514,7 +1514,7 @@
 <span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// AutoConfigurationImportSelector 会去读取</span></span>
 <span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">// META-INF/spring.factories 文件里的配置类</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3">
-<li><strong>配置文件位置</strong>：
+<li><strong>配置文件位置</strong>：<br>
 这些自动配置类都配置在 <code v-pre>spring-boot-autoconfigure</code> 包的 <code v-pre>META-INF/spring.factories</code> 文件中：</li>
 </ol>
 <div class="language-properties line-numbers-mode" data-highlighter="shiki" data-ext="properties" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"># Auto Configure</span></span>
@@ -1527,7 +1527,7 @@
 <blockquote>
 <p>条件装配的底层是本质上是 <code v-pre>@Conditional</code> 与 <code v-pre>Condition</code>，这两个注解。引入自动配置类时，期望满足一定条件才能被 Spring 管理。</p>
 </blockquote>
-<p>条件装配的简单实现：
+<p>条件装配的简单实现：<br>
 比如条件是【类路径下必须有 dataSource】这个 bean ，怎么做呢？</p>
 <p>首先编写条件判断类，它实现 Condition 接口，编写条件判断逻辑</p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">static</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> MyCondition1</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> implements</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Condition</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> </span></span>

@@ -39,7 +39,7 @@
 <span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">	"site"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"http://blueboySalvat.top"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>同样 payload 也需要 Base64编码，然后我们就得到了 JWT 的第二部分</p>
-<p>Signature:
+<p>Signature:<br>
 对 Header、Payload 部分进行签名，需要用到签名算法和密钥。</p>
 <p>签名可以用于验证消息在传递过程中有没有被更改。并且，对于使用私钥签名的 token，它还可以验证 JWT 的发送方是否为它的发送方。</p>
 </div></template>
