@@ -4,22 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "aab53af5c0188f95",
+        "id": "7ea5333bdcd40057",
         "type": "tabs",
         "children": [
           {
-            "id": "e160c00b959e02d0",
+            "id": "1bf1642a64428998",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/quiettalks/README.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "新标签页"
             }
           }
         ]
@@ -69,7 +64,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 387.5
+    "width": 444.5,
+    "collapsed": true
   },
   "right": {
     "id": "ff05bf4eebaa236b",
@@ -150,26 +146,29 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "e160c00b959e02d0",
+  "active": "1bf1642a64428998",
   "lastOpenFiles": [
+    "docs/code/backend/java/string.md",
+    "docs/quiettalks/README.md",
     "docs/quiettalks/2025/05/2025-05-28.md",
+    "docs/quiettalks/2025/05/2025-05-29.md",
+    "templater/quiettalks.md",
+    "docs/code/knowledge/useful-vocabulary-technical-doc.md",
+    "templater/note.md",
     "docs/code/backend/java/spring.md",
     "docs/code/backend/java/javaWeb.md",
     "docs/code/backend/java/websocket.md",
     "docs/code/backend/java/springboot-version-controll.md",
     "docs/code/backend/java/echo-pattern-in-request-processing.md",
     "docs/code/backend/java/mybatis-plus-service-pattern-comparison.md",
-    "docs/quiettalks/README.md",
     "docs/quiettalks/2025/未命名.md",
     "docs/quiettalks/未命名.md",
     "docs/Saysomething.md",
-    "templater/quiettalks.md",
     "docs/quiettalks/2025/05",
     "docs/quiettalks/2025",
     "intro.md",
     "README.md",
     "docs/quiettalks",
-    "templater/note.md",
     "docs/code/knowledge/gitBasic.md",
     "docs/code/knowledge/pattern.md",
     "docs/code/knowledge/regularExpression.md",
@@ -177,10 +176,6 @@
     "docs/code/backend/java/javaEnhance.md",
     "docs/code/backend/java/mltiThreading.md",
     "docs/code/backend/java/multiEnvConfig.md",
-    "docs/code/backend/java/aop.md",
-    "docs/code/backend/java/java_entity.md",
-    "docs/code/knowledge/algorithm.md",
-    "docs/code/knowledge/git-problems-and-fixes.md",
     "docs/productivity",
     "appends/img/writeYourFirstVuePage2.png",
     "appends/img/writeYourFirstVuePage1.png",

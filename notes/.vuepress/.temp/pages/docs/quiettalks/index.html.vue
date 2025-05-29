@@ -8,6 +8,9 @@
 <p>也祝福意见不一致的人，甚至是对我有敌意的人。</p>
 <p>🌱 也祝愿你——身体安康，平安喜乐。</p>
 <hr>
-</div></template>
+<HomePage /></div></template>
 
 
+<script setup>
+import HomePage from "@/components/CustomContent.vue";
+</script>

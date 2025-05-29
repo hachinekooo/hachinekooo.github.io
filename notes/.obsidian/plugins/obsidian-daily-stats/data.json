@@ -177,56 +177,29 @@
     "2025/4/24": 1276,
     "2025/4/26": 507,
     "2025/4/27": 57,
-    "2025/4/28": 534
+    "2025/4/28": 534,
+    "2025/4/29": 186
   },
   "todaysWordCount": {
-    "docs/project/未命名.md": {
-      "initial": 124,
-      "current": 124
-    },
-    "docs/quiettalks/README.md": {
-      "initial": 0,
-      "current": 102
-    },
-    "intro.md": {
-      "initial": 36,
-      "current": 26
-    },
-    "templater/未命名.md": {
-      "initial": 81,
-      "current": 81
-    },
     "templater/quiettalks.md": {
-      "initial": 81,
+      "initial": 78,
       "current": 77
     },
-    "docs/code/backend/java/echo-pattern-in-request-processing.md": {
-      "initial": 1539,
-      "current": 1961
-    },
-    "docs/quiettalks/2025/未命名.md": {
-      "initial": 1,
-      "current": 0
+    "templater/note.md": {
+      "initial": 9,
+      "current": 8
     },
     "docs/quiettalks/2025/05/2025-05-28.md": {
-      "initial": 26,
-      "current": 26
+      "initial": 27,
+      "current": 194
     },
-    "docs/code/backend/java/springboot-version-controll.md": {
-      "initial": 948,
-      "current": 952
+    "docs/code/knowledge/未命名.md": {
+      "initial": 10,
+      "current": 29
     },
-    "docs/code/backend/java/mybatis-plus-service-pattern-comparison.md": {
-      "initial": 739,
-      "current": 743
-    },
-    "docs/code/backend/java/websocket.md": {
-      "initial": 1608,
-      "current": 1610
-    },
-    "docs/code/backend/java/javaWeb.md": {
-      "initial": 14726,
-      "current": 14726
+    "docs/code/knowledge/words.md": {
+      "initial": 28,
+      "current": 28
     }
   }
 }

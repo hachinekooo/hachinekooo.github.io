@@ -22,3 +22,9 @@ tags:
 🌱 也祝愿你——身体安康，平安喜乐。
 
 ---
+
+<HomePage />
+
+<script setup>
+import HomePage from "@/components/CustomContent.vue";
+</script>
