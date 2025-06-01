@@ -4,17 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "7ea5333bdcd40057",
+        "id": "cf76820050753434",
         "type": "tabs",
         "children": [
           {
-            "id": "1bf1642a64428998",
+            "id": "1b5337b96df5a5d5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "docs/code/backend/java/dynamicconfig.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "dynamicconfig"
             }
           }
         ]
@@ -64,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 444.5,
-    "collapsed": true
+    "width": 465.5
   },
   "right": {
     "id": "ff05bf4eebaa236b",
@@ -101,16 +105,6 @@
             }
           },
           {
-            "id": "4c09415009687fcb",
-            "type": "leaf",
-            "state": {
-              "type": "copilot-chat-view",
-              "state": {},
-              "icon": "message-square",
-              "title": "Copilot"
-            }
-          },
-          {
             "id": "e646a68f6ab6d5a5",
             "type": "leaf",
             "state": {
@@ -125,7 +119,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -142,19 +136,22 @@
       "workspaces:管理工作区布局": false,
       "templates:插入模板": false,
       "fuzzy-chinese-pinyin:FuzzySearch": false,
-      "templater-obsidian:Templater": false,
-      "copilot:Open Copilot Chat": false
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "1bf1642a64428998",
+  "active": "1b5337b96df5a5d5",
   "lastOpenFiles": [
+    "templater/note.snippet.md",
+    "templater/note.md",
+    "templater/quiettalks.snippet.md",
+    "docs/code/backend/java/dynamicconfig.md",
+    "docs/quiettalks/2025/05/2025-05-30.md",
+    "templater/quiettalks.md",
+    "docs/quiettalks/2025/05/2025-05-28.md",
     "docs/code/backend/java/string.md",
     "docs/quiettalks/README.md",
-    "docs/quiettalks/2025/05/2025-05-28.md",
     "docs/quiettalks/2025/05/2025-05-29.md",
-    "templater/quiettalks.md",
     "docs/code/knowledge/useful-vocabulary-technical-doc.md",
-    "templater/note.md",
     "docs/code/backend/java/spring.md",
     "docs/code/backend/java/javaWeb.md",
     "docs/code/backend/java/websocket.md",
@@ -173,9 +170,6 @@
     "docs/code/knowledge/pattern.md",
     "docs/code/knowledge/regularExpression.md",
     "docs/code/backend/java/changeJDKByJenv.md",
-    "docs/code/backend/java/javaEnhance.md",
-    "docs/code/backend/java/mltiThreading.md",
-    "docs/code/backend/java/multiEnvConfig.md",
     "docs/productivity",
     "appends/img/writeYourFirstVuePage2.png",
     "appends/img/writeYourFirstVuePage1.png",

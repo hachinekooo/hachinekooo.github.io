@@ -1,4 +1,4 @@
-export const typesMap = JSON.parse("{\"article\":{\"/\":{\"path\":\"/article/\",\"indexes\":[22,0,3,7,8,9,23,10,11,12,13,4,6,24,14,15,25,26,1,2,5,16,17,18,19,20,21]}},\"star\":{\"/\":{\"path\":\"/star/\",\"indexes\":[]}},\"timeline\":{\"/\":{\"path\":\"/timeline/\",\"indexes\":[22,0,3,7,8,9,23,10,11,12,13,4,6,24,14,15]}}}");
+export const typesMap = JSON.parse("{\"article\":{\"/\":{\"path\":\"/article/\",\"indexes\":[8,0,24,1,4,9,10,11,25,12,13,14,15,5,7,26,16,17,27,28,2,3,6,18,19,20,21,22,23]}},\"star\":{\"/\":{\"path\":\"/star/\",\"indexes\":[]}},\"timeline\":{\"/\":{\"path\":\"/timeline/\",\"indexes\":[8,0,24,1,4,9,10,11,25,12,13,14,15,5,7,26,16,17]}}}");
 
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept();

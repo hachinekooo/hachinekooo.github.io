@@ -14,6 +14,8 @@ export default defineUserConfig({
   alias: {
     "@": path.resolve(__dirname, "./"),
   },
+
+  //pagePatterns: ["!**/*.snippet.md"],
   // 和 PWA 一起启用
   // shouldPrefetch: false,
 });

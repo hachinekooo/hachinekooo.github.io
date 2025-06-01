@@ -178,28 +178,15 @@
     "2025/4/26": 507,
     "2025/4/27": 57,
     "2025/4/28": 534,
-    "2025/4/29": 186
+    "2025/4/29": 186,
+    "2025/4/30": 0,
+    "2025/4/31": 1705,
+    "2025/5/1": 530
   },
   "todaysWordCount": {
-    "templater/quiettalks.md": {
-      "initial": 78,
-      "current": 77
-    },
-    "templater/note.md": {
-      "initial": 9,
-      "current": 8
-    },
-    "docs/quiettalks/2025/05/2025-05-28.md": {
-      "initial": 27,
-      "current": 194
-    },
-    "docs/code/knowledge/未命名.md": {
-      "initial": 10,
-      "current": 29
-    },
-    "docs/code/knowledge/words.md": {
-      "initial": 28,
-      "current": 28
+    "docs/code/backend/java/dynamicconfig.md": {
+      "initial": 1715,
+      "current": 2245
     }
   }
 }
