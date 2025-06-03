@@ -331,7 +331,7 @@ private BindHandler getBindHandler(ConfigurationProperties annotation) {
 
 在阅读源码之后，相信你已经对与如何实现动态配置刷新有了一定的思路了，下面我们一起来实现一下吧。
 
-- 万事开头难，让我先想一下，我们要干什么，首先我们要能做到获取到 `ConfigurationEnvironment`，忘记的同学可以回去看一下 [clickhere](docs/code/backend/java/dynamicconfig.md#^pc0bpw)，从而能获取到它所管理的 `PropertySource`，然后我们便能将我们自定义的配置数据源设置到 `Environment` 中。其中使用到了到了两个接口
+- 万事开头难，让我先想一下，我们要干什么，首先我们要能做到获取到 `ConfigurationEnvironment`，忘记的同学可以回去看一下 [clickhere](#^pc0bpw)，从而能获取到它所管理的 `PropertySource`，然后我们便能将我们自定义的配置数据源设置到 `Environment` 中。其中使用到了到了两个接口
 	- `ApplicationContextAware`。实现这个接口，从而获得感知应用上下的能力
 	- `EnvironmentAware`。实现这个接口，从而获得感知环境的能力
 - 接着我们要实现的是，对于使用了 `@ConfigurationProperties` 注解修饰的属性类，进行一个重新绑定，以便刷新属性值。
@@ -340,7 +340,111 @@ private BindHandler getBindHandler(ConfigurationProperties annotation) {
 
 #### 基本实现
 
+```java
+/**  
+ * 动态配置绑定器，负责重新绑定属性  
+ *  
+ * @author wangwenpeng  
+ * @date 2025/06/03  
+ */@Slf4j  
+@Component  
+public class DynamicConfigBinder implements ApplicationContextAware {  
+    private ApplicationContext applicationContext;  
+  
+    private PropertySources propertySources;  
+  
+    private volatile Binder binder;  
+  
+  
+    public  <T> void bind(Bindable<T> bindable) {  
+        ConfigurationProperties annotation = bindable.getAnnotation(ConfigurationProperties.class);  
+        if (annotation != null) {  
+            BindHandler bindHandler = getBindHandler(annotation);  
+            getBinder().bind(annotation.prefix(), bindable, bindHandler);  
+        }  
+    }
+}
+```
 
+```java
+/**
+ * 动态配置管理器，负责拉取配置、封装配置与调用绑定器
+ *
+ * @author wangwenpeng
+ * @date 2025/06/03
+ */
+@Slf4j
+@Component
+public class DynamicConfigManager implements EnvironmentAware, ApplicationContextAware, CommandLineRunner {
+
+    private static final String DYNAMIC_CONFIG_PROPERTY_SOURCE_NAME = "dynamic-config";
+
+    private ConfigurableEnvironment environment;
+
+    private ApplicationContext applicationContext;
+
+    private Map<String, Object> dynamicConfigs = new HashMap<>();
+
+    @Autowired
+    private DynamicConfigBinder dynamicConfigBinder;
+
+    public void reloadConfig() {
+        String before = JSONUtil.toJsonStr(dynamicConfigs);
+        boolean toRefresh = loadConfigFromDb();
+        if (toRefresh) {
+            rebind();
+            log.info("配置刷新! 旧:{}, 新:{}", before, JSONUtil.toJsonStr(dynamicConfigs));
+        }
+    }
+
+    public boolean loadConfigFromDb() {
+        dynamicConfigs.clear(); // 先清空
+
+        // 再从数据库拉取，这里使用模拟数据
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("test.config.name", "ApplicationName_DB");
+        hashMap.put("test.config.version", 2);
+        hashMap.put("test.config.enabled", true);
+
+        if (!hashMap.isEmpty()) {
+            dynamicConfigs = hashMap;
+            return true;
+        }
+        return false;
+    }
+
+    public void addPropertySource() {
+        int preSize = environment.getPropertySources().size();
+
+        MapPropertySource dynConfPropertySource = new MapPropertySource(DYNAMIC_CONFIG_PROPERTY_SOURCE_NAME, dynamicConfigs);
+        environment.getPropertySources().addFirst(dynConfPropertySource);
+    }
+
+    public void rebind() {
+        Map<String, Object> beansWithAnnotation = applicationContext.getBeansWithAnnotation(ConfigurationProperties.class);
+        
+        beansWithAnnotation.forEach((beanName, bean) -> {
+            ConfigurationProperties annotation = AnnotationUtils.findAnnotation(bean.getClass(), ConfigurationProperties.class);
+            if (annotation != null) {
+                // 执行重新绑定
+                Bindable<?> bindable = Bindable.ofInstance(bean).withAnnotations(annotation);
+                dynamicConfigBinder.bind(bindable);
+            }
+        });
+    }
+
+    /*
+    * 在 Spring Boot 完全启动后才执行在 Spring Boot 完全启动后才执行
+    * yaml 中的默认值得以保留，作为默认值使用
+    * */
+    @Override
+    public void run(String... args) throws Exception {
+        loadConfigFromDb();
+        addPropertySource();
+        rebind();
+    }
+}
+```
 #### 
 
 ### 事件驱动支持

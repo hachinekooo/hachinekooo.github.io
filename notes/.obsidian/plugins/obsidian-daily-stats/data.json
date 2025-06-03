@@ -181,12 +181,18 @@
     "2025/4/29": 186,
     "2025/4/30": 0,
     "2025/4/31": 1705,
-    "2025/5/1": 530
+    "2025/5/1": 530,
+    "2025/5/2": 48,
+    "2025/5/3": 504
   },
   "todaysWordCount": {
+    "docs/quiettalks/2025/05/2025-05-30.md": {
+      "initial": 126,
+      "current": 310
+    },
     "docs/code/backend/java/dynamicconfig.md": {
-      "initial": 1715,
-      "current": 2245
+      "initial": 2239,
+      "current": 2559
     }
   }
 }

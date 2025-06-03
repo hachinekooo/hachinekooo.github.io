@@ -13,6 +13,21 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "docs/quiettalks/2025/05/blockid-test.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "blockid-test"
+            }
+          },
+          {
+            "id": "d6cd48fe29535ad4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "docs/code/backend/java/dynamicconfig.md",
                 "mode": "source",
                 "source": false,
@@ -22,7 +37,8 @@
               "title": "dynamicconfig"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -69,7 +85,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 465.5
+    "width": 465.5,
+    "collapsed": true
   },
   "right": {
     "id": "ff05bf4eebaa236b",
@@ -139,15 +156,19 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "1b5337b96df5a5d5",
+  "active": "d6cd48fe29535ad4",
   "lastOpenFiles": [
+    "docs/code/backend/java/dynamicconfig.md",
+    "docs/quiettalks/2025/05/2025-05-28.md",
+    "docs/quiettalks/2025/05/2025-05-30.md",
+    "docs/quiettalks/2025/05/blockid-test.md",
+    "docs/quiettalks/2025/blockid-test.md",
+    "docs/quiettalks/blockid-test.md",
+    "docs/blockid-test.md",
     "templater/note.snippet.md",
     "templater/note.md",
     "templater/quiettalks.snippet.md",
-    "docs/code/backend/java/dynamicconfig.md",
-    "docs/quiettalks/2025/05/2025-05-30.md",
     "templater/quiettalks.md",
-    "docs/quiettalks/2025/05/2025-05-28.md",
     "docs/code/backend/java/string.md",
     "docs/quiettalks/README.md",
     "docs/quiettalks/2025/05/2025-05-29.md",
@@ -166,10 +187,6 @@
     "intro.md",
     "README.md",
     "docs/quiettalks",
-    "docs/code/knowledge/gitBasic.md",
-    "docs/code/knowledge/pattern.md",
-    "docs/code/knowledge/regularExpression.md",
-    "docs/code/backend/java/changeJDKByJenv.md",
     "docs/productivity",
     "appends/img/writeYourFirstVuePage2.png",
     "appends/img/writeYourFirstVuePage1.png",

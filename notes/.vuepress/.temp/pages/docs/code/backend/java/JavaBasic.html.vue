@@ -4918,7 +4918,7 @@
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>分析： <code v-pre>s1</code> 是个引用类型，存着一个首地址，经过 <code v-pre>final</code> 修饰后，<code v-pre>s1</code> 便不可以修改了。但是仍然可以通过 <code v-pre>s1</code> 保存的首地址，找到对应的那块<font color="#de7802">堆空间</font>，对堆空间的内容进行修改。</p>
 <h3 id="综合练习题" tabindex="-1"><a class="header-anchor" href="#综合练习题"><span>综合练习题</span></a></h3>
-<p>涉及知识点：<a href="#%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E5%A4%9A%E6%80%81%EF%BC%9F">怎么实现类的多态？</a> <a href="#equals">equals</a><br>
+<p>涉及知识点：<a href="#%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%B1%BB%E7%9A%84%E5%A4%9A%E6%80%81%EF%BC%9F">怎么实现类的多态？</a> <a href="#block-equals">equals</a><br>
 <code v-pre>UI.java</code></p>
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">package</span><span style="--shiki-light:#383A42;--shiki-dark:#C678DD"> com.situ.objectlearning.ex_employeemanage</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">  </span></span>
@@ -6416,7 +6416,7 @@ StringBuffer 是线程安全的，StringBuilder 运行速度最快，比 String 
 <li>
 <p>Collection</p>
 <ul>
-<li><a href="#List">List</a> (接口)元素有下标，且可以重复，元素有序
+<li><a href="#block-List">List</a> (接口)元素有下标，且可以重复，元素有序
 <ul>
 <li>[[#ArrayList]] (实现类)
 <ul>

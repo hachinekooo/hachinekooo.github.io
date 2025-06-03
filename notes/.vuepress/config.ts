@@ -1,5 +1,6 @@
 import { defineUserConfig } from "vuepress";
 import { getDirname, path } from "vuepress/utils";
+import blockAnchorPlugin from './plugins/markdown-it-block-anchor.js'; // 确保路径正确
 
 import theme from "./theme.js";
 
@@ -15,7 +16,8 @@ export default defineUserConfig({
     "@": path.resolve(__dirname, "./"),
   },
 
-  //pagePatterns: ["!**/*.snippet.md"],
-  // 和 PWA 一起启用
-  // shouldPrefetch: false,
+  extendsMarkdown: (md) => {
+      console.log('Extending Markdown with block anchor plugin');
+      md.use(blockAnchorPlugin);
+    }
 });

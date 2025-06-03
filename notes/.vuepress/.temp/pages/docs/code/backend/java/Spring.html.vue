@@ -1,6 +1,6 @@
 <template><div><h2 id="简介" tabindex="-1"><a class="header-anchor" href="#简介"><span>简介</span></a></h2>
 <ul>
-<li>Spring 是分层的 Java SE/EE 应用 full-stack 轻量级开源框架，以 <a href="#%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC">IOC</a> 和 <a href="#AOP">AOP</a> 为内核。</li>
+<li>Spring 是分层的 Java SE/EE 应用 full-stack 轻量级开源框架，以 <a href="#%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC">IOC</a> 和 <a href="#block-AOP">AOP</a> 为内核。</li>
 <li>Spring 底层用的是反射。</li>
 <li>Spring在创建Bean时，会优先选择使用无参构造方法来实例化对象。</li>
 </ul>
