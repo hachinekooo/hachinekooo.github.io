@@ -7,6 +7,10 @@
 
 /render.html
 
+# Obsidian 相关
+/notes/.obsidian/*
+/notes/.trash/*
+
 # Logs
 logs
 *.log
@@ -38,5 +42,3 @@ coverage
 
 *.tsbuildinfo
 
-.obsidian/*
-node_modules
