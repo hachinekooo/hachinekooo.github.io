@@ -1,5 +1,5 @@
 ---
-title: 动态配置刷新
+title: Spring Boot动态配置刷新完全指南：从原理到实战不重启更新配置
 icon: file
 order: 
 date: 2025-05-31
@@ -9,6 +9,7 @@ tags:
   - 动态配置刷新
   - Nacos
   - Environment
+  - Binder
 ---
 ## Part 1: 理论基础篇 (Foundation)
 
@@ -16,7 +17,7 @@ tags:
 
 - 为什么需要动态配置？ (Why do we need dynamic configuration?)
 
-动态配置刷新的重要性不言而喻，解决方案也有很多，比如 Nacos。有了它们，我们可以非常方便的实现配置修改，而不用重新重启服务，大大提高了配置效率。但是也不是所有的项目都需要这么重的服务，而且一个系统如果引入越多外部依赖，就越不可控。所以我们可以自己手动实现一个动态配置刷新，以实现更高的灵活性（同时也是一个学习的好机会）
+动态配置刷新的重要性不言而喻，解决方案也有很多，比如 Nacos。有了它们，我们可以非常方便的实现配置修改，而不用重新重启服务，大大提高了配置效率。但是也不是所有的项目都需要这么重的服务，而且一个系统如果引入越多外部依赖，就越不可控。所以我们可以自己手动实现一个动态配置刷新，以实现更高的灵活性（同时也是一个学习的好机会） 
 
 ### Spring配置体系核心概念与配置加载原理
 
@@ -339,34 +340,87 @@ private BindHandler getBindHandler(ConfigurationProperties annotation) {
 	- 包装、创建绑定策略、Bind
 
 #### 基本实现
+```sql
+create table global_conf  
+(  
+    id int unsigned auto_increment comment '主键ID' primary key,  
+    conf_key    varchar(128) default ''                not null comment '配置key',  
+    conf_value  varchar(512) default ''                not null comment '配置value',  
+    conf_group  varchar(255)                           null comment '组',  
+    comment     varchar(128) default ''                not null comment '注释',  
+    deleted     tinyint      default 0                 not null comment '是否删除 0 未删除 1 已删除',  
+    create_time timestamp    default CURRENT_TIMESTAMP not null comment '创建时间',  
+    update_time timestamp    default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '最后更新时间'  
+)  
+    comment '全局配置表';  
+  
+create index idx_key  
+    on global_conf (conf_key);
+```
 
 ```java
-/**  
- * 动态配置绑定器，负责重新绑定属性  
- *  
- * @author wangwenpeng  
- * @date 2025/06/03  
- */@Slf4j  
-@Component  
-public class DynamicConfigBinder implements ApplicationContextAware {  
-    private ApplicationContext applicationContext;  
-  
-    private PropertySources propertySources;  
-  
-    private volatile Binder binder;  
-  
-  
-    public  <T> void bind(Bindable<T> bindable) {  
-        ConfigurationProperties annotation = bindable.getAnnotation(ConfigurationProperties.class);  
-        if (annotation != null) {  
-            BindHandler bindHandler = getBindHandler(annotation);  
-            getBinder().bind(annotation.prefix(), bindable, bindHandler);  
-        }  
+package com.github.dynamic;
+
+/**
+ * 动态配置绑定器，负责重新绑定属性
+ *
+ * @author wangwenpeng
+ * @date 2025/06/03
+ */
+@Slf4j
+@Component
+public class DynamicConfigBinder implements ApplicationContextAware {
+    private ApplicationContext applicationContext;
+
+    private PropertySources propertySources;
+
+    private volatile Binder binder;
+
+    public  <T> void bind(Bindable<T> bindable) {
+        ConfigurationProperties annotation = bindable.getAnnotation(ConfigurationProperties.class);
+        if (annotation != null) {
+            BindHandler bindHandler = getBindHandler(annotation);
+            getBinder().bind(annotation.prefix(), bindable, bindHandler);
+        }
+    }
+
+    private BindHandler getBindHandler(ConfigurationProperties annotation) {
+        BindHandler handler = new IgnoreTopLevelConverterNotFoundBindHandler();
+        if (annotation.ignoreInvalidFields()) { // 如果在配置属性时发现目标对象中有无效字段，则忽略这些无效字段
+            handler = new IgnoreErrorsBindHandler(handler);
+        }
+        if (!annotation.ignoreUnknownFields()) { // 如果在配置属性时发现目标对象中有未知字段，则忽略这些未知字段
+            UnboundElementsSourceFilter filter = new UnboundElementsSourceFilter();
+            handler = new NoUnboundElementsBindHandler(handler, filter);
+        }
+        return handler;
+    }
+
+    /**
+     * 初始化 Spring Binder 对象
+     *
+     * @return Spring Binder 对象
+     */
+    private Binder getBinder() {
+        if (this.binder == null) {
+            synchronized (this) {
+                if (this.binder == null) {
+                    this.binder = new Binder(
+                            getConfigurationPropertySources(),
+                            getPropertySourcesPlaceholdersResolver(),
+                            getConversionService(),
+                            getPropertyEditorInitializer());
+                }
+            }
+        }
+        return this.binder;
     }
 }
 ```
 
 ```java
+package com.github.dynamic;
+
 /**
  * 动态配置管理器，负责拉取配置、封装配置与调用绑定器
  *
@@ -387,50 +441,102 @@ public class DynamicConfigManager implements EnvironmentAware, ApplicationContex
 
     @Autowired
     private DynamicConfigBinder dynamicConfigBinder;
+    @Autowired
+    private GlobalConfMapper globalConfMapper;
 
-    public void reloadConfig() {
-        String before = JSONUtil.toJsonStr(dynamicConfigs);
-        boolean toRefresh = loadConfigFromDb();
-        if (toRefresh) {
-            rebind();
-            log.info("配置刷新! 旧:{}, 新:{}", before, JSONUtil.toJsonStr(dynamicConfigs));
+    public void reloadConfig(String group) {
+        if (group == null) {
+            loadConfigFromDb(null); // 全量加载
+            addPropertySource();
+            rebind(null); // 全量绑定
+        } else {
+            String before = JSONUtil.toJsonStr(dynamicConfigs);
+            boolean toRefresh = loadConfigFromDb(group);
+            if (toRefresh) {
+                rebind(group);
+                log.info("配置刷新! 旧:{}, 新:{}", before, JSONUtil.toJsonStr(dynamicConfigs));
+            }
         }
     }
 
-    public boolean loadConfigFromDb() {
-        dynamicConfigs.clear(); // 先清空
+    /**
+     * 从数据库加载配置信息
+     *
+     * @param targetGroup 目标分组，null 表示加载所有分组
+     * @return boolean
+     */
+    public boolean loadConfigFromDb(String targetGroup) {
+        log.info("====================== Loading configuration from database ======================\n");
+        log.info("Starting to fetch dynamic configuration...");
 
-        // 再从数据库拉取，这里使用模拟数据
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("test.config.name", "ApplicationName_DB");
-        hashMap.put("test.config.version", 2);
-        hashMap.put("test.config.enabled", true);
+        List<GlobalConfDO> list;
+        if (targetGroup == null) {
+            list = globalConfMapper.selectList(null);
+        } else {
+            list = globalConfMapper.selectList(new LambdaQueryWrapper<GlobalConfDO>().eq(GlobalConfDO::getConfGroup, targetGroup));
+        }
 
-        if (!hashMap.isEmpty()) {
-            dynamicConfigs = hashMap;
+        Map<String, Object> newConfigs = new HashMap<>();
+        for (GlobalConfDO conf : list) {
+            newConfigs.put(conf.getConfKey(), conf.getConfValue());
+        }
+
+        // 如果 targetGroup 为null（全量加载），且拉取到的配置信息不为空
+        if (targetGroup == null && !newConfigs.isEmpty()) {
+            dynamicConfigs = newConfigs;
+            log.info("Successfully loaded {} configuration properties:", dynamicConfigs.size());
             return true;
         }
+
+        // 如果 targetGroup 不为null（部分加载），且拉取到的配置信息不为空
+        if (targetGroup != null && !newConfigs.isEmpty()) {
+            // 更新 dynamicConfigs 中相应的配置项
+            dynamicConfigs.putAll(newConfigs);
+            return true;
+        }
+
+        log.warn("No configuration found in database");
         return false;
     }
 
     public void addPropertySource() {
+        log.info("====================== Adding property source ======================\n");
+        log.info("Creating MapPropertySource with name: {}", DYNAMIC_CONFIG_PROPERTY_SOURCE_NAME);
+
         int preSize = environment.getPropertySources().size();
 
         MapPropertySource dynConfPropertySource = new MapPropertySource(DYNAMIC_CONFIG_PROPERTY_SOURCE_NAME, dynamicConfigs);
         environment.getPropertySources().addFirst(dynConfPropertySource);
+
+        log.info("Property source added with highest priority");
+        log.info("Current property sources count: {} -> {}", preSize, environment.getPropertySources().size());
     }
 
-    public void rebind() {
+    public void rebind(String group) {
+        log.info("====================== Rebinding configuration properties ======================\n");
+
+        // 找到所有添加了 ConfigurationProperties 注解的 bean
         Map<String, Object> beansWithAnnotation = applicationContext.getBeansWithAnnotation(ConfigurationProperties.class);
-        
-        beansWithAnnotation.forEach((beanName, bean) -> {
-            ConfigurationProperties annotation = AnnotationUtils.findAnnotation(bean.getClass(), ConfigurationProperties.class);
-            if (annotation != null) {
-                // 执行重新绑定
-                Bindable<?> bindable = Bindable.ofInstance(bean).withAnnotations(annotation);
-                dynamicConfigBinder.bind(bindable);
-            }
-        });
+
+
+        if (group == null) {  // 全量刷新
+            beansWithAnnotation.values().forEach(this::rebindBean);
+        } else { // 部分刷新
+            beansWithAnnotation.values().stream()
+                    .filter(bean -> Objects.equals(bean.getClass().getSimpleName(), group))
+                    .forEach(this::rebindBean);
+        }
+
+        log.info("Configuration rebinding completed");
+    }
+
+    private void rebindBean(Object bean) {
+        ConfigurationProperties annotation = AnnotationUtils.findAnnotation(bean.getClass(), ConfigurationProperties.class);
+        if (annotation != null) {
+            // 执行重新绑定
+            Bindable<?> bindable = Bindable.ofInstance(bean).withAnnotations(annotation);
+            dynamicConfigBinder.bind(bindable);
+        }
     }
 
     /*
@@ -439,33 +545,66 @@ public class DynamicConfigManager implements EnvironmentAware, ApplicationContex
     * */
     @Override
     public void run(String... args) throws Exception {
-        loadConfigFromDb();
-        addPropertySource();
-        rebind();
+        reloadConfig(null);
     }
 }
 ```
-#### 
 
 ### 事件驱动支持
-#### 使用Spring事件机制实现配置变更通知
 
 #### 回调支持
 
+有时候我们需要在属性类刷新后重新计算一些值，我可以通过为目标属性类注册相应的回调任务来实现。当然你也可以通过事件通知来实现同样的效果。
+
+```java
+private Map<Class, Runnable> refreshCallBack = new HashMap<>(); // 回调任务
+```
+
+```java
+public void rebind(String group) {
+
+        ......
+
+    if (group == null) {  // 全量刷新
+        beansWithAnnotation.values().forEach(bean -> {
+            rebindBean(bean);
+            // 如果该 Bean 的类在 refreshCallback 中有对应的回调任务，则执行该回调任务
+            executeCallback(bean);
+        });
+    } else { // 部分刷新
+        beansWithAnnotation.values().stream()
+                .filter(bean -> Objects.equals(bean.getClass().getSimpleName(), group))
+                .forEach(bean1 -> {
+                    rebindBean(bean1);
+                    // 如果该 Bean 的类在 refreshCallback 中有对应的回调任务，则执行该回调任务
+                    executeCallback(bean1);
+                });
+    }
+}
+
+private void executeCallback(Object bean) {
+    if (refreshCallBack.containsKey(bean.getClass())) {
+        refreshCallBack.get(bean.getClass()).run();
+    }
+}
+
+public void registerRefreshCallback(Object bean, Runnable run) {  
+    refreshCallBack.put(bean.getClass(), run);  
+}
+```
 
 ## Part 3: 高级特性篇 (Advanced Features)
 
-### 持久化
-
-
 ### @Value 注解支持（@Value Annotation Support）
 
+由于篇幅较长，故开一篇新的来讲解梳理：[dynamic-config-value](dynamic-config-value.md)
 
 ### 性能与安全（Performance & Security）
 
 
 ## Part 4: 总结与扩展 (Summary & Extensions)
-### 设计模式的应用
+
+### 封装为 Starter
 
 
 ### 与现有方案对比

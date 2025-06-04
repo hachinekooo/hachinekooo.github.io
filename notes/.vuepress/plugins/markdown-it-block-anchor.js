@@ -68,18 +68,16 @@ export default (md) => {
               const href = child.attrs[hrefIndex][1];
               
               // 转换 #^blockId 为 #block-blockId
-              const blockLinkMatch = href.match(/^#\^([a-zA-Z0-9_-]+)$/);
-              if (blockLinkMatch) {
-                console.log('Converting link:', href, '→', `#block-${blockLinkMatch[1]}`);
-                child.attrs[hrefIndex][1] = `#block-${blockLinkMatch[1]}`;
+              if (href.startsWith('#^')) {
+                const blockId = href.substring(2); // 移除 #^ 前缀
+                console.log('Converting link:', href, '→', `#block-${blockId}`);
+                child.attrs[hrefIndex][1] = `#block-${blockId}`;
               } 
               // 转换 #blockId (没有^前缀) 为 #block-blockId
-              else if (href.startsWith('#') && !href.includes('/')) {
-                const plainIdMatch = href.match(/^#([a-zA-Z0-9_-]+)$/);
-                if (plainIdMatch && plainIdMatch[1] !== 'block-' + plainIdMatch[1]) {
-                  console.log('Converting plain link:', href, '→', `#block-${plainIdMatch[1]}`);
-                  child.attrs[hrefIndex][1] = `#block-${plainIdMatch[1]}`;
-                }
+              else if (href.startsWith('#') && !href.includes('/') && !href.startsWith('#block-')) {
+                const blockId = href.substring(1); // 移除 # 前缀
+                console.log('Converting plain link:', href, '→', `#block-${blockId}`);
+                child.attrs[hrefIndex][1] = `#block-${blockId}`;
               }
             }
           }
