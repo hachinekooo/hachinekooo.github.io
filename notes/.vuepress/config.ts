@@ -12,6 +12,9 @@ export default defineUserConfig({
   description: "编程, 哲学, 生活, AI, 分享, 开源, 效率, 科技, 数码, Code, Programming, Philosophy, Life, AI, Sharing, Open Source, Efficiency, Technology, Digital",
   theme,
 
+  // 包含所有 .md 文件，排除 .vuepress 目录下的 .md 文件，排除以.snippet.md结尾的文件
+  pagePatterns: ["**/*.md", "!.vuepress/**/*.md", "!**/*.snippet.md"],
+
   alias: {
     "@": path.resolve(__dirname, "./"),
   },

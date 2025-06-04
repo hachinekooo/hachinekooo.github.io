@@ -2,7 +2,7 @@
 title: 常见的算法思路
 icon: file
 order: 
-date: ""
+date: 2025-04-03
 category:
   - 算法
 tags:

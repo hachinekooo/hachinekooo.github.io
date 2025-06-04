@@ -12,5 +12,24 @@ tags:
   - Environment
   - Binder
 ---
-## 1
+## Part 1: Spring 源码梳理与解析 (Spring Source Code Analyse)
+### 类的继承关系
 
+
+### findAutowiringMetadata
+
+
+### buildAutowiringMetadata
+
+
+### findAutowiredAnnotation
+
+
+
+
+## Part 2: 渐进式实现篇 (Progressive Implementation)
+
+### 构建元数据缓存
+
+
+### 执行注入
