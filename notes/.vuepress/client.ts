@@ -1,7 +1,7 @@
 import { defineClientConfig } from "vuepress/client";
 import { setupRunningTimeFooter } from "vuepress-theme-hope/presets/footerRunningTime.js";
 import { setupSnowFall } from "vuepress-theme-hope/presets/snowFall.js";
-import BingHeroBackground from "vuepress-theme-hope/presets/BingHeroBackground.js";
+import BingHeroBackground from "./customjs/BingHeroBackground.js";
 import HitokotoBlogHero from "./customjs/HitokotoBlogHero.js";
 import { Blog } from "vuepress-theme-hope/blog";
 import { h } from "vue";
@@ -23,7 +23,7 @@ export default defineClientConfig({
     Blog: () =>
       h(Blog, null, {
         heroInfo: (info: { text: string }) => h(HitokotoBlogHero, info),
-        // heroBg: () => h(BingHeroBackground),
+        heroBg: () => h(BingHeroBackground),
       }),
   },
 });

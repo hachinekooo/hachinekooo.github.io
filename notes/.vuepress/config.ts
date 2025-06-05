@@ -1,6 +1,6 @@
 import { defineUserConfig } from "vuepress";
 import { getDirname, path } from "vuepress/utils";
-import blockAnchorPlugin from './plugins/markdown-it-block-anchor.js'; // 确保路径正确
+import blockAnchorPlugin from './plugins/markdown-it-block-anchor.js';
 
 import theme from "./theme.js";
 
