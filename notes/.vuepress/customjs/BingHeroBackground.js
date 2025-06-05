@@ -19,6 +19,13 @@ export default defineComponent({
         const lang = useLang();
         const bingInfo = shallowRef();
         const showInfo = ref(false);
+        const isMobile = ref(false);
+        
+        // 检测是否为移动设备
+        const checkIsMobile = () => {
+            isMobile.value = window.innerWidth <= 768;
+        };
+
         const currentWallpaper = computed(() => {
             const { index, data } = bingStorage.value;
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -34,6 +41,7 @@ export default defineComponent({
             }
             return null;
         });
+
         const getBingWallpapers = () => fetch("https://bing-wallpaper.vuejs.press/api/wallpaper").then((response) => response.json());
         const prev = () => {
             bingStorage.value.index -= 1;
@@ -46,15 +54,26 @@ export default defineComponent({
         });
         onMounted(async () => {
             bingStorage.value.data = await getBingWallpapers();
+            // 初始检测设备类型
+            checkIsMobile();
+            // 监听窗口大小变化
+            window.addEventListener('resize', checkIsMobile);
         });
+        
         return () => {
-            const { title, headline, url, backstage, quickFact, copyright } = currentWallpaper.value ?? {};
-            return h(ClientOnly, () => url
+            const { title, headline, backstage, quickFact, copyright } = currentWallpaper.value ?? {};
+            
+            // 根据设备类型选择固定的本地图片
+            const backgroundUrl = isMobile.value 
+                ? `/assets/images/bg-mobile.webp` 
+                : `/assets/images/bg.webp`;
+                
+            return h(ClientOnly, () => currentWallpaper.value
                 ? [
                     h("div", {
                         class: "vp-blog-mask",
                         style: {
-                            background: `url(${url}) center/cover no-repeat`,
+                            background: `url(${backgroundUrl}) center/cover no-repeat`,
                         },
                     }),
                     h("div", {

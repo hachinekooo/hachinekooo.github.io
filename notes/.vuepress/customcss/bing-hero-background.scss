@@ -143,3 +143,22 @@ $location-icon: '<svg viewBox="0 0 12 12"><path d="M6.5 3A1.5 1.5 0 1 0 8 4.5 1.
   color: #aaa;
   font-size: 0.8em;
 }
+
+@media (max-width: 768px) {
+  .vp-blog-mask {
+    // 调整移动端背景图样式
+    background-position: center center !important;
+  }
+  
+  .bing-switch {
+    inset-inline-end: 0.5rem;
+    bottom: 0.5rem;
+  }
+  
+  .bing-location {
+    max-width: 60vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
