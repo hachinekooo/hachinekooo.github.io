@@ -7,6 +7,6 @@ heroImage: /hachiico.png
 heroText: 乐观的小八
 heroFullScreen: true
 tagline: 大道至简，知易行难
-bgImage: /assets/images/hachi-removebg.png
+bgImage: /assets/images/bg.webp
 footer: 大道至简，知易行难
 ---

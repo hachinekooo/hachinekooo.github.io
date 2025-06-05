@@ -23,7 +23,7 @@ export default defineClientConfig({
     Blog: () =>
       h(Blog, null, {
         heroInfo: (info: { text: string }) => h(HitokotoBlogHero, info),
-        heroBg: () => h(BingHeroBackground),
+        // heroBg: () => h(BingHeroBackground),
       }),
   },
 });
