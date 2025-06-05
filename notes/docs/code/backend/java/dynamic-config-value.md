@@ -14,8 +14,18 @@ tags:
 ---
 ## Part 1: Spring 源码梳理与解析 (Spring Source Code Analyse)
 ### 类的继承关系
+```java
+AccessibleObject (父类)
+    ├── Field (字段)
+    ├── Method (方法)  
+    └── Constructor (构造函数)
+```
 
-
+```java
+InjectedElement (抽象父类)
+    ├── AutowiredFieldElement (处理字段注入)
+    └── AutowiredMethodElement (处理方法注入)
+```
 ### findAutowiringMetadata
 
 

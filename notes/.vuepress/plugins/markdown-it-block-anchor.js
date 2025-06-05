@@ -67,12 +67,31 @@ export default (md) => {
             if (hrefIndex >= 0) {
               const href = child.attrs[hrefIndex][1];
               
-              // 转换 #^blockId 为 #block-blockId
+              // 处理 #^blockId 格式 (^ 字符可能已编码为 %5E)
               if (href.startsWith('#^')) {
                 const blockId = href.substring(2); // 移除 #^ 前缀
                 console.log('Converting link:', href, '→', `#block-${blockId}`);
                 child.attrs[hrefIndex][1] = `#block-${blockId}`;
               } 
+              // 处理 #%5EblockId 格式 (^ 被编码为 %5E)
+              else if (href.startsWith('#%5E')) {
+                const blockId = href.substring(4); // 移除 #%5E 前缀
+                console.log('Converting encoded link:', href, '→', `#block-${blockId}`);
+                child.attrs[hrefIndex][1] = `#block-${blockId}`;
+              }
+              // 处理跨文档链接中的块标识 (包括编码和非编码版本)
+              else if (href.includes('#^') || href.includes('#%5E')) {
+                let parts;
+                if (href.includes('#^')) {
+                  parts = href.split('#^');
+                } else {
+                  parts = href.split('#%5E');
+                }
+                const path = parts[0];
+                const blockId = parts[1];
+                console.log('Converting cross-doc link:', href, '→', `${path}#block-${blockId}`);
+                child.attrs[hrefIndex][1] = `${path}#block-${blockId}`;
+              }
               // 转换 #blockId (没有^前缀) 为 #block-blockId
               else if (href.startsWith('#') && !href.includes('/') && !href.startsWith('#block-')) {
                 const blockId = href.substring(1); // 移除 # 前缀
