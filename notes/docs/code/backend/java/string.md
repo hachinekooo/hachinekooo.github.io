@@ -2,11 +2,12 @@
 title: new String("abc")时对象是如何创建的？
 icon: file
 order: 
-date: ""
+date: 2024-04-05
 category:
   - Java
 tags:
   - 面经
+  - String
 ---
 ## abc和new
 

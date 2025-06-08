@@ -2,7 +2,7 @@
 title: SpringBoot环境配置的两种方式
 icon: file
 order: 
-date: ""
+date: 2024-05-05
 category:
   - Java
 tags:

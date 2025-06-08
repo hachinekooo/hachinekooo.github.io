@@ -2,10 +2,13 @@
 title: 常见的身份验证方案
 icon: file
 order: 
-date: ""
+date: 2024-05-01
 category:
   - Java
 tags:
+  - 登录
+  - 身份验证
+  - 权限认证
 ---
 ## 传统 SESSION 式
 

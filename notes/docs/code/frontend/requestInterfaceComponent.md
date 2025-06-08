@@ -2,9 +2,13 @@
 title: VuePress使用自定义组件实现请求接口并放入md
 icon: file
 order: 
-date: 2024-01-05
-category: 
+date: 2024-07-01
+category:
+  - 前端
 tags:
+  - Vue
+  - Vuepress
+  - Markdown
 ---
 ## 
 

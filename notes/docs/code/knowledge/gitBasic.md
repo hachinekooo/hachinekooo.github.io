@@ -2,7 +2,7 @@
 title: Git基本知识
 icon: file
 order: 
-date: ""
+date: 2024-02-01
 category:
   - 知识
 tags:

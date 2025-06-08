@@ -2,9 +2,9 @@
 title: 使用组合而非继承的方式减少耦合
 icon: file
 order: 
-date: ""
+date: 2024-07-07
 category:
-  - Java
+  - 架构
 tags:
   - 设计模式
 ---

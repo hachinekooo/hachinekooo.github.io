@@ -3,8 +3,10 @@ title: 设计模式
 icon: file
 order: 
 date: 2024-10-02
-category: 
+category:
+  - 架构
 tags:
+  - 设计模式
 ---
 
 ## 单例设计模式
