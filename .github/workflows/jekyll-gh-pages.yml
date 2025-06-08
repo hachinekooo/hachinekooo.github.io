@@ -40,6 +40,12 @@ jobs:
       with:
         version: 8
     
+    # 运行 heatmap.py 脚本生成热力图数据
+    - name: Generate Heatmap Data
+      run: |
+        cd notes
+        python heatmap.py
+    
     - name: Remove node_modules and package-lock.json
       if: ${{ github.event_name == 'workflow_dispatch' }}
       run: |

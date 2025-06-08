@@ -22,5 +22,5 @@ export default defineUserConfig({
   extendsMarkdown: (md) => {
       console.log('Extending Markdown with block anchor plugin');
       md.use(blockAnchorPlugin);
-    }
+  },
 });
