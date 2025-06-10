@@ -32,20 +32,31 @@ def count_words_and_code(content):
     frontmatter_pattern = r'^---\s*\n.*?\n---\s*\n'
     content_without_frontmatter = re.sub(frontmatter_pattern, '', content, flags=re.DOTALL)
     
-    # 提取代码块 (```语言 到 ``` 的内容)
+    # 提取代码块 (```语言 到 ``` 的内容)，捕获语言类型
     code_blocks = []
-    code_pattern = r'```[\w]*\n(.*?)\n```'
+    # 改进正则表达式，捕获代码块的语言类型
+    code_pattern = r'```([\w]*)\n(.*?)\n```'
+    
+    # 需要排除的特殊代码块类型列表
+    excluded_code_types = ['mermaid', 'plantuml', 'graphviz', 'chart']
     
     for match in re.finditer(code_pattern, content_without_frontmatter, re.DOTALL):
-        code_content = match.group(1)
-        code_blocks.append(code_content)
+        code_type = match.group(1).strip().lower()  # 获取代码块类型并转为小写
+        code_content = match.group(2)
+        
+        # 记录代码类型和内容
+        code_blocks.append((code_type, code_content))
     
     # 移除代码块，只保留文字内容
     text_content = re.sub(code_pattern, '', content_without_frontmatter, flags=re.DOTALL)
     
-    # 计算代码行数
+    # 计算代码行数，排除特殊类型的代码块
     total_code_lines = 0
-    for code_block in code_blocks:
+    for code_type, code_block in code_blocks:
+        # 如果代码块类型在排除列表中，则跳过
+        if code_type in excluded_code_types:
+            continue
+            
         # 统计非空行数
         lines = [line.strip() for line in code_block.split('\n') if line.strip()]
         total_code_lines += len(lines)

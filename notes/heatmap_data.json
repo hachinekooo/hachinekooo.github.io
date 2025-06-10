@@ -58,7 +58,7 @@
   {
     "date": "2024-03-03",
     "wordCount": 3894,
-    "codeLines": 820,
+    "codeLines": 769,
     "path": "/docs/code/backend/java/springEnhance.html",
     "title": "Spring高级"
   },
@@ -149,7 +149,7 @@
   {
     "date": "2025-05-05",
     "wordCount": 784,
-    "codeLines": 83,
+    "codeLines": 67,
     "path": "/docs/code/backend/java/mltiThreading.html",
     "title": "Java多线程"
   },
@@ -183,8 +183,8 @@
   },
   {
     "date": "2025-06-04",
-    "wordCount": 42,
-    "codeLines": 7,
+    "wordCount": 56,
+    "codeLines": 102,
     "path": "/docs/code/backend/java/dynamic-config-value.html",
     "title": "手把手实现Spring Boot动态配置之@Value注解的解析与配置刷新"
   },
@@ -196,10 +196,10 @@
     "title": "LeetCode专题"
   },
   {
-    "date": "2025-06-06",
-    "wordCount": 31,
+    "date": "2025-06-08",
+    "wordCount": 346,
     "codeLines": 0,
     "path": "/docs/quiettalks/2025/06/2025-06-06.html",
-    "title": "1"
+    "title": "Rethinking the Things We Take for Granted"
   }
 ]
