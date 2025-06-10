@@ -1,5 +1,5 @@
 ---
-title: LeetCode专题
+title: LeetCode-数组篇
 icon: file
 order: 
 date: 2025-06-04
@@ -8,6 +8,7 @@ category:
 tags:
   - 算法
   - LeetCode
+  - 数组
 ---
 ## 数组
 ### 两数之和
@@ -87,7 +88,7 @@ class Solution {
 
 
 ```java
-class Solution {
+class Solution001 {
 
     public int[] twoSum(int[] nums, int target) {
 
@@ -111,4 +112,56 @@ class Solution {
 
 [寻找两个正序数组的中位数](https://leetcode.cn/problems/median-of-two-sorted-arrays/)
 
-#### 
+#### 解法 1
+
+```java
+class Solution004 {
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+
+        int[] arr = new int[len1 + len2];
+        int index = 0;
+
+        int i = 0; int j = 0;
+        while(i < len1 && j < len2 ) {
+            if (nums2[j] < nums1[i]) {
+                arr[index++] = nums2[j++];
+            } else {
+                arr[index++] = nums1[i++];
+            }
+        }
+
+        // Put the remaining elements into the array.
+        while (i < len1) {
+            arr[index++] = nums1[i++];
+        }
+        while (j < len2) {
+            arr[index++] = nums2[j++];
+        }
+
+        System.out.println(Arrays.toString(arr));
+
+        if (arr.length % 2 == 0) {
+            return (double) (arr[arr.length / 2] + arr[arr.length / 2 - 1]) / 2;
+        } else {
+            return (double) arr[arr.length / 2];
+        }
+    }
+
+    public static void main(String[] args) {
+        double medianSortedArrays = findMedianSortedArrays(new int[]{1, 2}, new int[]{2});
+        System.out.println(medianSortedArrays);
+    }
+}
+```
+
+时间复杂度 O( m + n )  
+每一次循环，都会从 nums1 或 nums2 中取出一个元素，放进 arr 中，加上剩余元素的处理次数，是 O( m + n ) 次
+
+计算中位数是常数时间 O(1)
+
+空间复杂度 O(m + n)  
+使用了一个数组，用来存储两个数组合并后的结果，随着数组的输入规模增加而增加，所以是 O(m + n)
+
+#### 解法 2
