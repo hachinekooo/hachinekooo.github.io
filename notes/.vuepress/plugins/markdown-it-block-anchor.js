@@ -1,6 +1,4 @@
 export default (md) => {
-  // 调试输出，验证插件是否被加载
-  console.log('Block anchor plugin loaded');
   
   // 块标识符正则表达式 - 捕获行尾的块标识
   const blockIdRegex = /\s+\^([a-zA-Z0-9_-]+)$/;
@@ -15,7 +13,6 @@ export default (md) => {
         const match = content.match(blockIdRegex);
         
         if (match) {
-          console.log('Found block ID:', match[1]);
           
           // 移除块标识符
           tokens[i].content = content.replace(blockIdRegex, '');
@@ -38,8 +35,6 @@ export default (md) => {
             } else {
               parent.attrs[idIdx][1] = blockId;
             }
-            
-            console.log('Added ID to', parent.type, ':', blockId);
           }
         }
       }
@@ -76,7 +71,6 @@ export default (md) => {
               // 处理 #%5EblockId 格式 (^ 被编码为 %5E)
               else if (href.startsWith('#%5E')) {
                 const blockId = href.substring(4); // 移除 #%5E 前缀
-                console.log('Converting encoded link:', href, '→', `#block-${blockId}`);
                 child.attrs[hrefIndex][1] = `#block-${blockId}`;
               }
               // 处理跨文档链接中的块标识 (包括编码和非编码版本)
@@ -89,13 +83,11 @@ export default (md) => {
                 }
                 const path = parts[0];
                 const blockId = parts[1];
-                console.log('Converting cross-doc link:', href, '→', `${path}#block-${blockId}`);
                 child.attrs[hrefIndex][1] = `${path}#block-${blockId}`;
               }
               // 转换 #blockId (没有^前缀) 为 #block-blockId
               else if (href.startsWith('#') && !href.includes('/') && !href.startsWith('#block-')) {
                 const blockId = href.substring(1); // 移除 # 前缀
-                console.log('Converting plain link:', href, '→', `#block-${blockId}`);
                 child.attrs[hrefIndex][1] = `#block-${blockId}`;
               }
             }

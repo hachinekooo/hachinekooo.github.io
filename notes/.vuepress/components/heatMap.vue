@@ -1,14 +1,18 @@
 <template>
-  <div 
-    ref="heatmapRef" 
-    class="heatmap-container" 
-    :style="{
-      maxWidth: '600px',
-      height: '180px',
-      padding: '2px',
-      textAlign: 'center'
-    }"
-  ></div>
+  <div class="heatmap-wrapper">
+    <div class="heatmap-header">
+      <span class="heatmap-stats">{{ totalPosts }} blog posts in the last year</span>
+    </div>
+    <div 
+      ref="heatmapRef" 
+      class="heatmap-container" 
+      :style="{
+        maxWidth: '800px',
+        height: getContainerHeight(),
+        minHeight: '160px'
+      }"
+    ></div>
+  </div>
 </template>
 
 <script>
@@ -49,9 +53,19 @@ export default defineComponent({
   },
   setup(props) {
     const heatmapRef = ref(null);
+    const totalPosts = ref(0);
     let myChart = null;
     let resizeHandler = null;
     const dataMap = new Map();
+
+    // 根据模式获取容器高度
+    const getContainerHeight = () => {
+      if (props.mode === 'both') {
+        return '200px'; // 双模式优化高度
+      } else {
+        return '140px'; // 单模式更紧凑，更接近GitHub
+      }
+    };
 
     // 处理数据
     const processData = () => {
@@ -106,11 +120,11 @@ export default defineComponent({
     const getRangeArr = () => {
       const windowWidth = window.innerWidth;
       if (windowWidth >= 600) {
-        return getDateRange(12);
+        return getDateRange(12); // 显示一年的数据
       } else if (windowWidth >= 400) {
-        return getDateRange(9);
+        return getDateRange(6);  // 半年
       } else {
-        return getDateRange(6);
+        return getDateRange(3);  // 3个月
       }
     };
 
@@ -124,6 +138,21 @@ export default defineComponent({
       const formattedEndDate = formatDate(endDate);
       
       return [formattedStartDate, formattedEndDate];
+    };
+
+    // 计算统计信息
+    const getStatistics = () => {
+      let postsCount = 0;
+      for (const [key, posts] of dataMap.entries()) {
+        if (posts && posts.length > 0) {
+          postsCount += posts.length;
+        }
+      }
+      totalPosts.value = postsCount;
+      return {
+        totalPosts: postsCount,
+        year: new Date().getFullYear()
+      };
     };
 
     // 日期格式化 YYYY-MM-DD
@@ -153,59 +182,92 @@ export default defineComponent({
       window.addEventListener('resize', resizeHandler);
       
       const data = processData();
+      const statistics = getStatistics();
       
       // 基础配置
       const option = {
-        title: {
-          top: 0,
-          left: 'center',
-          text: props.title
-        },
         tooltip: {
           hideDelay: 1000,
           enterable: true,
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+          borderColor: '#333',
+          textStyle: {
+            color: '#fff',
+            fontSize: 12
+          },
           formatter: function (p) {
             const date = p.data[0];
             const posts = dataMap.get(date);
-            if (!posts) return date;
+            if (!posts) return `${date}<br/>无内容`;
             
-            let content = `${date}`;
+            let content = `<strong>${date}</strong>`;
+            let totalText = 0;
+            let totalCode = 0;
+            
             for (const post of posts) {
+              totalText += post.wordCount;
+              totalCode += post.codeLines;
               content += "<br>";
               const link = post.link;
               const title = post.title;
               
               if (props.mode === 'text') {
                 const wordCount = (post.wordCount / 1000).toFixed(1);
-                content += `<a href="${link}" target="_blank">${title} | ${wordCount} 千字</a>`;
+                content += `<a href="${link}" style="color: #58a6ff; text-decoration: none;">${title}</a> <span style="color: #8b949e;">(${wordCount}k字)</span>`;
               } else if (props.mode === 'code') {
                 const codeLines = post.codeLines;
-                content += `<a href="${link}" target="_blank">${title} | ${codeLines} 行代码</a>`;
+                content += `<a href="${link}" style="color: #58a6ff; text-decoration: none;">${title}</a> <span style="color: #8b949e;">(${codeLines}行)</span>`;
               } else {
                 const wordCount = (post.wordCount / 1000).toFixed(1);
                 const codeLines = post.codeLines;
-                content += `<a href="${link}" target="_blank">${title} | ${wordCount} 千字 | ${codeLines} 行代码</a>`;
+                content += `<a href="${link}" style="color: #58a6ff; text-decoration: none;">${title}</a> <span style="color: #8b949e;">(${wordCount}k字, ${codeLines}行)</span>`;
               }
             }
+            
+            // 添加总计信息
+            if (props.mode === 'text') {
+              content += `<br/><span style="color: #f0f6fc;">总计: ${(totalText / 1000).toFixed(1)}k字</span>`;
+            } else if (props.mode === 'code') {
+              content += `<br/><span style="color: #f0f6fc;">总计: ${totalCode}行代码</span>`;
+            } else {
+              content += `<br/><span style="color: #f0f6fc;">总计: ${(totalText / 1000).toFixed(1)}k字, ${totalCode}行代码</span>`;
+            }
+            
             return content;
           }
         },
         calendar: {
-          top: 80,
-          left: 20,
-          right: 4,
-          cellSize: ['auto', 12],
+          top: 20,
+          left: 30,
+          right: 20,
+          bottom: 20,
+          cellSize: ['auto', 11], // 更小的方块，更接近GitHub
           range: getRangeArr(),
           itemStyle: {
-            color: '#F1F1F1',
-            borderWidth: 2.5,
-            borderColor: '#fff',
+            color: '#ebedf0', // GitHub的默认灰色
+            borderWidth: 2,
+            borderColor: '#ffffff',
+            borderRadius: 2 // 圆角效果
           },
-          yearLabel: { show: false },
+          yearLabel: { 
+            show: false
+          },
+          monthLabel: {
+            show: true,
+            nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            fontSize: 10,
+            color: '#656d76',
+            margin: 5
+          },
+          dayLabel: {
+            show: true,
+            nameMap: ['', 'Mon', '', 'Wed', '', 'Fri', ''], // 只显示奇数行，更接近GitHub
+            fontSize: 9,
+            color: '#656d76',
+            margin: 8
+          },
           splitLine: {
-            lineStyle: {
-              color: 'rgba(0, 0, 0, 0.0)',
-            }
+            show: false
           }
         }
       };
@@ -216,16 +278,17 @@ export default defineComponent({
           min: 0,
           max: 10,
           type: 'piecewise',
-          orient: 'horizontal',
-          left: 'center',
-          top: 30,
+          show: false, // 隐藏VisualMap工具条
           inRange: {
-            color: ['#7aa8744c', '#7AA874']
+            color: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'] // GitHub绿色系
           },
-          splitNumber: 4,
-          text: ['千字', ''],
-          showLabel: true,
-          itemGap: 20,
+          pieces: [
+            {min: 0, max: 0, color: '#ebedf0'},
+            {min: 0.1, max: 2, color: '#9be9a8'},
+            {min: 2.1, max: 5, color: '#40c463'},
+            {min: 5.1, max: 8, color: '#30a14e'},
+            {min: 8.1, color: '#216e39'}
+          ]
         };
         
         option.series = {
@@ -238,16 +301,17 @@ export default defineComponent({
           min: 0,
           max: 10,
           type: 'piecewise',
-          orient: 'horizontal',
-          left: 'center',
-          top: 30,
+          show: false, // 隐藏VisualMap工具条
           inRange: {
-            color: ['#5470c64c', '#5470C6']
+            color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'] // GitHub蓝绿色系
           },
-          splitNumber: 4,
-          text: ['百行代码', ''],
-          showLabel: true,
-          itemGap: 20,
+          pieces: [
+            {min: 0, max: 0, color: '#ebedf0'},
+            {min: 0.1, max: 2, color: '#c6e48b'},
+            {min: 2.1, max: 5, color: '#7bc96f'},
+            {min: 5.1, max: 8, color: '#239a3b'},
+            {min: 8.1, color: '#196127'}
+          ]
         };
         
         option.series = {
@@ -262,32 +326,34 @@ export default defineComponent({
             min: 0,
             max: 10,
             type: 'piecewise',
-            orient: 'horizontal',
-            left: 'center',
-            top: 30,
+            show: false, // 隐藏VisualMap工具条
             inRange: {
-              color: ['#7aa8744c', '#7AA874']
+              color: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']
             },
-            splitNumber: 4,
-            text: ['千字', ''],
-            showLabel: true,
-            itemGap: 20,
+            pieces: [
+              {min: 0, max: 0, color: '#ebedf0'},
+              {min: 0.1, max: 2, color: '#9be9a8'},
+              {min: 2.1, max: 5, color: '#40c463'},
+              {min: 5.1, max: 8, color: '#30a14e'},
+              {min: 8.1, color: '#216e39'}
+            ],
             seriesIndex: 0
           },
           {
             min: 0,
             max: 10,
             type: 'piecewise',
-            orient: 'horizontal',
-            left: 'center',
-            top: 55,
+            show: false, // 隐藏VisualMap工具条
             inRange: {
-              color: ['#5470c64c', '#5470C6']
+              color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
             },
-            splitNumber: 4,
-            text: ['百行代码', ''],
-            showLabel: true,
-            itemGap: 20,
+            pieces: [
+              {min: 0, max: 0, color: '#ebedf0'},
+              {min: 0.1, max: 2, color: '#c6e48b'},
+              {min: 2.1, max: 5, color: '#7bc96f'},
+              {min: 5.1, max: 8, color: '#239a3b'},
+              {min: 8.1, color: '#196127'}
+            ],
             seriesIndex: 1
           }
         ];
@@ -310,22 +376,37 @@ export default defineComponent({
             data: codeData,
           }
         ];
-        
-        // 在both模式下调整日历位置，为两个visualMap留出空间
-        option.calendar.top = 105;
       }
       
       myChart.setOption(option);
       
-      // 点击事件
+      // 点击事件 - 改进的交互
       myChart.on('click', function(params) {
         if (params.componentType === 'series') {
-          const post = dataMap.get(params.data[0])?.[0];
-          if (post) {
-            const link = window.location.origin + post.link;
-            window.open(link, '_blank').focus();
+          const posts = dataMap.get(params.data[0]);
+          if (posts && posts.length > 0) {
+            if (posts.length === 1) {
+              // 只有一篇文章，直接打开
+              const link = window.location.origin + posts[0].link;
+              window.open(link, '_blank').focus();
+            } else {
+              // 多篇文章，可以考虑显示列表或打开第一篇
+              const link = window.location.origin + posts[0].link;
+              window.open(link, '_blank').focus();
+            }
           }
         }
+      });
+      
+      // 添加鼠标悬停效果
+      myChart.on('mouseover', function(params) {
+        if (params.componentType === 'series') {
+          myChart.getZr().setCursorStyle('pointer');
+        }
+      });
+      
+      myChart.on('mouseout', function(params) {
+        myChart.getZr().setCursorStyle('default');
       });
     };
 
@@ -346,14 +427,67 @@ export default defineComponent({
     });
 
     return {
-      heatmapRef
+      heatmapRef,
+      totalPosts,
+      getContainerHeight
     };
   }
 });
 </script>
 
 <style scoped>
+.heatmap-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+  border: 1px solid #d1d9e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: none;
+  position: relative;
+}
+
+.heatmap-wrapper:hover {
+  border-color: #c1c9d0;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.heatmap-header {
+  margin-bottom: 10px;
+}
+
+.heatmap-stats {
+  font-size: 14px;
+  font-weight: normal;
+  color: #656d76;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+}
+
 .heatmap-container {
   margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .heatmap-wrapper {
+    background-color: #0d1117;
+    border-color: #30363d;
+    color: #f0f6fc;
+  }
+  
+  .heatmap-wrapper:hover {
+    border-color: #40464d;
+  }
+  
+  .heatmap-stats {
+    color: #8b949e;
+  }
+}
+
+/* 更紧凑的布局 */
+.heatmap-container canvas {
+  max-width: 100%;
 }
 </style>
