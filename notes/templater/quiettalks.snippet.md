@@ -18,14 +18,14 @@ let month = momentDate.format("MM")
 
 ## 3 things worth it
 
-- 
-- 
+ 
+ 
 
 ---
 
 ## One thing you could do better next week
 
-- 
+
 
 
 ## Thinking what
