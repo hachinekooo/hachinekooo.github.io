@@ -340,33 +340,40 @@ private BindHandler getBindHandler(ConfigurationProperties annotation) {
 	- 包装、创建绑定策略、Bind
 
 #### 基本实现
+
+##### 配置表
 ```sql
-create table global_conf  
-(  
-    id int unsigned auto_increment comment '主键ID' primary key,  
-    conf_key    varchar(128) default ''                not null comment '配置key',  
-    conf_value  varchar(512) default ''                not null comment '配置value',  
-    conf_group  varchar(255)                           null comment '组',  
-    comment     varchar(128) default ''                not null comment '注释',  
-    deleted     tinyint      default 0                 not null comment '是否删除 0 未删除 1 已删除',  
-    create_time timestamp    default CURRENT_TIMESTAMP not null comment '创建时间',  
-    update_time timestamp    default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '最后更新时间'  
-)  
-    comment '全局配置表';  
-  
-create index idx_key  
+create table global_conf
+(
+    id          int unsigned auto_increment comment '主键ID'
+        primary key,
+    conf_key    varchar(128) default ''                not null comment '配置key',
+    conf_value  varchar(512) default ''                not null comment '配置value',
+    conf_group  varchar(255)                           not null comment '组',
+    comment     varchar(128) default ''                null comment '注释',
+    deleted     tinyint      default 0                 not null comment '是否删除 0 未删除 1 已删除',
+    create_time timestamp    default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time timestamp    default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '最后更新时间'
+)
+    comment '全局配置表';
+
+create index idx_key
     on global_conf (conf_key);
 ```
+
+##### 绑定器
+> 专门负责初始化 Binder，以及实际的绑定。
+
+> [!NOTE] NOTE
+> `ApplicationContextAware` ：可以让 Spring 容器将 ApplicationContext（应用上下文）的引用注入到该类中  
+> 
+> `PropertySources`：指代提供配置属性的源头集合。这些属性源可以是配置文件、环境变量、系统属性等  
+> 
+> `Binder`：主要作用是将配置源（如 `application.properties`、环境变量、命令行参数）中的值绑定到 Java 对象上，支持复杂类型转换、嵌套结构和验证。  
 
 ```java
 package com.github.dynamic;
 
-/**
- * 动态配置绑定器，负责重新绑定属性
- *
- * @author wangwenpeng
- * @date 2025/06/03
- */
 @Slf4j
 @Component
 public class DynamicConfigBinder implements ApplicationContextAware {
@@ -418,15 +425,28 @@ public class DynamicConfigBinder implements ApplicationContextAware {
 }
 ```
 
+> [!tip] TIPS
+> 获取 Binder 对象时，使用双重检查（Double-Checked Locking） + synchronized，避免在高并发场景下不必要的锁开销，以及线程安全，确保在多线程环境下 `Binder` 实例只会被创建一次。同时此方法也实现了延时初始化的效果，只有在真正使用时才会创建出来，适合创建成本高、需要全局复用的组件
+> 
+
+##### 管理器
+> 动态配置管理器，负责拉取配置、封装配置与调用绑定器
+
+> [!NOTE] Spring 启动的大致流程
+> 
+> Spring容器启动
+> 
+> 所有bean初始化完成
+> 
+> 应用上下文完全就绪
+> 
+> `CommandLineRunner#run `执行
+> 
+> SpringApplication.run() 完成
+
 ```java
 package com.github.dynamic;
 
-/**
- * 动态配置管理器，负责拉取配置、封装配置与调用绑定器
- *
- * @author wangwenpeng
- * @date 2025/06/03
- */
 @Slf4j
 @Component
 public class DynamicConfigManager implements EnvironmentAware, ApplicationContextAware, CommandLineRunner {
@@ -550,6 +570,10 @@ public class DynamicConfigManager implements EnvironmentAware, ApplicationContex
 }
 ```
 
+> [!NOTE] NOTE
+> 值得注意的是 `environment.getPropertySources().addFirst`，
+> 当我们添加自定义的配置源时，需要添加为最高级，这样可以保证我们的值覆盖默认值。
+
 ### 事件驱动支持
 
 #### 回调支持
@@ -597,10 +621,11 @@ public void registerRefreshCallback(Object bean, Runnable run) {
 
 ### @Value 注解支持（@Value Annotation Support）
 
-由于篇幅较长，故开一篇新的来讲解梳理：[dynamic-config-value](dynamic-config-value.md)
+由于篇幅较长，故开一篇新的来梳理：[dynamic-config-value](dynamic-config-value.md)
 
-### 性能与安全（Performance & Security）
+### 性能（Performance）
 
+我们通过引入“组” ，实现了针对性的刷新，避免了每次配置变更，刷新所有配置类的情况。
 
 ## Part 4: 总结与扩展 (Summary & Extensions)
 
@@ -609,7 +634,6 @@ public void registerRefreshCallback(Object bean, Runnable run) {
 
 ### 与现有方案对比
 
-#### 与 Spring Cloud Config 的异同
-
-
 #### 与 Nacos 的对比
+
+更轻量级（当然也能简陋），适合需要动态配置刷新，但是不需要高级特性的项目。
