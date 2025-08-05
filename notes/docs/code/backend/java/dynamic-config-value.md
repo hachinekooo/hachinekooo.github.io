@@ -33,8 +33,8 @@ flowchart TD
     
     G --> H[AutowiredAnnotationBeanPostProcessor执行]
     
-    H --> I[扫描Bean中的@Value字段]
-    I --> J{发现@Value注解?}
+    H --> I[扫描Bean中的Value字段]
+    I --> J{发现Value注解?}
     
     J -->|是| K[创建DependencyDescriptor]
     J -->|否| L[处理其他注解或完成]
@@ -430,7 +430,7 @@ public class QualifierAnnotationAutowireCandidateResolver extends GenericTypeAwa
 ## Part 2: 渐进式实现篇 (Progressive Implementation)
 
 
-> [!Info] 提示
+> [!Info]
 > 为了保持文章精简，我已取出了一些不重要的代码。仅保留核心的实现
 >
 > 详情请查看 ([GITHUB 仓库](https://github.com/hachinekooo/demo-lab))
@@ -699,7 +699,7 @@ public class ValueAnnotationProcessor implements ApplicationContextAware, BeanFa
 
 我们在实现处理器的时候，没有使用这种 [dynamic-config-configuration](dynamic-config-configuration.md) 一样的初始化方式：
 
-> [!quote] 引用
+> [!quote]
 > @Override
 >     public void run(String... args) throws Exception {
 >         reloadConfig(null);

@@ -1,5 +1,5 @@
 ---
-title: Git 如何在本地隐藏文件改动但继续追踪管理（使用 assume-unchanged）
+title: GIT实践之团队协作
 icon: file
 order: 
 date: 2025-04-29
