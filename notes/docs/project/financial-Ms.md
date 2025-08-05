@@ -313,56 +313,137 @@ CREATE INDEX idx_pledge_info_compound ON pledge_info(basic_info_id, pledge_statu
 ```
 
 
+
+
 ### 质押贷款
-#### 基本信息
-##### 表结构
-项目编码
-融资主体
-金融机构
-融资方式
-资金用途
-融资金额
-放款日
-期限(月)
-到期日
-放款金额(元)
-还本付息方式(分期还本付息/到期一次性还本，分期付息/到期一次性还本付息/等额本息/等额本金/不规则还本付息)
-利率类型(固定利率/浮动利率/分段利率)
-基准利率
-浮动类型(上浮/下浮)
-浮动模式(BP/%)
-合同利率(%)
-结息方式(每月/每季度/每半年/自定义)
-首次付息日
-结息日是否为付息日前一天
-利随本清(是/否)
-年计息天数(360/365)
-计息方式-算头(算/不算)
-计息方式-算尾(算/不算)
-付款遇节假日(正常扣款/前一工作日/后一工作日)
-提前打款特殊要求(是/否)
 
-#### 还本计划
+#### **基本信息**
+##### 表结构 (pledge_loan_basic_info)
 
-##### 表结构
-还本日期
-还本金额
-备注
+| **字段名称**                          | **字段类型**      | **字段说明**                | **是否必填** | **备注**                             |
+| --------------------------------- | ------------- | ----------------------- | -------- | ---------------------------------- |
+| id                                | bigint        | 主键 ID，自增                | 是        | PRIMARY KEY                        |
+| project_code                      | varchar(64)   | 项目唯一标识编码；提交后生成项目编码，回填到此 | 是        | UNIQUE KEY                         |
+| financing_entity_id               | bigint        | 融资主体 ID                 | 是        | 外键关联                               |
+| financing_entity_name             | varchar(128)  | 融资主体名称                  | 是        |                                    |
+| financial_institution_id          | bigint        | 金融机构 ID                 | 是        | 外键关联                               |
+| financial_institution_name        | varchar(128)  | 提供融资的机构名称               | 是        |                                    |
+| financing_method_id               | int           | 融资方式 ID；建立字典；如"质押贷款"等   | 是        | 字典表关联                              |
+| fund_purpose                      | varchar(128)  | 资金用途，如"经营周转"            | 是        |                                    |
+| financing_amount                  | decimal(20,2) | 融资金额（元），申请融资的总金额        | 是        | 单位：元                               |
+| loan_date                         | datetime      | 放款日期，实际放款日期             | 是        |                                    |
+| term_months                       | tinyint       | 期限（月），融资期限月数            | 是        | 1-255                              |
+| maturity_date                     | datetime      | 到期日期，贷款到期日期             | 是        |                                    |
+| loan_amount                       | decimal(20,2) | 放款金额（元），实际放款金额          | 是        | 单位：元                               |
+| repayment_method_id               | int           | 还本付息方式 ID；建立字典          | 是        | 分期还本付息/到期一次性还本，分期付息等               |
+| interest_rate_type_id             | int           | 利率类型 ID；建立字典            | 是        | 固定利率/浮动利率/分段利率                     |
+| base_rate                         | decimal(8,4)  | 基准利率（%）                 | 否        | 如：4.3500 表示 4.35%                  |
+| float_type_id                     | int           | 浮动类型 ID；建立字典            | 否        | 上浮/下浮                              |
+| float_ratio                       | int           | 浮动比例                    | 否        |                                    |
+| float_mode_id                     | int           | 浮动模式 ID；建立字典            | 否        | BP/%                               |
+| contract_rate                     | decimal(8,4)  | 合同利率（%）                 | 是        | 如：5.2500 表示 5.25%                  |
+| interest_payment_cycle_id         | int           | 结息方式；                   | 是        | 每月则存醋 1/每季度则存 3/每半年则存 5/每年存 12/自定义 |
+| first_interest_date               | datetime      | 首次付息日                   | 否        |                                    |
+| interest_before_payment           | tinyint(1)    | 结息日是否为付息日前一天            | 是        | 0:否 1:是                            |
+| interest_with_principal           | tinyint(1)    | 利随本清                    | 是        | 0:否 1:是                            |
+| annual_interest_days              | smallint      | 年计息天数；建立字段              | 是        | 360/365                            |
+| count_start_day                   | tinyint(1)    | 计息方式-算头                 | 是        | 0:不算 1:算                           |
+| count_end_day                     | tinyint(1)    | 计息方式-算尾                 | 是        | 0:不算 1:算                           |
+| holiday_payment_rule_id           | int           | 付款遇节假日处理方式 ID；建立字典      | 是        | 正常扣款/前一工作日/后一工作日                   |
+| sync_adjustment_interest_calculat | tinyint(1)    | 利息计算同步调整                | 否        | 0:否 1:是                            |
+| advance_payment_required          | tinyint(1)    | 提前打款特殊要求                | 是        | 0:否 1:是                            |
+| advance_days                      | int           | 提前多少天                   | 否        |                                    |
+| status                            | tinyint       | 业务状态                    | 是        | 0:待提交 1:待审核 2:已审核 3:已完成 9:已取消      |
+| tenant_id                         | bigint(20)    | 租户编号                    | 否        |                                    |
+| creator                           | varchar(255)  | 创建人 ID                  | 是        |                                    |
+| create_time                       | datetime      | 创建时间                    | 是        | DEFAULT CURRENT_TIMESTAMP          |
+| updater                           | varchar(255)  | 更新人 ID                  | 否        |                                    |
+| update_time                       | datetime      | 更新时间                    | 否        | ON UPDATE CURRENT_TIMESTAMP        |
+| deleted                           | tinyint(1)    | 逻辑删除标记                  | 是        | 0:未删除 1:已删除                        |
 
-#### 付息计划
+##### 业务梳理
+**计算关系**
+- 输入放款日期和期限，自动计算出到期日期
+- 合同利率 = 基准利率 + 浮动比例（根据浮动类型和模式计算）
 
-##### 表结构
-付息日期
-付息金额（计算值）
-付息金额（确认值）
-备注
+**前端逻辑**
+- 付款遇节假日为前一工作日/后一工作日时，后面展示利息计算同步调整单选框
+- 提前打款特殊要求为是时，后面展示"提前 X 天的输入框"
+
+#### **还本计划**
+
+##### 表结构 (pledge_loan_repayment_plan)
+
+| **字段名称**        | **字段类型**      | **字段说明**       | **是否必填** | **数据范围/格式**  | **备注**                      |
+| --------------- | ------------- | -------------- | -------- | ------------ | --------------------------- |
+| id              | bigint        | 主键 ID，自增       | 是        |              | PRIMARY KEY                 |
+| basic_info_id   | bigint        | 基本信息表关联 ID     | 是        |              | 外键关联                        |
+| repayment_date  | datetime      | 还本日期           | 是        | YYYY-MM-DD格式 |                             |
+| repayment_amount| decimal(20,2) | 还本金额（元）        | 是        | 正数，保留 2 位小数  |                             |
+| remark          | varchar(500)  | 备注，补充说明信息      | 否        | 长度不超过 500 字符 |                             |
+| creator         | varchar(255)  | 创建人 ID         | 是        |              |                             |
+| create_time     | datetime      | 创建时间           | 是        |              | DEFAULT CURRENT_TIMESTAMP   |
+| updater         | varchar(255)  | 更新人 ID         | 否        |              |                             |
+| update_time     | datetime      | 更新时间           | 否        |              | ON UPDATE CURRENT_TIMESTAMP |
+| deleted         | tinyint(1)    | 逻辑删除标记         | 是        | 0:未删除 1:已删除  |                             |
+
+##### 业务梳理
+**计算关系**
+- 还本计划总金额应等于基本信息中的放款金额
+- 还本日期应在放款日期和到期日期之间
+
+**前端逻辑**
+- 基本信息“还本付息方式”为“分期还本付息”时，展示出“新增”按钮，可以手动新增多条记录
+- 基本信息“还本付息方式”为“到期一次性还本,分期付息”时，这里自动新建一条还本金额为基本信息放款金额，还本日期为基本信息到期日的记录
+- 基本信息“还本付息方式”为“到期一次性还本付息”时，这里自动新建一条还本金额为基本信息放款金额，还本日期为基本信息到期日的记录
+- 等额本息、等额本金、不规则还本付息逻辑暂时省略
+
+#### **付息计划**
+
+##### 表结构 (pledge_loan_interest_plan)
+
+| **字段名称**           | **字段类型**      | **字段说明**            | **是否必填** | **数据范围/格式**  | **备注**                      |
+| ------------------ | ------------- | ------------------- | -------- | ------------ | --------------------------- |
+| id                 | bigint        | 主键 ID，自增            | 是        |              | PRIMARY KEY                 |
+| basic_info_id      | bigint        | 基本信息表关联 ID          | 是        |              | 外键关联                        |
+| interest_date      | datetime      | 付息日期                | 是        | YYYY-MM-DD格式 |                             |
+| calculated_amount  | decimal(20,2) | 付息金额（计算值）（元）        | 是        | 正数，保留 2 位小数  | 系统自动计算                      |
+| confirmed_amount   | decimal(20,2) | 付息金额（确认值）（元）        | 否        | 正数，保留 2 位小数  | 手动确认或调整                     |
+| occupied_amount    | decimal(20,2) | 占用金额（元）             | 是        | 正数，保留 2 位小数  | 用于利息计算的本金金额                 |
+| occupied_days      | smallint      | 占用天数                | 是        | 正整数          | 计息期间的天数                     |
+| annual_rate        | decimal(8,4)  | 年利率（%）              | 是        | 百分比形式，保留 4 位小数 | 如：5.2500 表示 5.25%             |
+| remark             | varchar(500)  | 备注，补充说明信息           | 否        | 长度不超过 500 字符 |                             |
+| creator            | varchar(255)  | 创建人 ID              | 是        |              |                             |
+| create_time        | datetime      | 创建时间                | 是        |              | DEFAULT CURRENT_TIMESTAMP   |
+| updater            | varchar(255)  | 更新人 ID              | 否        |              |                             |
+| update_time        | datetime      | 更新时间                | 否        |              | ON UPDATE CURRENT_TIMESTAMP |
+| deleted            | tinyint(1)    | 逻辑删除标记              | 是        | 0:未删除 1:已删除  |                             |
 
 ##### 业务梳理
 
 **计算关系**
-- 利息 = 占用金额 x 年利率 x (占用天数 / 年计息天数 )
+- 付息金额（计算值） = 占用金额 × 年利率 × (占用天数 / 年计息天数)；同时要考虑到基本信息中的“计息方式-算头”与“计息方式-算尾”
+- 占用天数 = 当期计息结束日期 - 当期计息开始日期
+- 占用金额根据还本计划动态调整（剩余本金）
+- 付息金额（确认值）默认等于计算值，可手动调整
 
-#### 质押信息表(使用已经存在的 pledge_info 表)
+**字段约束**
+- 付息日期应在放款日期和到期日期之间
+- 占用金额不应超过当期剩余本金
+
+**前端逻辑**
+- 一直展示生成按钮，点击“生成”按钮可以根据基本信息，去生成付息计划
+- 最后一行展示出记录的总和值（付息金额（计算值） + 付息金额（确认值））
+
+#### **质押信息**
+
+##### 表结构 (使用已经存在的 pledge_info 表)
+
+**说明**：质押贷款的质押信息复用票据贴现中的质押信息表结构，通过 `basic_info_id` 字段关联到质押贷款基本信息表。
+
+**字段约束**
+- 质押存单的存款金额总和应不少于贷款金额的一定比例（风控要求）
+- 质押存单的到期日期应不早于贷款到期日期
 
 
 #### 消耗中收基本信息
