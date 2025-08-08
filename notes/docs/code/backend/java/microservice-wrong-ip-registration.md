@@ -119,3 +119,27 @@ Mac：
 ```shell
 sudo ifconfig en12 down
 ```
+
+
+### 问题缘由
+
+2025.8.7 日补充
+
+我错怪了 Easy Connect，问题不在于它，而是在于苹果的设计，我每天打开电脑会习惯性的使用数据线连接手机，给它充电。这就是问题所在：
+
+```
+What is en12?
+•  Source: Your connected iPhone (Apple product ID 4776)
+•  Type: USB NCM Data interface - a secondary network interface 
+•  Purpose: Used for advanced iOS networking features and potentially personal hotspot functionality
+•  Status: Currently inactive but being managed by the system
+```
+
+连接上之后，苹果会创建两个虚拟网卡，一个是 `en10`，还有一个额外的 `en12`，而后者的优先级似乎非常高，导致我的微服务使用了这个地址向 Nacos 注册。
+
+拔掉你的 Iphone，问题便解决了～
+
+![](../../../../appends/img/microservice-wrong-ip-registration.png)
+
+
+![](../../../../appends/img/microservice-wrong-ip-registration-1.png)
