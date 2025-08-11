@@ -415,29 +415,29 @@ tags:
 
 ##### 表(expense_payment_basic_info)
 
-| **字段名称**                  | **字段类型**      | **字段说明**            | **是否必填** | **数据范围/格式**   | **备注**                        |
-| ------------------------- | ------------- | ------------------- | -------- | ------------- | ----------------------------- |
-| id                        | bigint        | 主键 ID，自增            | 是        |               | PRIMARY KEY                   |
-| payment_no                | varchar(64)   | 支付单号，用于标识付款单的编号     | 是        | 长度不超过 64 字符   | UNIQUE KEY                    |
-| payer_entity_id           | bigint        | 付款单位 ID             | 是        |               | 外键关联                          |
-| payer_entity_name         | varchar(128)  | 付款单位名称              | 是        | 长度不超过 128 字符  |                               |
-| expense_category_id       | int           | 费用项 ID，费用的项目类别；建立字典 | 是        | 如"手续费"、"咨询费"等 | 字典表关联                         |
-| payee_entity_id           | bigint        | 收款单位 ID             |          |               |                               |
-| payee_entity_name         | varchar(128)  | 收款单位名称              | 否        | 长度不超过 128 字符  |                               |
-| payee_account             | varchar(64)   | 收款账号，收款的银行账号        | 否        | 长度不超过 64 字符   |                               |
-| payee_bank                | varchar(128)  | 开户行，收款账号对应的开户银行     | 否        | 银行全称或标准简称     |                               |
-| payment_date              | datetime      | 支付日期，付款的日期          | 是        | YYYY-MM-DD 格式 |                               |
-| payment_amount            | decimal(20,2) | 支付金额（元），付款的金额       | 是        | 正数，保留 2 位小数   |                               |
-| consume_income            | tinyint(1)    | 是否消耗中收，标记是否消耗中收     | 否        | 0:否 1:是       | DEFAULT 0                     |
-| related_financing_project | varchar(256)  | 关联融资项目，关联的融资项目信息    | 否        | 长度不超过 256 字符  |                               |
-| payment_reason            | text          | 付款事由，付款的原因或事由描述     | 否        |               |                               |
-| status                    | tinyint       | 业务状态                | 是        |               | 0:待提交 1:待审核 2:已审核 3:已完成 9:已取消 |
-| tenant_id                 | bigint        | 租户编号                | 否        |               |                               |
-| creator                   | varchar(255)  | 创建人 ID              | 是        |               |                               |
-| create_time               | datetime      | 创建时间                | 是        |               | DEFAULT CURRENT_TIMESTAMP     |
-| updater                   | varchar(255)  | 更新人 ID              | 否        |               |                               |
-| update_time               | datetime      | 更新时间                | 否        |               | ON UPDATE CURRENT_TIMESTAMP   |
-| deleted                   | tinyint(1)    | 逻辑删除标记              | 是        | 0:未删除 1:已删除   |                               |
+| **字段名称**                  | **字段类型**      | **字段说明**            | **是否必填** | **数据范围/格式**   | **备注**                                            |
+| ------------------------- | ------------- | ------------------- | -------- | ------------- | ------------------------------------------------- |
+| id                        | bigint        | 主键 ID，自增            | 是        |               | PRIMARY KEY                                       |
+| payment_no                | varchar(64)   | 支付单号，用于标识付款单的编号     | 是        | 长度不超过 64 字符   | UNIQUE KEY                                        |
+| payer_entity_id           | bigint        | 付款单位 ID             | 是        |               | 外键关联                                              |
+| payer_entity_name         | varchar(128)  | 付款单位名称              | 是        | 长度不超过 128 字符  |                                                   |
+| expense_category_id       | int           | 费用项 ID，费用的项目类别；建立字典 | 是        | 如"手续费"、"咨询费"等 | 字典表关联                                             |
+| payee_entity_id           | bigint        | 收款单位 ID             |          |               |                                                   |
+| payee_entity_name         | varchar(128)  | 收款单位名称              | 否        | 长度不超过 128 字符  |                                                   |
+| payee_account             | varchar(64)   | 收款账号，收款的银行账号        | 否        | 长度不超过 64 字符   |                                                   |
+| payee_bank                | varchar(128)  | 开户行，收款账号对应的开户银行     | 否        | 银行全称或标准简称     |                                                   |
+| payment_date              | datetime      | 支付日期，付款的日期          | 是        | YYYY-MM-DD 格式 |                                                   |
+| payment_amount            | decimal(20,2) | 支付金额（元），付款的金额       | 是        | 正数，保留 2 位小数   |                                                   |
+| consume_income            | tinyint(1)    | 是否消耗中收，标记是否消耗中收     | 否        | 0:否 1:是       | DEFAULT 0                                         |
+| related_financing_project | varchar(256)  | 关联融资项目，关联的融资项目信息    | 否        | 长度不超过 256 字符  |                                                   |
+| payment_reason            | text          | 付款事由，付款的原因或事由描述     | 否        |               |                                                   |
+| status                    | tinyint       | 业务状态                | 是        |               | 0:待提交 1:待审核 2:已审核 3:已完成 9:已取消；现阶段不启用，数据库新增时默认填充 0 |
+| tenant_id                 | bigint        | 租户编号                | 否        |               |                                                   |
+| creator                   | varchar(255)  | 创建人 ID              | 是        |               |                                                   |
+| create_time               | datetime      | 创建时间                | 是        |               | DEFAULT CURRENT_TIMESTAMP                         |
+| updater                   | varchar(255)  | 更新人 ID              | 否        |               |                                                   |
+| update_time               | datetime      | 更新时间                | 否        |               | ON UPDATE CURRENT_TIMESTAMP                       |
+| deleted                   | tinyint(1)    | 逻辑删除标记              | 是        | 0:未删除 1:已删除   |                                                   |
 
 前端展示逻辑
 【是否消耗中收】为是是，后面展示【关联融资项目输入框】
@@ -523,30 +523,30 @@ tags:
 
 ##### 表(transaction_payment_basic_info)
 
-| **字段名称**                 | **字段类型**      | **字段说明**          | **是否必填** | **数据范围/格式**     | **备注**                        |
-| ------------------------ | ------------- | ----------------- | -------- | --------------- | ----------------------------- |
-| id                       | bigint        | 主键 ID，自增          | 是        |                 | PRIMARY KEY                   |
-| payment_no               | varchar(64)   | 支付单号，用于标识付款单的编号   | 是        | 长度不超过 64 字符     | UNIQUE KEY                    |
-| payment_type_id          | int           | 类型 ID，往来款项类型；建立字典 | 是        | 如"业务往来"等        | 字典表关联                         |
-| project_name             | varchar(128)  | 项目名称              | 是        | 长度不超过 128 字符    |                               |
-| transaction_item_id      | int           | 往来款项 ID；建立字典      | 是        | 如"信托保证基金"等      | 字典表关联                         |
-| recovery_method_id       | int           | 回收方式 ID；建立字典      | 是        | 如"到期回收"、"提前回收"等 | 字典表关联                         |
-| payment_date             | datetime      | 支付日期              | 是        | YYYY-MM-DD 格式   |                               |
-| payment_amount           | decimal(20,2) | 支付金额（元）           | 是        | 正数，保留 2 位小数     |                               |
-| payer_entity_id          | bigint        | 付款单位 ID           | 是        |                 | 外键关联                          |
-| payer_entity_name        | varchar(128)  | 付款单位名称，付款的单位名称    | 是        | 长度不超过 128 字符    |                               |
-| has_interest             | tinyint(1)    | 有无利息              | 是        | 0:无利息 1:有利息     | DEFAULT 0                     |
-| annual_rate              | decimal(8,4)  | 年利率（%）            | 否        | 百分比形式，保留 4 位小数  | 如：3.2500 表示 3.25%，有利息时必填      |
-| expected_recovery_date   | datetime      | 预计回收日期            | 是        | YYYY-MM-DD 格式   |                               |
-| expected_recovery_amount | decimal(20,2) | 预计回收金额（元）         | 是        | 正数，保留 2 位小数     |                               |
-| payment_reason           | text          | 付款事由，付款的原因或事由描述   | 是        |                 |                               |
-| status                   | tinyint       | 业务状态              | 是        |                 | 0:待提交 1:待审核 2:已审核 3:已完成 9:已取消 |
-| tenant_id                | bigint        | 租户编号              | 否        |                 |                               |
-| creator                  | varchar(255)  | 创建人 ID            | 是        |                 |                               |
-| create_time              | datetime      | 创建时间              | 是        |                 | DEFAULT CURRENT_TIMESTAMP     |
-| updater                  | varchar(255)  | 更新人 ID            | 否        |                 |                               |
-| update_time              | datetime      | 更新时间              | 否        |                 | ON UPDATE CURRENT_TIMESTAMP   |
-| deleted                  | tinyint(1)    | 逻辑删除标记            | 是        | 0:未删除 1:已删除     |                               |
+| **字段名称**                 | **字段类型**      | **字段说明**          | **是否必填** | **数据范围/格式**     | **备注**                                            |
+| ------------------------ | ------------- | ----------------- | -------- | --------------- | ------------------------------------------------- |
+| id                       | bigint        | 主键 ID，自增          | 是        |                 | PRIMARY KEY                                       |
+| payment_no               | varchar(64)   | 支付单号，用于标识付款单的编号   | 是        | 长度不超过 64 字符     | UNIQUE KEY                                        |
+| payment_type_id          | int           | 类型 ID，往来款项类型；建立字典 | 是        | 如"业务往来"等        | 字典表关联                                             |
+| project_name             | varchar(128)  | 项目名称              | 是        | 长度不超过 128 字符    |                                                   |
+| transaction_item_id      | int           | 往来款项 ID；建立字典      | 是        | 如"信托保证基金"等      | 字典表关联                                             |
+| recovery_method_id       | int           | 回收方式 ID；建立字典      | 是        | 如"到期回收"、"提前回收"等 | 字典表关联                                             |
+| payment_date             | datetime      | 支付日期              | 是        | YYYY-MM-DD 格式   |                                                   |
+| payment_amount           | decimal(20,2) | 支付金额（元）           | 是        | 正数，保留 2 位小数     |                                                   |
+| payer_entity_id          | bigint        | 付款单位 ID           | 是        |                 | 外键关联                                              |
+| payer_entity_name        | varchar(128)  | 付款单位名称，付款的单位名称    | 是        | 长度不超过 128 字符    |                                                   |
+| has_interest             | tinyint(1)    | 有无利息              | 是        | 0:无利息 1:有利息     | DEFAULT 0                                         |
+| annual_rate              | decimal(8,4)  | 年利率（%）            | 否        | 百分比形式，保留 4 位小数  | 如：3.2500 表示 3.25%，有利息时必填                          |
+| expected_recovery_date   | datetime      | 预计回收日期            | 是        | YYYY-MM-DD 格式   |                                                   |
+| expected_recovery_amount | decimal(20,2) | 预计回收金额（元）         | 是        | 正数，保留 2 位小数     |                                                   |
+| payment_reason           | text          | 付款事由，付款的原因或事由描述   | 是        |                 |                                                   |
+| status                   | tinyint       | 业务状态              | 是        |                 | 0:待提交 1:待审核 2:已审核 3:已完成 9:已取消；现阶段不启用，数据库新增时默认填充 0 |
+| tenant_id                | bigint        | 租户编号              | 否        |                 |                                                   |
+| creator                  | varchar(255)  | 创建人 ID            | 是        |                 |                                                   |
+| create_time              | datetime      | 创建时间              | 是        |                 | DEFAULT CURRENT_TIMESTAMP                         |
+| updater                  | varchar(255)  | 更新人 ID            | 否        |                 |                                                   |
+| update_time              | datetime      | 更新时间              | 否        |                 | ON UPDATE CURRENT_TIMESTAMP                       |
+| deleted                  | tinyint(1)    | 逻辑删除标记            | 是        | 0:未删除 1:已删除     |                                                   |
 
 **前端显示逻辑**
 
