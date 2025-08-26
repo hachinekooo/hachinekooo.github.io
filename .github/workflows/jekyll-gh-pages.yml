@@ -46,14 +46,6 @@ jobs:
         cd notes
         python heatmap.py
     
-    - name: Remove node_modules and package-lock.json
-      if: ${{ github.event_name == 'workflow_dispatch' }}
-      run: |
-        rm -rf node_modules
-        rm -f package-lock.json
-        # rm -f pnpm-lock.yaml
-        pnpm store prune
-    
     - name: Prepare environment
       run: |
         echo "VITE_SITE_BASE=/notes/" > .env.local
