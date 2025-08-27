@@ -134,12 +134,90 @@ Maven 多模块项目的特点
   3. 确保依赖关系正确
 
 
+> [!question] 
+> 关于 JSON 序列化
+
+-  `@TableField(typeHandler = JacksonTypeHandler.class)` 注解
+	- 实现前台传递的数组类型数据到后台直接转为数组类型的功能
+	- 将 Java 中的数组类型序列化为 JSON 字符串存储到数据库
+	- 从数据库读取时，将 JSON 字符串反序列化为 Java 数组类型
+
+举例：
+```java
+@TableName("user")
+public class User {
+    @TableId(type = IdType.AUTO)
+    private Long id;
+    
+    private String name;
+    
+    // 使用JacksonTypeHandler处理数组类型
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private String[] hobbies;
+    
+   // setter
+   // getter
+}
+```
+
+当前台以 JSON 格式传递包含数组的数据时：
+```json
+{ "name": "张三", "hobbies": ["读书", "运动", "听音乐"] }
+```
+
+
+```java
+	@PostMapping("/user")
+    public String addUser(@RequestBody User user) {
+        // 这里的user对象中的hobbies已经是String[]类型
+        System.out.println("用户爱好数量：" + user.getHobbies().length);
+        userService.save(user);
+        return "用户添加成功";
+    }
+```
+
+
+
 > [!question]
-> 前端传参数、SpringBoot 接参、BeanUtils 转换
+> 关于日期的处理。前端传参数、SpringBoot 接参、BeanUtils 转换
+
+- 后端对外暴露的 API 接口中，日期字段可以使用 String 类型，更好的兼容性和错误处理
+- 内部实体类，使用日期类型，可以获得更好的类型安全支持，性能
+- 数据库实体，必须使用日期类型，满足数据库层面的类型约束
 
 
-
-
+```java
+public class OptimalUserDTO {
+    
+    // 对外接口使用字符串（灵活性）
+    @JsonProperty("createTime")
+    private String createTimeStr;
+    
+    // 内部处理使用日期类型（类型安全）
+    @JsonIgnore
+    private LocalDateTime createTime;
+    
+    // 提供转换方法
+    @JsonIgnore
+    public LocalDateTime getCreateTime() {
+        if (createTime == null && createTimeStr != null) {
+            createTime = parseCreateTime(createTimeStr);
+        }
+        return createTime;
+    }
+    
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+        this.createTimeStr = createTime != null ? 
+            createTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) : null;
+    }
+    
+    private LocalDateTime parseCreateTime(String timeStr) {
+        // 支持多种格式的解析逻辑
+        return TimeUtils.parseFlexible(timeStr);
+    }
+}
+```
 
 ## 数据库 DATABASE
 
