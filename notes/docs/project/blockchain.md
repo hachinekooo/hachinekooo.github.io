@@ -28,18 +28,67 @@ tags:
 
 #### 区块链存证的价值
 
-- 去中心化存储，数据在互联网中的多个节点中拷贝存储
-- 多数节点中的数据确定最终数据，不受个别节点中数据变更的影响
-- 很难被篡改，可信度极高
+- 存在区块链中的数据很难被篡改，可信度极高，具备法律效应
 
 ### 什么是区块链
 
-#### 区块链的基本原理
+#### 区块链的基本概念
 
+##### 哈希
 
+> 哈希是一种将任意长度的数据，通过特定算法转换为固定长度、唯一且不可逆的字符串的过程。
+
+简单说就是，吃一堆数据进去，经过计算，能吐出一个唯一的指纹信息。如果我们后续想判断这一堆数据有没有被修改过，就再计算一次，和指纹信息比一比就可以了。注意，我们并不能通过指纹信息反推数据哦。
+
+在区块链系统中，会涉及到两个哈希：
+
+|                         |                     |                              |
+| ----------------------- | ------------------- | ---------------------------- |
+| 交易哈希 (Transaction Hash) | 唯一标识一笔交易            | 任何人拿到这个哈希，都可以在链上查到这笔交易的具体内容。 |
+| 区块哈希 (Block Hash)       | 唯一标识一个区块，并保证区块不可篡改。 | 是该区块所有数据的数字指纹，证明整个区块的有效性     |
+
+它们两个的关系：
+- 交易哈希被包含在区块中。先有交易，然后交易被打包进区块。
+- 区块哈希包含了所有交易哈希。它的计算依赖于区块内的所有交易。
+
+这俩个哈希打组合🃏，巧妙的链式结构保证不可篡改：
+- 用交易数据重新计算出交易哈希，交易哈希是验证数据是否被修改的第一个秘密武器。
+- 区块哈希包含了所有交易哈希，它的计算依赖于区块内的所有交易，根据这些内容，计算出区块哈希，这是判断数据是否被修改的第二个秘密武器
+- 形成链式结构；区块 N 的哈希 = Hash( 区块 N-1 的哈希 + 区块 N 的所有交易 + ... )。这意味着要想成功篡改一个历史区块，必须同时重新计算它之后所有区块的哈希，算力上几乎不可能实现，你把你能竭尽所能买到的电脑拼起来，算冒烟了估计都算不出来。
+
+##### 确认数
+
+> 确认数是指一笔交易被打包进区块后，在它之上又产生了多少个新区块。
+
+```
+假设当前区块链高度是 1000：
+
+区块高度 997: [包含你的交易 TX1]
+区块高度 998: [其他交易]
+区块高度 999: [其他交易] 
+区块高度 1000: [其他交易] <- 当前最新区块
+
+那么你的交易 TX1 的确认数就是：1000 - 997 = 3
+```
+
+作用：
+- 可以估算重组概率。确认数越多，交易被重组的概率越低
+- 不同业务对确认数的要求不一样，估算安全性
+	- 小额交易：1-3个确认即可
+	- 重要存证：6-12个确认更安全
+	- 关键业务：可能需要20+个确认
+
+```
+确认数 0: PACKED (刚被打包，风险最高)
+确认数 1-5: CONFIRMED (基本安全)  
+确认数 6+: FINALIZED (非常安全，几乎不可逆)
+```
 
 #### 存证的技术原理
 
+- 去中心化存储，数据在互联网中的多个节点中拷贝存储
+- 多数节点中的数据确定最终数据，不受个别节点中数据变更的影响
+- 很难被篡改，可信度极高
 
 ### AOP 的基本概念
 
@@ -72,47 +121,105 @@ tags:
 2. 减轻主表的存储压力，大字段单独存储
 3. 方便未来在详情表中增加更多大数据字段
 
-#### 主表
 
-| **字段名称**           | **字段类型**     | **字段说明**    | **是否必填** | **备注**                           |     |
-| ------------------ | ------------ | ----------- | -------- | -------------------------------- | --- |
-| id                 | bigint       | 主键（逻辑主键）    | 是        |                                  |     |
-| biz_type           | varchar(100) | 操作业务的类型     | 是        | 如 stockIn/stockOut/stockTransfer |     |
-| biz_id             | varchar(100) | 操作业务的主键     | 是        | 关联的具体业务记录 ID                     |     |
-| biz_opt_time       | datetime     | 业务操作时间      | 是        | 实际的业务操作发生时间                      |     |
-| certify_time       | datetime     | 存证时间        |          | 区块链存证成功的时间                       |     |
-| status             | varchar(20)  | 存证状态        | 是        | 存证状态（PENDING/SUCCESS/FAILED）     |     |
-| errorCode          | varchar(50)  | 我们自己的统一错误码  |          |                                  |     |
-| error_message      | varchar(100) | 我们自己的统一错误描述 |          |                                  |     |
-| transaction_hash   | varchar(64)  | 交易哈希        |          | 区块链上每笔交易的唯一标识符，类似于交易的"身份证号"      |     |
-| block_height       | bigint       | 区块高度        |          | 表示该交易被打包到区块链的第几个区块中              |     |
-| sdk_vendor         | varchar(50)  | SDK 厂商标识    | 是        |                                  |     |
-| sdk_version        | varchar(20)  | SDK 版本号     | 是        |                                  |     |
-| sdk_code           | varchar(50)  | SDK 错误码     |          | SDK 返回的 errorCode 字段             |     |
-| sdk_message        | varchar(500) | SDK 返回消息    |          | SDK 返回的 msg 字段                   |     |
-| sdk_certificate_id | varchar(100) | 存证凭证ID      |          | 存证平台生成的业务层面的凭证编号                 |     |
-| retry_count        | int          | 重试次数        |          | DEFAULT 0                        |     |
-| max_retry_count    | int          | 最大重试次数      |          | DEFAULT 3                        |     |
-| next_retry_time    | datetime     | 下次重试时间      |          |                                  |     |
-| tenant_id          | bigint(20)   | 租户编号        |          |                                  |     |
-| creator            | varchar(255) | 创建人 ID      | 是        |                                  |     |
-| create_time        | datetime     | 创建时间        | 是        | DEFAULT CURRENT_TIMESTAMP        |     |
-| updater            | varchar(255) | 更新人 ID      |          |                                  |     |
-| update_time        | datetime     | 更新时间        |          | ON UPDATE CURRENT_TIMESTAMP      |     |
-| deleted            | tinyint(1)   | 逻辑删除标记      | 是        | 0:未删除 1:已删除                      |     |
+#### 主表 blockchain_certify_record
 
-#### 详情表
+##### 状态
 
-| **字段名称**                 | **字段类型**     | **字段说明**          | **是否必填** | **备注**                       |     |
-| ------------------------ | ------------ | ----------------- | -------- | ---------------------------- | --- |
-| id                       | bigint       | 主键                | 是        |                              |     |
-| certify_record_id        | bigint       | 关联主表ID            | 是        |                              |     |
-| certify_struct_data      | json         | 存证结构化数据（JSON 格式）  |          | 业务表单数据组合                     |     |
-| certify_struct_data_hash | varchar(255) | 结构化数据的 HASH 值     |          | 结构化数据的 HASH 值                |     |
-| certify_un_struct_data   | json         | 存证非结构化数据（JSON 格式） |          | 业务表单的附件信息                    |     |
-| sdk_data                 | text         | SDK 返回数据          |          | SDK 返回的 data 字段内容            |     |
-| sdk_response_data        | text         | 完整响应数据            |          | SDK 返回的完整 JSON 响应（用于备份和排查问题） |     |
-| create_time              | datetime     | 创建时间              | 是        | DEFAULT CURRENT_TIMESTAMP    |     |
+- 状态值设计
+
+| 状态名称 | 英文标识          | 说明               |
+| ---- | ------------- | ---------------- |
+| 初始化  | INIT          | 刚创建记录，还未开始存证     |
+| 提交中  | SUBMITTING    | 正在向区块链网络提交交易     |
+| 待打包  | PENDING       | 交易已提交到内存池，等待矿工打包 |
+| 已打包  | PACKED        | 交易已被打包进区块，但确认数不足 |
+| 已确认  | CONFIRMED     | 交易已获得足够确认数，相对安全  |
+| 已重组  | REORGED       | 曾经打包的区块被重组废弃     |
+| 提交失败 | SUBMIT_FAILED | 提交到区块链网络失败       |
+| 打包失败 | PACK_FAILED   | 长时间未被打包，被丢弃      |
+| 最终确认 | FINALIZED     | 达到最终确认数，几乎不可逆转   |
+
+关于确认数值与状态
+
+| 状态        | 确认数范围 | 安全级别 | 适用场景      |
+| --------- | ----- | ---- | --------- |
+| PACKED    | 0     | 最低   | 刚被打包，高风险  |
+| CONFIRMED | 1-5   | 基本安全 | 一般业务操作    |
+| FINALIZED | 6+    | 高安全  | 重要存证、大额交易 |
+
+- 状态流转机制
+
+正常流程
+```
+INIT -> SUBMITTING -> PENDING -> PACKED -> CONFIRMED -> FINALIZED
+```
+
+异常流程
+```
+INIT -> SUBMITTING -> SUBMIT_FAILED 提交失败，然后重试
+```
+
+```
+INIT -> SUBMITTING -> PENDING -> PACK_FAILED 一直没等到被打包，然后重试
+```
+
+```
+PACKED/CONFIRMED -> REORGED -> 重新开始流程 -> 复制改记录状态改为INIT -> ....
+```
+
+| **字段名称**              | **字段类型**     | **字段说明**        | **是否必填** | **备注**                                 |
+| --------------------- | ------------ | --------------- | -------- | -------------------------------------- |
+| id                    | bigint       | 主键（逻辑主键）        | 是        |                                        |
+| biz_type              | varchar(100) | 操作业务的类型         | 是        | 如 stockIn/stockOut/stockTransfer       |
+| biz_id                | varchar(100) | 操作业务的主键         | 是        | 关联的具体业务记录 ID                           |
+| biz_opt_time          | datetime     | 业务操作时间          | 是        | 实际的业务操作发生时间                            |
+| certify_time          | datetime     | 存证时间            |          | 区块链存证成功的时间                             |
+| status                | varchar(20)  | 存证状态            | 是        |                                        |
+| errorCode             | varchar(50)  | 我们自己的统一错误码      |          |                                        |
+| error_message         | varchar(100) | 我们自己的统一错误描述     |          |                                        |
+| tx_hash               | varchar(128) | 区块链的交易哈希        |          | 唯一标识一笔交易。区块链上每笔交易的唯一标识符，类似于交易的"身份证号"   |
+| block_height          | bigint       | 区块链的区块高度        |          | 表示该交易被打包到区块链的第几个区块中                    |
+| block_hash            | varchar(100) | 区块链的区块哈希        |          | 唯一标识一个区块，并保证区块不可篡改。它是该区块所有数据的数字指纹。     |
+| confirmation_count    | int          | 当前确认数           |          |                                        |
+| required_confirmation | int          | 要求的确认数（默认6）     |          |                                        |
+| is_in_main_chain      | tinyint(1)   | 是否在主链上          |          |                                        |
+| last_check_time       | datetime     | 最后检查时间          |          |                                        |
+| reorg_count           | int          | 重组次数            |          |                                        |
+| original_tx_hash      | varchar(128) | 原始交易哈希（重新提交时记录） |          | 用于记录重组前的交易标识，建立重试关系的追踪链条，能追溯到这笔存证的完整历史 |
+| sdk_certificate_id    | varchar(255) | SDK 存证凭证ID      |          | SDK 返回的 业务层面的凭证编号                      |
+| sdk_code              | varchar(50)  | SDK 错误码         |          | SDK 返回的 code 字段                        |
+| sdk_message           | varchar(500) | SDK 返回消息        |          | SDK 返回的 msg 字段                         |
+| retry_count           | int          | 重试次数            |          | DEFAULT 0                              |
+| max_retry_count       | int          | 最大重试次数          |          | DEFAULT 3                              |
+| next_retry_time       | datetime     | 下次重试时间          |          |                                        |
+| sdk_vendor            | varchar(50)  | SDK 厂商标识        | 是        |                                        |
+| sdk_version           | varchar(20)  | SDK 版本号         | 是        |                                        |
+| tenant_id             | bigint(20)   | 租户编号            |          |                                        |
+| creator               | varchar(255) | 创建人 ID          | 是        |                                        |
+| create_time           | datetime     | 创建时间            | 是        | DEFAULT CURRENT_TIMESTAMP              |
+| updater               | varchar(255) | 更新人 ID          |          |                                        |
+| update_time           | datetime     | 更新时间            |          | ON UPDATE CURRENT_TIMESTAMP            |
+| deleted               | tinyint(1)   | 逻辑删除标记          | 是        | 0:未删除 1:已删除                            |
+
+索引：
+- biz_type, biz_id
+- tx_hash
+- next_retry_time -- 用于重试任务扫描
+- last_check_time -- 用于状态检查任务
+
+#### 详情表 blockchain_certify_detail
+
+| **字段名称**                 | **字段类型**     | **字段说明**          | **是否必填** | **备注**                       |
+| ------------------------ | ------------ | ----------------- | -------- | ---------------------------- |
+| id                       | bigint       | 主键                | 是        |                              |
+| certify_record_id        | bigint       | 关联主表ID            | 是        |                              |
+| certify_struct_data      | json         | 存证结构化数据（JSON 格式）  |          | 业务表单数据组合                     |
+| certify_struct_data_hash | varchar(255) | 结构化数据的 HASH 值     |          | 结构化数据的 HASH 值                |
+| certify_un_struct_data   | json         | 存证非结构化数据（JSON 格式） |          | 业务表单的附件信息                    |
+| sdk_data                 | text         | SDK 返回数据          |          | SDK 返回的 data 字段内容            |
+| sdk_response_data        | text         | 完整响应数据            |          | SDK 返回的完整 JSON 响应（用于备份和排查问题） |
+| create_time              | datetime     | 创建时间              | 是        | DEFAULT CURRENT_TIMESTAMP    |
 
 ### 使用 AOP 无感引入 
 
@@ -145,16 +252,25 @@ tags:
 - 按优先级依次执行机构、部门、人员等字段映射
 - 支持动态扩展新的映射规则
 
-### 异步处理与重试机制
+### 重试机制与监控告警
+
+告警触发条件：
+1. 检测到重组状态 (REORGED)
+2. 重试次数超过阈值
+3. 确认数异常下降
+4. 长时间停留在 PENDING 状态
+
+告警内容大致包括：
+- 业务类型和业务ID
+- 原交易哈希
+- 重组发生时间
+- 建议处理方式
 
 
 ## Part 3: 封装为复用 Starter (Reusable Component)
 
-
 ### 工程结构划分
 
-
-### 
 
 ## Part 4: 总结（Summary）
 
