@@ -107,23 +107,37 @@ SOCKS5 vs HTTP 代理的区别：
 
 ## 配置 Git 代理
 
-经过上述配置之后，如果你的远程地址也是使用的是 HTTP 协议的，如：`http://10.100.108.110:8600/project/your-project.git`，按理来说，你的 IDEA 可以正常拉取更新代码了。
+经过上述配置之后，如果你的远程地址也是使用的是 HTTP 协议的，如：`http://10.100.108.110:8600/project/your-project.git`，我们还需要再进行简单的配置，以确保 git 操作走代理。
 
-如果不行，最推荐的方式是改为 HTTP 的，配置更简单。
+首先
 
 ```shell
 # 查看当前远程地址
 git remote -v
 
-# 将 SSH 地址改为 HTTP 地址
+# 将 SSH格式的仓库地址 地址改为 HTTP 地址的
 git remote set-url origin http://10.100.108.110:8600/project/your-project.git
 
 # 验证修改
 git remote -v
 ```
 
+然后设置全局代理
+```shell
+git config --global http.proxy socks5://127.0.0.1:7897
 
-## 配置 SSH 走 SOCK
+git config --global https.proxy socks5://127.0.0.1:7897
+
+git ls-remote origin
+92d4dd02b3698daef0054b450ae8cd6268d5723e	HEAD
+c922d1de1a7fa6f6786505b11328a45eb0db7d23	refs/heads/dev
+92d4dd02b3698daef0054b450ae8cd6268d5723e	refs/heads/main
+....
+```
+
+如果你坚持想用 `git@10.193.100.100:gysk/project.git` 格式的仓库地址，你要配置一下 SSH 走代理。
+
+## 配置 SSH 走代理
 
 > [!tips]
 > macOS 系统代理的应用范围有限制：  

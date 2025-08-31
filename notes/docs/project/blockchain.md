@@ -207,6 +207,8 @@ PACKED/CONFIRMED -> REORGED -> 重新开始流程 -> 复制改记录状态改为
 - tx_hash
 - next_retry_time -- 用于重试任务扫描
 - last_check_time -- 用于状态检查任务
+- status
+- create_time
 
 #### 详情表 blockchain_certify_detail
 
@@ -220,39 +222,132 @@ PACKED/CONFIRMED -> REORGED -> 重新开始流程 -> 复制改记录状态改为
 | sdk_data                 | text         | SDK 返回数据          |          | SDK 返回的 data 字段内容            |
 | sdk_response_data        | text         | 完整响应数据            |          | SDK 返回的完整 JSON 响应（用于备份和排查问题） |
 | create_time              | datetime     | 创建时间              | 是        | DEFAULT CURRENT_TIMESTAMP    |
+索引：
+- certify_record_id
 
-### 使用 AOP 无感引入 
+主键约束：
+- certify_record_id
 
-  核心思路：
-  - 自定义注解 `@ChainBlockCertify`，标记需要存证的方法
-  - 通过 `AOP` 拦截带注解的方法调用、提取数据、异步调用区块链 SDK
-  - 在方法执行成功后，异步处理存证逻辑，不影响业务流程，完全解耦
+### 架构与接口设计
 
-### 使用设计模式增加拓展与可维护性
-
-#### 用适配器/包装器模式兼容不同 SDK
-
-  - `BlockchainSDKClientAdapter` 接口统一不同区块链 SDK 的调用方式
-  - 同时支持真实 `SDK` 和 `Mock SDK`，便于测试和开发
-  - 通过配置切换不同实现，无需修改业务代码
+![](../../appends/img/blockchain-1.png)
 
 
-#### 用策略模式统一数据提取
+- 数据提取器 DataExtractor
+    - 提供一个规范的数据提取接口，需要存证的业务自行实现改接口，完善数据构建逻辑
 
-- `DataExtractor` 接口支持不同业务类型的数据提取策略
+- 数据映射器 DataMapper
+    - 提供对于业务中普遍存在的数字ID字段的映射接口
 
-#### 用模板方法模式减少样板代码
+- 数据处理器 DataHandler
+    - 提供数据预处理接口，处理业务数据中的计算、格式转换、敏感信息脱敏等场景
+
+- 数据映射器 DataMapperManager
+    - 提供数据映射管理器的管理类，可以自动收集所有实现，统一调用处理。
+
+- 数据处理器 DataHandlerManager
+    - 提供数据处理管理器的管理类，可以自动收集所有实现，统一调用处理。
+
+- 客户端管理器 BlockchainClientManager
+    - 统一管理区块链客户端，提供统一的接口，管理使用的区块链客户端的全流程管理
+
+- 配置管理器 ConfigManager
+    - 统一管理不同区块链厂商的配置信息（认证信息、API地址、超时设置等）
+
+- 错误管理器 ErrorCodeMapper
+    - 提供规范接口，统一处理不同厂商的错误，返回规范统一的错误响应
+
+- 重试管理器 RetryManager
+    - 应对存值失败场景下的管理器
+
+- 数据验证管理器 ValidateManager
+    - 不同厂家对于存值数据长度、每个字段等可能有特殊的数据要求
+
+- 异步事件发布管理器 EventPublisher
+    - 负责事件通知，比如通知业务状态更新，发送邮件等
+
+- 监控指标收集器 MetricsManager
+    - 负责数据收集，例如存证成功率、响应时间
+
+---
+
+完整的调用链路
+
+```
+@BlockchainCertify --> AOP切面 
+    ↓
+CertifyEngine.certify() 
+    ↓  
+DataExtractor.extract() --> 提取业务数据
+    ↓
+DataMapper.map() --> 转换为统一格式
+    ↓  
+DataHandler.handle() --> 数据计算处理
+    ↓
+ValidateManager.validate() --> 数据校验处理
+	↓
+CertifyRecordRepository.save() --> 保存业务数据
+    ↓
+ClientManager.getClient() --> 获取具体客户端
+    ↓
+BlockchainClient.certify() --> 调用区块链API
+    ↓
+ErrorLogRepository.log() --> 记录日志信息
+    ↓
+EventPublisher.publish() --> 发布事件（异步）
+	↓
+MetricsManager.collect() --> 收集各项监控数据
+```
+
+### 持久化层
+
+
+### 区块链层
+
+
+### 管理器层
+
+#### 数据提取（策略模式、模板方法模式）
 
 - `AbstractDataExtractor` 提供通用的文件处理和哈希计算模板
-- 子类只需实现具体的业务数据提取逻辑
+- `DataExtractor` 接口支持不同业务类型的数据提取策略
+- 子类只需重点实现具体的业务数据提取逻辑即可，无特殊情况无需编写文件处理逻辑。
 
-#### 管理器模式
+#### 统一处理机制（策略模式）
 
-- `MappingHandlerManager` 管理多个数据映射处理器
-- 按优先级依次执行机构、部门、人员等字段映射
-- 支持动态扩展新的映射规则
+统一映射处理
 
-### 重试机制与监控告警
+
+统一数据计算处理
+
+
+#### 兼容不同 SDK（包装器模式）
+
+  - `BlockchainClient` 接口统一不同区块链 SDK 的调用方式
+  - 可以通过创建实现该接口的包装类，来包装区块链厂商的 SDK，以屏蔽不同厂商的调用方式
+  - 并且同时支持真实 `SDK` 和 `Mock SDK`，便于测试和开发
+  - 可以通过配置切换不同实现，无需修改业务代码
+
+`BlockchainClient`
+- 区块链技术类型
+- 发送交易
+- 查询交易
+- 验证交易
+- 获取客户端状态
+
+`BlockchainClientManager`
+- 获取默认的区块链客户端
+- 获取指定技术类型的区块链客户端
+- 注册区块链客户端
+- 移除区块链客户端
+
+
+
+#### 使用管理器模式管理组件
+
+提供多种管理器组件，组件各司其职，符合单一职责原则，方便拓展维护。
+
+#### 重试机制与监控告警
 
 告警触发条件：
 1. 检测到重组状态 (REORGED)
@@ -261,10 +356,35 @@ PACKED/CONFIRMED -> REORGED -> 重新开始流程 -> 复制改记录状态改为
 4. 长时间停留在 PENDING 状态
 
 告警内容大致包括：
-- 业务类型和业务ID
+- 业务类型和业务 ID
 - 原交易哈希
 - 重组发生时间
 - 建议处理方式
+
+### 引擎层
+
+#### 存证引擎
+- 区块链存证操作接口
+    - 提供三大操作方法
+        - 区块链存证
+        - 查询存证状态
+        - 验证存证哈希
+
+#### 存证上下文
+
+将整个业务流程的状态信息集中管理，避免了在方法间传递大量参数，同时提供了完整的操作审计追踪能力
+
+
+### 应用层
+#### 使用 AOP 无感引入 
+
+  核心思路：
+  - 自定义注解 `@BlockchainCertify`，标记需要存证的方法
+  - 通过 `AOP` 拦截带注解的方法调用、提取数据、异步调用区块链 SDK
+  - 在方法执行成功后，异步处理存证逻辑，不影响业务流程，完全解耦
+
+
+#### 暴露 API
 
 
 ## Part 3: 封装为复用 Starter (Reusable Component)
