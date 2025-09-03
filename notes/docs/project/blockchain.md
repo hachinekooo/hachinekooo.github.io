@@ -1,7 +1,7 @@
 ---
-title: 论如何优雅的给系统接入区块链存证功能
+title: 论如何优雅地给系统接入区块链存证功能
 icon: file
-order: 
+order:
 date: 2025-08-24
 category:
   - Java
@@ -299,29 +299,127 @@ EventPublisher.publish() --> 发布事件（异步）
 MetricsManager.collect() --> 收集各项监控数据
 ```
 
-### 持久化层
+### 详情展开
+
+#### 配置设计
+
+本项目的配置设计原则是 "配置驱动"，它有很多优点，能解决硬编码的问题，修改无需重新编译代码，调整灵活。
+
+```yml
+blockchain:
+  enabled: true
+  default-vendor: "antchain"
+  
+  vendors:
+  	antchain:
+  		name: "蚂蚁链"
+  		config:
+  			account: "wangwenpeng"
+  			userpassword: "woshimima"
+  			host: "200.200.200.200"
+  			port: "18130"
+  			ca-path: "cert/blockchain/hyperchain/ca"
+  			default-max-struct-data-size: 1048576 # 1MB
+			default-max-unstruct-data-size: 10485760   # 10MB
+			default-max-file-count: 10 # 10个附件限制
+  testing:
+	mock-enabled: true
+	mock-config:
+	  success-rate: 0.9           # 90% 成功率
+	  avg-response-time: 2000     # 平均响应时间2秒
+	  simulate-reorg: false       # 是否模拟重组
+	  simulate-random-network-delay: true # 是否模拟随机网络延迟
+	  
+  business:
+  	# 数据提取器对照关系
+  	data-extractor:
+  		stockIn: "stockInDataExtractor"
+  	  	stockOut: "stockOutDataExtractor"
+  	# 不同业务类型的确认数配置
+	confirmation-rules:
+	  default: 6 # 默认确认数
+	  biz-specific:
+	    stockIn: 3      # 入库操作，风险较低
+  	    stockOut: 6     # 出库操作，需要更多确认
+    # 重试配置 
+    retry:
+      default-max-attempts: 3 # 默认最大重试次数
+      default-max-delay: 300000 # 最大等待延迟
+      biz-specific:
+	    stockIn:
+	    	max-attempts: 6
+	    	max-delay: 100000
+	    	
+	# 映射处理器配置
+    mapper-handlers:
+      global:
+    	- "bizFieldMapper"  # 业务机构业务部门业务员映射处理器
+	  biz-specific:
+  		stockIn:
+	       - "materialFiveFieldMapper"    # 物料五大参数映射处理器   
+	       
+    # 数据处理器配置
+    data-handlers:
+      global:
+        - "sensitiveDataMaskHandler"  # 全局脱敏处理器
+        - "timestampFormatHandler"    # 时间格式化处理器
+	  biz-specific:
+	    stockIn:
+          - "priceHandler"    # 价格处理器
+```
 
 
-### 区块链层
+#### 持久化层
 
 
-### 管理器层
+#### 区块链层
 
-#### 数据提取（策略模式、模板方法模式）
+
+#### 管理器层
+
+##### 数据提取（策略模式、模板方法模式）
 
 - `AbstractDataExtractor` 提供通用的文件处理和哈希计算模板
+
+
 - `DataExtractor` 接口支持不同业务类型的数据提取策略
+	- 支持都业务类型
+	- 提取数据
+
+
 - 子类只需重点实现具体的业务数据提取逻辑即可，无特殊情况无需编写文件处理逻辑。
 
-#### 统一处理机制（策略模式）
-
-统一映射处理
 
 
-统一数据计算处理
+##### 统一处理机制（策略模式）
+
+###### 统一映射处理接口
+- boolean needMap
+- void map
+- int getPriority
+
+场景示例：
+- ID 到名称值的转换
+
+###### 统一数据处理接口
+- boolean needHandle
+- void handle
+- int getPriority
+
+场景示例：
+- 数据脱敏
+- 金额动态计算
 
 
-#### 兼容不同 SDK（包装器模式）
+##### 增加字段策略解决表字段设计不规范问题
+
+在设计的开发时，不是每家公司都能做到有人把关，有人设计统一规范。你可能会隔三差五的遇到，明明是同一个东西，但是在数据中的不同表中叫法不尽相同的情况。此接口
+
+FieldStrategy
+- 
+
+
+#####  兼容不同 SDK（包装器模式）
 
   - `BlockchainClient` 接口统一不同区块链 SDK 的调用方式
   - 可以通过创建实现该接口的包装类，来包装区块链厂商的 SDK，以屏蔽不同厂商的调用方式
@@ -329,6 +427,7 @@ MetricsManager.collect() --> 收集各项监控数据
   - 可以通过配置切换不同实现，无需修改业务代码
 
 `BlockchainClient`
+- 初始化配置
 - 区块链技术类型
 - 发送交易
 - 查询交易
@@ -336,18 +435,18 @@ MetricsManager.collect() --> 收集各项监控数据
 - 获取客户端状态
 
 `BlockchainClientManager`
-- 获取默认的区块链客户端
-- 获取指定技术类型的区块链客户端
-- 注册区块链客户端
-- 移除区块链客户端
+- 获取默认的区块链客户端 `getClient()`
+- 获取指定技术类型的区块链客户端 `getClient(区块链类型)`
+- 注册区块链客户端 `registerClient(区块链类型, 客户端)`
+- 移除区块链客户端 `removeClient(区块链)`
 
 
 
-#### 使用管理器模式管理组件
+##### 使用管理器模式管理组件
 
 提供多种管理器组件，组件各司其职，符合单一职责原则，方便拓展维护。
 
-#### 重试机制与监控告警
+##### 重试机制与监控告警
 
 告警触发条件：
 1. 检测到重组状态 (REORGED)
@@ -361,30 +460,73 @@ MetricsManager.collect() --> 收集各项监控数据
 - 重组发生时间
 - 建议处理方式
 
-### 引擎层
+#### 引擎层
 
-#### 存证引擎
+##### 存证引擎
 - 区块链存证操作接口
     - 提供三大操作方法
         - 区块链存证
         - 查询存证状态
         - 验证存证哈希
 
-#### 存证上下文
+##### 存证上下文
 
-将整个业务流程的状态信息集中管理，避免了在方法间传递大量参数，同时提供了完整的操作审计追踪能力
+将整个业务流程的状态信息集中管理，避免了在方法间传递大量参数，同时提供了完整的操作审计追踪能力。
+
+- 业务类型
+- 业务 ID
+- 原始请求数据
+- 提取的数据
+- 映射后的数据
+- 处理后的数据
+- 认证状态
+- 交易哈希
+- 错误信息
+- 开始时间
+- 结束时间
 
 
-### 应用层
-#### 使用 AOP 无感引入 
+#### 应用层
+##### 使用 AOP 无感引入 
 
   核心思路：
   - 自定义注解 `@BlockchainCertify`，标记需要存证的方法
   - 通过 `AOP` 拦截带注解的方法调用、提取数据、异步调用区块链 SDK
   - 在方法执行成功后，异步处理存证逻辑，不影响业务流程，完全解耦
 
+注解设计：
 
-#### 暴露 API
+```java
+public @interface BlockchainCertify {
+
+    /*
+    * 业务类型
+    * */
+    String bizType();
+
+    /*
+    * 描述信息
+    **/
+   String description() default "";
+
+   /*
+   * 是否开启异步存证
+   * */
+   boolean async() default true;
+
+   /*
+   * 是否支持重试
+   * */
+   boolean retryable() default true;
+   
+}
+```
+
+
+##### 暴露 API
+
+
+
 
 
 ## Part 3: 封装为复用 Starter (Reusable Component)
