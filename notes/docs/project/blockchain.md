@@ -83,6 +83,20 @@ tags:
 确认数 1-5: CONFIRMED (基本安全)  
 确认数 6+: FINALIZED (非常安全，几乎不可逆)
 ```
+##### 服务提供商 (Provider)
+
+  - Infura (以太坊节点服务)
+  - Alchemy (以太坊节点服务)
+  - 蚂蚁链 (阿里云区块链服务)
+  - 腾讯链 (腾讯云区块链服务)
+
+##### 技术类型 (Chain Type)
+
+  - ETHEREUM - 以太坊技术栈
+  - BSC - 币安智能链技术栈
+  - POLYGON - Polygon 技术栈
+  - ANTCHAIN - 蚂蚁链技术栈
+  - TENCENTCHAIN - 腾讯链技术栈
 
 #### 存证的技术原理
 
@@ -307,9 +321,12 @@ MetricsManager.collect() --> 收集各项监控数据
 
 ```yml
 blockchain:
+  # 区块链总开关
   enabled: true
+  # 默认的SDK厂商
   default-vendor: "antchain"
   
+  # 厂商配置
   vendors:
   	antchain:
   		name: "蚂蚁链"
@@ -322,6 +339,7 @@ blockchain:
   			default-max-struct-data-size: 1048576 # 1MB
 			default-max-unstruct-data-size: 10485760   # 10MB
 			default-max-file-count: 10 # 10个附件限制
+  # 测试配置
   testing:
 	mock-enabled: true
 	mock-config:
@@ -329,7 +347,8 @@ blockchain:
 	  avg-response-time: 2000     # 平均响应时间2秒
 	  simulate-reorg: false       # 是否模拟重组
 	  simulate-random-network-delay: true # 是否模拟随机网络延迟
-	  
+  
+  # 业务配置
   business:
   	# 数据提取器对照关系
   	data-extractor:
@@ -343,8 +362,9 @@ blockchain:
   	    stockOut: 6     # 出库操作，需要更多确认
     # 重试配置 
     retry:
-      default-max-attempts: 3 # 默认最大重试次数
-      default-max-delay: 300000 # 最大等待延迟
+      default:
+        max-attempts: 3 # 默认最大重试次数
+        max-delay: 300000 # 最大等待延迟
       biz-specific:
 	    stockIn:
 	    	max-attempts: 6
@@ -352,7 +372,7 @@ blockchain:
 	    	
 	# 映射处理器配置
     mapper-handlers:
-      global:
+      default:
     	- "bizFieldMapper"  # 业务机构业务部门业务员映射处理器
 	  biz-specific:
   		stockIn:
@@ -360,19 +380,53 @@ blockchain:
 	       
     # 数据处理器配置
     data-handlers:
-      global:
+      default:
         - "sensitiveDataMaskHandler"  # 全局脱敏处理器
         - "timestampFormatHandler"    # 时间格式化处理器
 	  biz-specific:
 	    stockIn:
           - "priceHandler"    # 价格处理器
+          
+	# 字段策略处理器配置
+	field-strategy:
+	  default:
+	    biz-organization: "bizOrg"
+		biz-department: "bizDept"
+		biz-representative: "bizRep"
+	  biz-specific:
+		stockOut:
+		  biz-organization: "bizOrganization"
+		  biz-department: "bizDepartment"
+		  biz-representative: "bizRepresentative"
+		
 ```
 
+后期优化方向：
+```
+采用"分层+继承"的模式：
+  - 顶层定义全局默认值
+  - 底层定义具体业务类型的覆盖值
+```
 
 #### 持久化层
 
 
 #### 区块链层
+
+#####  兼容不同 SDK（包装器模式）
+
+- `BlockchainClient` 接口统一不同区块链 SDK 的调用方式
+- 可以通过创建实现该接口的包装类，来包装区块链厂商的 SDK，以屏蔽不同厂商的调用方式
+- 并且同时支持真实 `SDK` 和 `Mock SDK`，便于测试和开发
+- 可以通过配置切换不同实现，无需修改业务代码
+
+`BlockchainClient`
+- 初始化配置
+- 获取客户端状态
+- 区块链技术类型
+- 发送存证
+- 查询存证
+- 验证存证
 
 
 #### 管理器层
@@ -415,36 +469,17 @@ blockchain:
 
 在设计的开发时，不是每家公司都能做到有人把关，有人设计统一规范。你可能会隔三差五的遇到，明明是同一个东西，但是在数据中的不同表中叫法不尽相同的情况。此接口
 
-FieldStrategy
-- 
 
+##### 使用管理器模式管理组件
 
-#####  兼容不同 SDK（包装器模式）
+提供多种管理器组件，组件各司其职，符合单一职责原则，方便拓展维护。
 
-  - `BlockchainClient` 接口统一不同区块链 SDK 的调用方式
-  - 可以通过创建实现该接口的包装类，来包装区块链厂商的 SDK，以屏蔽不同厂商的调用方式
-  - 并且同时支持真实 `SDK` 和 `Mock SDK`，便于测试和开发
-  - 可以通过配置切换不同实现，无需修改业务代码
-
-`BlockchainClient`
-- 初始化配置
-- 区块链技术类型
-- 发送交易
-- 查询交易
-- 验证交易
-- 获取客户端状态
 
 `BlockchainClientManager`
 - 获取默认的区块链客户端 `getClient()`
 - 获取指定技术类型的区块链客户端 `getClient(区块链类型)`
 - 注册区块链客户端 `registerClient(区块链类型, 客户端)`
 - 移除区块链客户端 `removeClient(区块链)`
-
-
-
-##### 使用管理器模式管理组件
-
-提供多种管理器组件，组件各司其职，符合单一职责原则，方便拓展维护。
 
 ##### 重试机制与监控告警
 
