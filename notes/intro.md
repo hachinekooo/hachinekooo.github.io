@@ -14,6 +14,8 @@ cover:
 <!-- 同时显示文字和代码统计 -->
 <HeatMap :posts="slogans" title="博客整体产量" mode="both" />
 
+[![Contribution Graph](https://github-readme-activity-graph.vercel.app/graph?username=hachinekooo&theme=github&area=true&hide_border=true)
+
 
 
 
