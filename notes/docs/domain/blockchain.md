@@ -508,6 +508,57 @@ blockchain:
 	- 查询存证状态
 	- 验证存证哈希
 
+###### 使用 CompleteFuture 实现异步调用
+> Java 的 CompletableFuture 是一个支持异步编程的类，可用于处理异步计算结果，支持链式操作和组合多个异步任务。CompletableFuture 在 Future 基础上增加了主动完成、链式操作、异常处理和任务组合能力，更灵活地编排异步流程。
+
+
+- 关于在使用 lambda 表达式时，`final`（最终） 和 `effectively final`（有效最终）
+
+```java
+// ❌ INCORRECT EXAMPLE - 编译错误示例
+
+CertifyRecord certifyRecord = null; // 非 final 变量
+
+// 重新赋值，破坏了 effectively final 特性
+certifyRecord = certifyService.saveCertifyData(data, CertifyRecordStatusEnum.INIT);
+
+certifyEngine.certify(data)
+    .thenApply(result -> {
+        // ❌ 编译错误: Variable used in lambda expression should be final or effectively final
+        certifyService.updateRecordStatus(certifyRecord, CertifyRecordStatusEnum.PROCESSING);
+        return result;
+    })
+    .thenAccept(txHash -> {
+        // ❌ 编译错误: 同样的问题
+        certifyService.updateRecordStatus(certifyRecord, CertifyRecordStatusEnum.SUBMITTED);
+    });
+```
+
+下面演示两种正确的例子，供大家参考：
+```java
+// ✅ CORRECT EXAMPLE 1 - AtomicReference 方案
+AtomicReference<CertifyRecord> certifyRecordRef = new AtomicReference<>();
+certifyRecordRef.set(certifyService.saveCertifyData(data, CertifyRecordStatusEnum.INIT));
+
+certifyEngine.certify(data)
+    .thenApply(result -> {
+        certifyService.updateRecordStatus(certifyRecordRef.get(), CertifyRecordStatusEnum.PROCESSING);
+        return result;
+    });
+
+// ✅ CORRECT EXAMPLE 2 - 使用ID方案（更简洁）
+CertifyRecord certifyRecord = certifyService.saveCertifyData(data, CertifyRecordStatusEnum.INIT);
+
+certifyEngine.certify(data)
+    .thenApply(result -> {
+        // 使用 ID 而不是对象引用，certifyRecord 是 effectively final的
+        certifyService.updateRecordStatus(certifyRecord.getId(), CertifyRecordStatusEnum.PROCESSING);
+        return result;
+    });
+```
+
+
+
 ##### 存证上下文
 
 将整个业务流程的状态信息集中管理，避免了在方法间传递大量参数，同时提供了完整的操作审计追踪能力。
@@ -523,6 +574,7 @@ blockchain:
 - 错误信息
 - 开始时间
 - 结束时间
+
 
 
 #### 应用层
@@ -562,18 +614,26 @@ public @interface BlockchainCertify {
 ```
 
 
+
 ##### 暴露 API
 
 
+## Part 3: 性能优化 
+
+### 异步编程
+
+
+### 缓存机制
 
 
 
-## Part 3: 封装为复用 Starter (Reusable Component)
+
+## Part 4: 封装为复用 Starter (Reusable Component)
 
 ### 工程结构划分
 
 
-## Part 4: 总结（Summary）
+## Part 5: 总结（Summary）
 
 
 
